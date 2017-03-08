@@ -102,28 +102,23 @@ span.label-content {
 	bottom: 270px;
 }
 
-/*--- breadcrub ---*/
+/*--- breadcrumb ---*/
 .breadcrumb {
 	margin: 0 0 0px;
 	padding: 10px 0px;
 	background-color: transparent;
 }
 
-/*--- overlay ---*/
-.overlay {
-	position: absolute;
-	/*opacity: 1;*/
-	top: 150px;
-	left: 50%;
-	padding: 20px;
-	background-color: #fff;
-	border: 1px solid #e6e7e8;
-	display: none;
-	z-index: 11;
+/*--- modal ---*/
+.modal-dialog fieldset {
+	margin-bottom: 5px;
 }
 
-.overlay.active {
-	display: block;
+/*--- control ---*/
+.control-label .required {
+    color: #e02222;
+    font-size: 12px;
+    padding-left: 2px;
 }
 
 /*=== Component End ===*/
@@ -189,6 +184,7 @@ span.label-content {
 	margin-left: 60px;
 	
 }
+
 
 
 /*=== dataInput End ===*/
