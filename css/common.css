@@ -100,6 +100,23 @@ h1 {
 	background-color: transparent;
 }
 
+/*--- overlay ---*/
+.overlay {
+	position: absolute;
+	/*opacity: 1;*/
+	top: 150px;
+	left: 50%;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #e6e7e8;
+	display: none;
+	z-index: 11;
+}
+
+.overlay.active {
+	display: block;
+}
+
 /*=== Component End ===*/
 
 
