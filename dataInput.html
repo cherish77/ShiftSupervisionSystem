@@ -17,7 +17,7 @@
 	<body>
 		<header>
 		</header>
-		<main id="index">
+		<main id="dataInput">
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container-fluid">
@@ -86,7 +86,7 @@
 								</div>
 								<div class="block-content collapse in">
 									<div class="span12">
-										<form action="" method="post" id="jczl-form" class="common_form form-horizontal" autocomplete="off" novalidate="novalidate">
+										<form action="" method="post" id="basicData-form" class="common_form form-horizontal" autocomplete="off" novalidate="novalidate">
 											<fieldset>
 												<div class="alert alert-error hide">
 													<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>输入的信息不正确
@@ -241,7 +241,7 @@
 											</fieldset>
 											<div class="form-actions">
 												<button type="submit" class="btn" id="save-form" onclick="return saveClick()">保存</button>
-												<button class="btn btn-primary" data-toggle="modal" data-target="#checkInput">保存并提交</button>
+												<button class="btn btn-primary" id= "check-form" data-toggle="modal" data-target="#checkInput">保存并提交</button>
 											</div>
 											<input type="hidden" id="arr-containers" name="arr-containers">
 										</form>
@@ -254,42 +254,29 @@
 			</div>	
 		</main>
 		<footer>
-			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-			  Launch demo modal
-			</button>
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			  <div class="modal-dialog">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				  </div>
-				  <div class="modal-body">
-					<p>123456789qrp;fioajfoaijfdkfj;ajfierujoqennfldjalkdjoqiefabkfdalkn;lakjfoiqerujiera;ljlnvkjahfpafadfdafqereqrqfdavagaerra</p>
-				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				  </div>
-				</div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
 		</footer>
-		<div class="modal fade" id="checkInput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="checkInput" tabindex="-1" role="dialog" aria-labelledby="checkInputModal" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				<h4 class="modal-title" id="checkInputModal">请确认信息是否正确</h4>
 			  </div>
 			  <div class="modal-body">
-				lalala
+					<div class="control-group">
+						<form id="checkInput-form" class="common_form form-horizontal">
+							<fieldset>
+								<label class="control-label" for="status">状态</label>
+								<div class="controls">
+									<span class="label-content" id="status">未申请</span>
+								</div>
+							</fieldset>
+						</form>
+					</div>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">返回修改</button>
+				<button type="button" class="btn btn-primary">确认提交</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

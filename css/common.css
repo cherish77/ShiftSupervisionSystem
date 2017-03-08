@@ -24,15 +24,24 @@ body {
 	padding-top: 60px;
 }
 
+h1 {
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+
 .container {
 	width: 1180px;
 	padding: 20px;
 	max-width: 100%;
 }
 
-h1 {
-	font-size: 32px;
-	margin-bottom: 20px;
+.modal-title {
+	text-align: center;
+}
+
+span.label-content {
+	display: inline-block;
+	margin-top: 5px;
 }
 
 /*=== Basic End ===*/
@@ -173,3 +182,13 @@ h1 {
 
 	
 /*=== Index End ===*/
+
+
+/*=== dataInput Start ===*/
+#dataInput button#check-form {
+	margin-left: 60px;
+	
+}
+
+
+/*=== dataInput End ===*/
