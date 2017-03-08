@@ -111,7 +111,7 @@ span.label-content {
 
 /*--- modal ---*/
 .modal-dialog fieldset {
-	margin-bottom: 5px;
+	margin-bottom: 8px;
 }
 
 /*--- control ---*/
@@ -184,7 +184,4 @@ span.label-content {
 	margin-left: 60px;
 	
 }
-
-
-
 /*=== dataInput End ===*/
