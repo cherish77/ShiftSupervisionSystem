@@ -43,7 +43,6 @@ span.label-content {
 	display: inline-block;
 	margin-top: 5px;
 }
-
 /*=== Basic End ===*/
 
 
@@ -120,6 +119,12 @@ span.label-content {
     font-size: 12px;
     padding-left: 2px;
 }
+
+/*--- table ---*/
+table span {
+	color: grey;
+}
+
 
 /*=== Component End ===*/
 

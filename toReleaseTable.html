@@ -21,7 +21,7 @@
 	<body>
 		<header>
 		</header>
-		<main id="flowTable">
+		<main id="toRelease">
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container-fluid">
@@ -63,13 +63,10 @@
 							<li class="inactive">
 								<a href="index.html" target="_self"><span class="icon-chevron-right"></span>首页 </a>
 							</li>
-							<li class="active">
+							<li class="inactive">
 								<a href="flowTable.html" target="_self"><span class="icon-chevron-right"></span>流转列表</a>
 							</li>
-							<li class="inactive">
-								<a href="applicationTable.html" target="_self"><span class="icon-chevron-right"></span>申请列表</a>
-							</li>
-							<li class="inactive">
+							<li class="active">
 								<a href="toReleaseTable.html" target="_self"><span class="icon-chevron-right"></span>待放行列表</a>
 							</li>
 							<li class="inactive">
@@ -88,7 +85,7 @@
 							<div class="block">
 								<div class="navbar navbar-inner block-header">
 									<div class="muted pull-left">
-										流转信息
+										待放行列表
 									</div>
 								</div>
 								<div class="block-content collapse in">
@@ -115,17 +112,17 @@
 												<thead>
 													<tr role="row">
 														<th class="sorting_asc" tabindex="0" rowspan="1" colspan="1">贷代公司</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">报关公司</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">转关单号</th>
+														<th class="sorting" tabindex="0"  rowspan="1" colspan="1">报关公司</th>
+														<th class="sorting" tabindex="0"  rowspan="1" colspan="1">转关单号</th>
 														<th class="sorting" tabindex="0" rowspan="1" colspan="1">报关单号</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">提运单号</th>
+														<th class="sorting" tabindex="0"rowspan="1" colspan="1">提运单号</th>
 														<th class="sorting" tabindex="0" rowspan="1" colspan="1">集装箱号</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">集装箱数</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">申请状态</th>
+														<th>集装箱数</th>
+														<th>查看详细</th>
 														<th>操作</th>
 													</tr>
 												</thead>
-<tbody>
+												<tbody>
 													<tr role="row" class="odd">
 														<td>远洋物流</td>
 														<td>杭州中外运报关有限公司</td>
@@ -133,9 +130,9 @@
 														<td>AA9500064236</td>
 														<td>ZN7845102562576362</td>
 														<td>KNYY7844635</td>
-														<td>0/25 <span>(已放行/总数)</span></td>
-														<td><span class="label label-warning">未申请</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td>0/9 <span>(已放行/总数)</span></td>
+														<td><button class="btn btn-info">详细</button></td>
+														<td><button class="btn btn-default">流转</button><br /><button class="btn btn-danger">退回</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>远洋物流</td>
@@ -144,9 +141,9 @@
 														<td>AA8300064658</td>
 														<td>ZN7845102562576361</td>
 														<td>KNYY7844458</td>
-														<td>0/9 <span>(已放行/总数)</span></td>
-														<td><span class="label label-success">申请中</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td>3/15 <span>(已放行/总数)</span></td>
+														<td><button class="btn btn-info">详细</button></td>
+														<td><button class="btn btn-default">流转</button><br /><button class="btn btn-danger">退回</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>枫叶货代有限公司</td>
@@ -155,9 +152,9 @@
 														<td>AA9500010275</td>
 														<td>ZN7845102584989862</td>
 														<td>KNYY7802463</td>
-														<td>0/7 <span>(已放行/总数)</span></td>
-														<td><span class="label label-success">申请中</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td>2/7 <span>(已放行/总数)</span></td>
+														<td><button class="btn btn-info">详细</button></td>
+														<td><button class="btn btn-default">流转</button><br /><button class="btn btn-danger">退回</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>枫叶货代有限公司</td>
@@ -167,8 +164,8 @@
 														<td>ZN7845102562576362</td>
 														<td>KNYY9985665</td>
 														<td>0/13 <span>(已放行/总数)</span></td>
-														<td><span class="label label-failed">未通过</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td><button class="btn btn-info">详细</button></td>
+														<td><button class="btn btn-default">流转</button><br /><button class="btn btn-danger">退回</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>泊金货代</td>
@@ -177,9 +174,9 @@
 														<td>AA8700061146</td>
 														<td>ZN7749600252778462</td>
 														<td>KNYY7756302</td>
-														<td>0/31 <span>(已放行/总数)</span></td>
-														<td><span class="label label-failed">未通过</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td>13/31 <span>(已放行/总数)</span></td>
+														<td><button class="btn btn-info">详细</button></td>
+														<td><button class="btn btn-default">流转</button><br /><button class="btn btn-danger">退回</button></td>
 													</tr>
 												</tbody>
 											</table>
