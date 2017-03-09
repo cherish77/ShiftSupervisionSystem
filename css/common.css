@@ -35,6 +35,10 @@ h1 {
 	max-width: 100%;
 }
 
+.modal {
+	display: none;
+}
+
 .modal-title {
 	text-align: center;
 }

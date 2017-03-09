@@ -89,7 +89,7 @@
 							<div class="block">
 								<div class="navbar navbar-inner block-header">
 									<div class="muted pull-left">
-										综合查询
+										综合查询（开发中）
 									</div>
 								</div>
 								<div class="docs-tab-panel">
@@ -97,30 +97,16 @@
 										<div class="tab-pane active" id="container">
 											<div class="block-content collapse in">
 												<form class="form-horizontal">
+													<legend>添加搜索条件</legend>
 													<div class="control-group">
 														<div class="controls">
-															<select id="timetype" name="timeType">
-																<option selected="selected">进场时间:</option>
-																<option>出场时间:</option>
+															<select class="serchItem" name="serchItem">
+																<option value="status">状态</option>
+																<option value="owner">箱主</option>
 															</select>
 														</div>
 													</div>
-													<div class="control-group">
-														<label class="control-label">上下箱状态:</label>
-														<div class="controls">
-															<ul id="sxstatus-filter" class="nav nav-pills">
-																<li value="0" class="active isall">
-																	<a href="#">全部</a>
-																</li>
-																<li value="1"><a href="#">未申请</a></li>
-																<li value="2"><a href="#">申请下箱</a></li>
-																<li value="3"><a href="#">确认下箱</a></li>
-																<li value="4"><a href="#">申请上箱</a></li>
-																<li value="5"><a href="#">确认上箱</a></li>
-															</ul>
-														</div>
-													</div>
-													<div class="control-group">
+													<!--div class="control-group">
 														<label class="control-label" for="inputHD">内容:</label>
 														<div class="controls">
 															<input id="inputHD" type="text">
@@ -140,7 +126,7 @@
 															<button type="button" class="btn btn-info" data-loading-text="正在搜索..." onclick="searchByDR(this);">搜索</button>
 															<button type="button" class="btn btn-info" data-loading-text="正在下载..." onclick="searchByDR(this,true);">导出到Excel</button>
 														</div>
-													</div>
+													</div-->
 												</form>
 											</div>
 											<div class="block-content collapse in">
