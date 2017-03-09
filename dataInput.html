@@ -63,6 +63,9 @@
 								<a href="flowTable.html" target="_self"><span class="icon-chevron-right"></span>流转列表</a>
 							</li>
 							<li class="inactive">
+								<a href="applicationTable.html" target="_self"><span class="icon-chevron-right"></span>申请列表</a>
+							</li>
+							<li class="inactive">
 								<a href="toReleaseTable.html" target="_self"><span class="icon-chevron-right"></span>待放行列表</a>
 							</li>
 							<li class="inactive">
@@ -148,7 +151,7 @@
 												<div class="control-group">
 													<label class="control-label" for="containerAmount">集装箱数 <span class="required">*</span></label>
 													<div class="controls">
-														<input id="containerAmount" name="containerAmount" type="text" class="span2">
+														<input id="containerAmount" class="required" name="containerAmount" type="text" class="span2" data-bv-notempty-message="请输入集装箱数">
 													</div>
 												</div>
 												<div class="control-group">
@@ -171,7 +174,7 @@
 												<div class="control-group">
 													<label class="control-label" for="itemAmount">件数 <span class="required">*</span></label>
 													<div class="controls">
-														<input name="itemAmount" id="itemAmount" type="number" class="span2 m-wrap ui-autocomplete-input" value="" autocomplete="off">
+														<input name="itemAmount" id="itemAmount" type="number" class="span2 m-wrap ui-autocomplete-input" value="" autocomplete="off" min="1">
 													</div>
 												</div>
 												<div class="control-group">
