@@ -194,3 +194,29 @@ table span {
 	
 }
 /*=== dataInput End ===*/
+
+
+/*=== search Start ===*/
+#search select {
+	margin-right: 15px;
+}
+
+#search .action-add, 
+#search .action-remove {
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+#search .action-add {
+	margin-left: 32px;
+}
+
+#search #searchItem-default .action-remove {
+	pointer-events: none;
+}
+
+#search .icon-minus.icon-white {
+	background-position: -433px -99px;
+}
+
+/*=== search End ===*/
