@@ -154,7 +154,7 @@ table span {
 
 
 /*=== Login Start ===*/
-#login #form-login {
+#loginPage #form-login {
 	width: 320px;
 	padding: 20px 30px 25px;
 	margin: 80px auto;
@@ -165,11 +165,11 @@ table span {
 
 }
 
-#login #form-login h1 {
+#loginPage #form-login h1 {
 	text-align: center;
 }
 
-#login #form-login input {
+#loginPage #form-login input {
 	font-size: 16px;
     height: auto;
     margin-bottom: 15px;
@@ -208,32 +208,32 @@ table span {
 
 
 /*=== dataInput Start ===*/
-#dataInput button#check-form {
+#dataInputPage button#check-form {
 	margin-left: 60px;
 }
 /*=== dataInput End ===*/
 
 
 /*=== search Start ===*/
-#search select {
+#searchPage select {
 	margin-right: 15px;
 }
 
-#search .action-add, 
-#search .action-remove {
+#searchPage .action-add, 
+#searchPage .action-remove {
 	margin-right: 15px;
 	cursor: pointer;
 }
 
-#search .action-add {
+#searchPage .action-add {
 	margin-left: 32px;
 }
 
-#search #searchItem-default .action-remove {
+#searchPage #searchItem-default .action-remove {
 	pointer-events: none;
 }
 
-#search .icon-minus.icon-white {
+#searchPage .icon-minus.icon-white {
 	background-position: -433px -99px;
 }
 
