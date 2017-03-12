@@ -127,7 +127,7 @@ span.label-content {
 }
 
 .modal ul li {
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 .modal ul li label {
@@ -135,6 +135,7 @@ span.label-content {
 	width: 120px;
 	text-align:right;
 	margin-right: 15px;
+	cursor: default;
 }
 /*--- control ---*/
 .control-label .required {
