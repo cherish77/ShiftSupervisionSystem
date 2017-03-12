@@ -113,10 +113,29 @@ span.label-content {
 }
 
 /*--- modal ---*/
-.modal-dialog fieldset {
-	margin-bottom: 8px;
+.modal {
+	
+	padding: 10px 20px;
 }
 
+.modal.fade.in {
+	top: 6%;
+}
+
+.modal .modal-body {
+	max-height: 710px;
+}
+
+.modal ul li {
+	margin-bottom: 20px;
+}
+
+.modal ul li label {
+	display: inline-block;
+	width: 120px;
+	text-align:right;
+	margin-right: 15px;
+}
 /*--- control ---*/
 .control-label .required {
     color: #e02222;
@@ -184,14 +203,12 @@ table span {
 	padding-top: 10px;
 }
 
-	
 /*=== Index End ===*/
 
 
 /*=== dataInput Start ===*/
 #dataInput button#check-form {
 	margin-left: 60px;
-	
 }
 /*=== dataInput End ===*/
 

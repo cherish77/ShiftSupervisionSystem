@@ -135,7 +135,7 @@
 														<td>KNYY7844635</td>
 														<td>0/25 <span>(已放行/总数)</span></td>
 														<td><span class="label label-warning">未申请</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button><br /><button class="btn btn-default">修改</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>远洋物流</td>
@@ -146,7 +146,7 @@
 														<td>KNYY7844458</td>
 														<td>0/9 <span>(已放行/总数)</span></td>
 														<td><span class="label label-success">申请中</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button><br /><button class="btn btn-default">修改</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>枫叶货代有限公司</td>
@@ -157,7 +157,7 @@
 														<td>KNYY7802463</td>
 														<td>0/7 <span>(已放行/总数)</span></td>
 														<td><span class="label label-success">申请中</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button><br /><button class="btn btn-default">修改</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>枫叶货代有限公司</td>
@@ -168,7 +168,7 @@
 														<td>KNYY9985665</td>
 														<td>0/13 <span>(已放行/总数)</span></td>
 														<td><span class="label label-failed">未通过</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button><br /><button class="btn btn-default">修改</button></td>
 													</tr>
 													<tr role="row" class="odd">
 														<td>泊金货代</td>
@@ -179,7 +179,7 @@
 														<td>KNYY7756302</td>
 														<td>0/31 <span>(已放行/总数)</span></td>
 														<td><span class="label label-failed">未通过</span></td>
-														<td><button class="btn btn-info">详细</button><br /><button class="btn btn-default">修改</button></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button><br /><button class="btn btn-default">修改</button></td>
 													</tr>
 												</tbody>
 											</table>
@@ -226,5 +226,78 @@
 		</main>
 		<footer>
 		</footer>
+		<div class="modal fade modal-dataDetail" tabindex="-1" role="dialog" aria-labelledby="dataDetailModal" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title dataDetailModal">详细信息</h4>
+			  </div>
+			  <div class="modal-body">
+					<div class="control-group">
+						<ul>
+							<li>
+								<label>转关单号： &shy;</label><span data-title="switchNo">510251365425524</span>
+							</li>
+							<li>
+								<label>报关单号： &shy;</label><span data-title="declarationNo">AA9500064236</span>
+							</li>
+							<li>
+								<label>货代公司： </label><span data-title="forwardingCo">远洋物流</span>
+							</li>
+							<li>
+								<label>报关公司： </label><span data-title="declarationCo">杭州中外运报关有限公司</span>
+							</li>
+							
+							<li>
+								<label>到港口岸： </label><span data-title="toPortShore">宁波港</span>
+							</li>
+							<li>
+								<label>集装箱数： </label><span data-title="declarationNo">25</span>
+							</li>
+							<li>
+								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
+							</li>
+							
+							<li>
+								<label>集装箱号： </label><span data-title="containerNo">KNYY7844635</span>
+							</li>
+							<li>
+								<label>件数： </label><span data-title="itemAmount">100</span>
+							</li>
+							<li>
+								<label>毛重(KG)： </label><span data-title="weight">2305</span>
+							</li>
+							
+							<li>
+								<label>包装种类： </label><span data-title="pakingType">默认包</span>
+							</li>
+							<li>
+								<label>原产地： </label><span data-title="originPlace">新疆</span>
+							</li>
+							<li>
+								<label>提运单号： </label><span data-title="pickingUpNo">ZN7845102562576362</span>
+							</li>
+							<li>
+								<label>商品名称： </label><span data-title="productName">芒果</span>
+							</li>
+							<li>
+								<label>存放地： </label><span data-title="storagePlace">杭州 - 3号货仓</span>
+							</li>
+							<li>
+								<label>车队： </label><span data-title="motorcade">默认车队 - 1</span>
+							</li>
+							<li>
+								<label>箱主： </label><span data-title="containerMaster">杜宇</span>
+							</li>
+							<li>
+								<label>状态： </label><span data-title="status">未申请</span>
+							</li>
+						</ul>
+					</div>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	</body>
 </html>

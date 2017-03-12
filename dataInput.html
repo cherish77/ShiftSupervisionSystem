@@ -253,7 +253,7 @@
 											</fieldset>
 											<div class="form-actions">
 												<button type="submit" class="btn" id="save-form" onclick="return saveClick()">保存</button>
-												<button class="btn btn-primary" id= "check-form" data-toggle="modal" data-target="#checkInput">保存并提交</button>
+												<button class="btn btn-primary" id= "check-form" data-toggle="modal" data-target=".modal-checkInput">保存并提交</button>
 											</div>
 											<input type="hidden" id="arr-containers" name="arr-containers">
 										</form>
@@ -267,261 +267,78 @@
 		</main>
 		<footer>
 		</footer>
-		<div class="modal fade" id="checkInput" tabindex="-1" role="dialog" aria-labelledby="checkInputModal" aria-hidden="true">
+		<div class="modal fade modal-checkInput" tabindex="-1" role="dialog" aria-labelledby="checkInputModal" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="checkInputModal">请确认信息是否正确</h4>
-			  </div>
-			  <div class="modal-body">
-					<div class="control-group">
-						<form id="checkInput-form" class="common_form form-horizontal">
-							<fieldset>
-								<label class="control-label" for="switchNo">转关单号</label>
-								<div class="controls">
-									<span class="label-content" data-value="switchNo">510251365425524</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="declarationNo">报关单号</label>
-								<div class="controls">
-									<span class="label-content" data-value="declarationNo">AA9500064236</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="forwardingCo">货代公司</label>
-								<div class="controls">
-									<span class="label-content" data-value="forwardingCo">远洋物流</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="declarationCo">报关公司</label>
-								<div class="controls">
-									<span class="label-content" data-value="declarationCo">杭州中外运报关有限公司</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="businessUnit">经营单位</label>
-								<div class="controls">
-									<span class="label-content" data-value="businessUnit">海南盛大生鲜有限公司</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="toPortShore">到港口岸</label>
-								<div class="controls">
-									<span class="label-content" data-value="toPortShore">宁波港</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerAmount">集装箱数</label>
-								<div class="controls">
-									<span class="label-content" data-value="containerAmount">25</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerType">集装箱型号</label>
-								<div class="controls">
-									<span class="label-content" data-value="containerType">小柜</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerNo">集装箱号</label>
-								<div class="controls">
-									<span class="label-content" data-value="containerNo">KNYY7844635</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="itemAmount">件数</label>
-								<div class="controls">
-									<span class="label-content" data-value="itemAmount">100</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="weight">毛重(KG)</label>
-								<div class="controls">
-									<span class="label-content" data-value="weight">2305</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="pakingType">包装种类</label>
-								<div class="controls">
-									<span class="label-content" data-value="pakingType">默认包</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="originPlace">原产地</label>
-								<div class="controls">
-									<span class="label-content" data-value="originPlace">新疆</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="pickingUpNo">提运单号</label>
-								<div class="controls">
-									<span class="label-content" data-value="pickingUpNo">ZN7845102562576362</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="productName">商品名称</label>
-								<div class="controls">
-									<span class="label-content" data-value="productName">芒果</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="storagePlace">存放地</label>
-								<div class="controls">
-									<span class="label-content" data-value="storagePlace">杭州 - 3号货仓</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="motorcade">车队</label>
-								<div class="controls">
-									<span class="label-content" data-value="motorcade">默认车队 - 1</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerMaster">箱主</label>
-								<div class="controls">
-									<span class="label-content" data-value="containerMaster">杜宇</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="status">状态</label>
-								<div class="controls">
-									<span class="label-content" data-value="status">未申请</span>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">返回修改</button>
-				<button type="button" class="btn btn-primary">确认提交</button>
-			  </div>
-			</div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-		<div class="modal fade" id="dataCheck" tabindex="-1" role="dialog" aria-labelledby="dataCheckModal" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="dataCheckModal">流转信息</h4>
-			  </div>
-			  <div class="modal-body">
-					<div class="control-group">
-						<form id="checkInput-form" class="common_form form-horizontal">
-							<fieldset>
-								<label class="control-label" for="switchNo">转关单号</label>
-								<div class="controls">
-									<span class="label-content" id="switchNo">510251365425524</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="declarationNo">报关单号</label>
-								<div class="controls">
-									<span class="label-content" id="declarationNo">AA9500064236</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="forwardingCo">货代公司</label>
-								<div class="controls">
-									<span class="label-content" id="forwardingCo">远洋物流</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="declarationCo">报关公司</label>
-								<div class="controls">
-									<span class="label-content" id="declarationCo">杭州中外运报关有限公司</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="toPortShore">到港口岸</label>
-								<div class="controls">
-									<span class="label-content" id="toPortShore">宁波港</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerAmount">集装箱数</label>
-								<div class="controls">
-									<span class="label-content" id="containerAmount">25</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerType">集装箱型号</label>
-								<div class="controls">
-									<span class="label-content" id="containerType">小柜</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerNo">集装箱号</label>
-								<div class="controls">
-									<span class="label-content" id="containerNo">KNYY7844635</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="itemAmount">件数</label>
-								<div class="controls">
-									<span class="label-content" id="itemAmount">100</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="weight">毛重(KG)</label>
-								<div class="controls">
-									<span class="label-content" id="weight">2305</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="pakingType">包装种类</label>
-								<div class="controls">
-									<span class="label-content" id="pakingType">默认包</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="originPlace">原产地</label>
-								<div class="controls">
-									<span class="label-content" id="originPlace">新疆</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="pickingUpNo">提运单号</label>
-								<div class="controls">
-									<span class="label-content" id="pickingUpNo">ZN7845102562576362</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="productName">商品名称</label>
-								<div class="controls">
-									<span class="label-content" id="productName">芒果</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="storagePlace">存放地</label>
-								<div class="controls">
-									<span class="label-content" id="storagePlace">杭州 - 3号货仓</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="motorcade">车队</label>
-								<div class="controls">
-									<span class="label-content" id="motorcade">默认车队 - 1</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="containerMaster">箱主</label>
-								<div class="controls">
-									<span class="label-content" id="containerMaster">杜宇</span>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label class="control-label" for="status">状态</label>
-								<div class="controls">
-									<span class="label-content" id="status">未申请</span>
-								</div>
-							</fieldset>
-						</form>
-					</div>
-			  </div>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title checkInputModal">请确认信息是否正确</h4>
+				</div>
+				<div class="modal-body">
+					<ul>
+						<li>
+							<label>转关单号： &shy;</label><span data-title="switchNo">510251365425524</span>
+						</li>
+						<li>
+							<label>报关单号： &shy;</label><span data-title="declarationNo">AA9500064236</span>
+						</li>
+						<li>
+							<label>货代公司： </label><span data-title="forwardingCo">远洋物流</span>
+						</li>
+						<li>
+							<label>报关公司： </label><span data-title="declarationCo">杭州中外运报关有限公司</span>
+						</li>
+						
+						<li>
+							<label>到港口岸： </label><span data-title="toPortShore">宁波港</span>
+						</li>
+						<li>
+							<label>集装箱数： </label><span data-title="declarationNo">25</span>
+						</li>
+						<li>
+							<label>集装箱型号： </label><span data-title="containerType">小柜</span>
+						</li>
+						
+						<li>
+							<label>集装箱号： </label><span data-title="containerNo">KNYY7844635</span>
+						</li>
+						<li>
+							<label>件数： </label><span data-title="itemAmount">100</span>
+						</li>
+						<li>
+							<label>毛重(KG)： </label><span data-title="weight">2305</span>
+						</li>
+						
+						<li>
+							<label>包装种类： </label><span data-title="pakingType">默认包</span>
+						</li>
+						<li>
+							<label>原产地： </label><span data-title="originPlace">新疆</span>
+						</li>
+						<li>
+							<label>提运单号： </label><span data-title="pickingUpNo">ZN7845102562576362</span>
+						</li>
+						<li>
+							<label>商品名称： </label><span data-title="productName">芒果</span>
+						</li>
+						<li>
+							<label>存放地： </label><span data-title="storagePlace">杭州 - 3号货仓</span>
+						</li>
+						<li>
+							<label>车队： </label><span data-title="motorcade">默认车队 - 1</span>
+						</li>
+						<li>
+							<label>箱主： </label><span data-title="containerMaster">杜宇</span>
+						</li>
+						<li>
+							<label>状态： </label><span data-title="status">未申请</span>
+						</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">返回修改</button>
+					<button type="button" class="btn btn-primary">确认提交</button>
+				</div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
