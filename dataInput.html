@@ -245,15 +245,15 @@
 														</select>
 													</div>
 												</div>
-												<div class="control-group">
-													<label class="control-label" for="status">状态</label>
+												<div class="control-group hide">
+													<label class="control-label" for="submitOrNot">是否提交</label>
 													<div class="controls">
-														<span id="status" class="label-content">未申请</span>
+														<input id="submitOrNot" type="text" name="submitOrNot" value="no"></input>
 													</div>
 												</div>
 											</fieldset>
 											<div class="form-actions">
-												<button type="submit" class="btn" id="save-form" onclick="return saveClick()">保存</button>
+												<button class="btn" id="save-form"">保存</button>
 												<button class="btn btn-primary" id="check-form">保存并提交</button>
 												<button class="hide" data-toggle="modal" data-target=".modal-checkInput"></button>
 											</div>
@@ -279,23 +279,25 @@
 					<div class="modal-body">
 						<ul>
 							<li>
-								<label>转关单号： &shy;</label><span data-title="switchNo">510251365425524</span>
+								<label>转关单号： </label><span data-title="switchNo">510251365425524</span>
 							</li>
 							<li>
-								<label>报关单号： &shy;</label><span data-title="declarationNo">AA9500064236</span>
+								<label>报关单号： </label><span data-title="declarationNo">AA9500064236</span>
 							</li>
 							<li>
 								<label>货代公司： </label><span data-title="forwardingCo">远洋物流</span>
 							</li>
 							<li>
+								<label>经营单位： </label><span data-title="businessUnit">美国百事公司</span>
+							</li>
+							<li>
 								<label>报关公司： </label><span data-title="declarationCo">杭州中外运报关有限公司</span>
 							</li>
-							
 							<li>
 								<label>到港口岸： </label><span data-title="toPortShore">宁波港</span>
 							</li>
 							<li>
-								<label>集装箱数： </label><span data-title="declarationNo">25</span>
+								<label>集装箱数： </label><span data-title="containerAmount">25</span>
 							</li>
 							<li>
 								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
@@ -331,9 +333,6 @@
 							</li>
 							<li>
 								<label>箱主： </label><span data-title="containerMaster">杜宇</span>
-							</li>
-							<li>
-								<label>状态： </label><span data-title="status">未申请</span>
 							</li>
 						</ul>
 					</div>

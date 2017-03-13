@@ -9,6 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="css/table.css" />
 		<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/textbox.css" />
+		<link rel="stylesheet" type="text/css" href="css/combo.css" />
+		<link rel="stylesheet" type="text/css" href="css/combobox.css" />
+		<link rel="stylesheet" type="text/css" href="css/panel.css" />
 		
 		
 		<script type="text/javascript" src="script/jquery.js"></script>
@@ -20,6 +24,7 @@
 		<script type="text/javascript" src="script/datatable-extend.js"></script>
 		<script type="text/javascript" src="script/datepicker.js"></script>
 		<script type="text/javascript" src="script/common.js"></script>
+		<script type="text/javascript" src="script/easyui.js"></script>
 	</head>
 	<body>
 		<header>
@@ -98,50 +103,52 @@
 								<div class="block-content collapse in">
 									<form>
 										<legend>设置查询条件</legend>
-										
-									
-									<div class="control-group">
-										<div id="searchItem-default" class="controls searchItem">
-											<select class="serchItem" name="serchItem" class="chzn-select">
-												<option value="0">选择关键词</option>
-												<option value="switchNo">转关单号</option>
-												<option value="declarationNo">报关单号</option>
-												<option value="forwardingCo">货代公司</option>
-												<option value="businessUnit">经营单位</option>
-												<option value="declarationCo">报关公司</option>
-												<option value="toPortShore">到港口岸</option>
-												<option value="containerType">集装箱型号</option>
-												<option value="containerNo">集装箱号</option>
-												<option value="originPlace">原产地</option>
-												<option value="pickingUpNo">提运单号</option>
-												<option value="productName">商品名称</option>
-												<option value="storagePlace">存放地</option>
-												<option value="containerOwner">箱主</option>
-												<option value="status">状态</option>
-											</select>
-											<input class="form-control" type="text" placeholder="输入或选择查询条件">
-											<span class="action-add icon-plus"></span>
-											<span class="action-remove icon-minus icon-white"></span>
-											<span class="text-muted">点击添加关键词</span>
+										<div class="control-group">
+											<div id="searchItem-default" class="controls searchItem">
+												<select class="serchItem" name="serchItem" class="chzn-select">
+													<option value="0">选择关键词</option>
+													<option value="switchNo">转关单号</option>
+													<option value="declarationNo">报关单号</option>
+													<option value="forwardingCo">货代公司</option>
+													<option value="businessUnit">经营单位</option>
+													<option value="declarationCo">报关公司</option>
+													<option value="toPortShore">到港口岸</option>
+													<option value="containerType">集装箱型号</option>
+													<option value="containerNo">集装箱号</option>
+													<option value="originPlace">原产地</option>
+													<option value="pickingUpNo">提运单号</option>
+													<option value="productName">商品名称</option>
+													<option value="storagePlace">存放地</option>
+													<option value="containerOwner">箱主</option>
+													<option value="status">状态</option>
+												</select>
+												<select class="easyui-combobox" name="state">
+													<option value="">选择或输入查询条件</option>
+													<option value="AK">Alaska</option>
+													<option value="AZ">Arizona</option>
+												</select>
+												<span class="action-add icon-plus"></span>
+												<span class="action-remove icon-minus icon-white"></span>
+												<span class="text-muted">点击添加关键词</span>
+											</div>
 										</div>
-									</div>
-									 <div class="control-group form-inline">       
-										<div class="controls">
-											<label>进场时间： </label>
-											<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
-											<label for="daterange-to">至 </label>
-											<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
+										 <div class="control-group form-inline">       
+											<div class="controls">
+												<label>进场时间： </label>
+												<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
+												<label for="daterange-to">至 </label>
+												<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
+											</div>
 										</div>
-                                    </div>
-									<div class="control-group form-inline">       
-										<div class="controls">
-											<label>离场时间： </label>
-											<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
-											<label for="daterange-to">至 </label>
-											<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
-											<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="searchByDR(this);">搜索</button>
+										<div class="control-group form-inline">       
+											<div class="controls">
+												<label>离场时间： </label>
+												<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
+												<label for="daterange-to">至 </label>
+												<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
+												<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="searchByDR(this);">搜索</button>
+											</div>
 										</div>
-                                    </div>
 									</form>
 								</div>
 								<div class="block-content collapse in">
@@ -295,14 +302,16 @@
 								<label>货代公司： </label><span data-title="forwardingCo">远洋物流</span>
 							</li>
 							<li>
+								<label>经营单位： </label><span data-title="businessUnit">美国百事公司</span>
+							</li>
+							<li>
 								<label>报关公司： </label><span data-title="declarationCo">杭州中外运报关有限公司</span>
 							</li>
-							
 							<li>
 								<label>到港口岸： </label><span data-title="toPortShore">宁波港</span>
 							</li>
 							<li>
-								<label>集装箱数： </label><span data-title="declarationNo">25</span>
+								<label>集装箱数： </label><span data-title="containerAmount">25</span>
 							</li>
 							<li>
 								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
@@ -367,7 +376,11 @@
 					<option value="containerOwner">箱主</option>
 					<option value="status">状态</option>
 				</select>
-				<input class="form-control" type="text">
+				<select class="easyui-combobox" name="state">
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+				</select>
 				<span class="action-add icon-plus"></span>
 				<span class="action-remove icon-minus"></span>
 			</div>

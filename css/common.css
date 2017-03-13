@@ -119,11 +119,11 @@ span.label-content {
 }
 
 .modal.fade.in {
-	top: 6%;
+	top: 5%;
 }
 
 .modal .modal-body {
-	max-height: 710px;
+	max-height: 750px;
 }
 
 .modal ul li {

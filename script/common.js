@@ -1,6 +1,6 @@
 /*Dom Ready*/
 $(document).ready(function() {
-	$(".chzn-select").chosen();
+	//$(".chzn-select").chosen();
 	
 	/* search */
 	if($("#searchPage").length > 0) {
@@ -23,11 +23,12 @@ $(document).ready(function() {
 	
 	if($("#dataInputPage").length > 0) {
 		$(document).on("click", "#basicData-form button#check-form", function(){
+			
 			var dataObj = $("#basicData-form").serializeArray();
 			var i = 0;
 			$(".modal-checkInput ul li span").each(function(){
 				$(this).text(dataObj[i].value);
-				i++;				
+				i++;
 			});
 			
 			$("button[data-target='.modal-checkInput']").click();
@@ -35,10 +36,18 @@ $(document).ready(function() {
 			return false;
 		});
 		
+		$(document).on("click", "#basicData-form button#save-form", function(){
+			$("#basicData-form input#submitOrNot").attr("value", "no");
+
+			alert("已保存！");
+			$("#basicData-form").submit();	
+		});
+		
 		$(document).on("click", ".modal-checkInput button.sureToSubmit", function(){
-			$("#basicData-form").submit(function(e){
-				alert("已提交！");
-			});
+			$("#basicData-form input#submitOrNot").attr("value", "yes");
+			
+			alert("已提交！");
+			$("#basicData-form").submit();
 		});
 	}
 });
