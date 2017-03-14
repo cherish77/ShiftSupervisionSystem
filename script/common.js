@@ -1,7 +1,23 @@
 /*Dom Ready*/
 $(document).ready(function() {
 	//$(".chzn-select").chosen();
-	
+/*	var testObj;
+	 $.ajax({ 
+        url:"http://106.14.57.23:6060/appform/list", 
+        type:'GET', 
+        dataType:'JSONP',  // 处理Ajax跨域问题
+        success: function(data){ 
+          // testObj = data;
+		  // alert(testObj);
+		  alert("success");
+        },
+		error:function(XMLHttpRequest, textStatus){  
+            console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState  
+            console.log(textStatus); 
+        } 
+		
+    }); 
+*/
 	/*dataTable*/
 	if($("#indexPage").length > 0) {
 		$("#primaryTable").DataTable({
@@ -37,7 +53,7 @@ $(document).ready(function() {
 	
 	if($("#flowPage").length > 0) {
 		var flowTable = $("#flowTable").DataTable({
-			"bStateSave": true,
+			//"bStateSave": true,
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
@@ -56,7 +72,6 @@ $(document).ready(function() {
 				"search": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
-			"ajax": "../data/test.json", 
 			"columnDefs": [
 			   {
 					"targets": [ 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17 ],
