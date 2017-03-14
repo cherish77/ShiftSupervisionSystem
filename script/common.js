@@ -1,6 +1,16 @@
 /*Dom Ready*/
 $(document).ready(function() {
+	/* load menu */
+	$.ajax({ 
+        url:"https://cherish77.github.io/ShiftSupervisionSystem/data/menulist.json", 
+        type:'GET', 
+        //dataType:'JSONP',  // 处理Ajax跨域问题
+        success: function(data){ 
+		  alert("success");
+        }
 	//$(".chzn-select").chosen();
+	});
+	
 /*	var testObj;
 	 $.ajax({ 
         url:"http://106.14.57.23:6060/appform/list", 
@@ -72,7 +82,7 @@ $(document).ready(function() {
 				"search": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
-			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/test.json", 
+			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
 			"columns": [
 				{"data" : "zhuanguan_num" }, 
 				{"data" : "baoguan_num" }, 
@@ -117,7 +127,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button><br /><button class="btn btn-default option-edit">修改</button>';
+						return '<button class="btn btn-info option-detail">详细</button><button class="btn btn-default option-edit">修改</button><button class="btn btn-warning">提交</button>';
 					}
 				}
 			]
@@ -125,35 +135,28 @@ $(document).ready(function() {
 	
 		$('#flowTable tbody').on('click', 'tr .option-detail', function () {
 			var data = flowTable.row($(this).closest("tr")).data();
-			var i = 0;
 			$(".modal-dataDetail ul li span").each(function(){
-				$(this).text(data[i]);
-				i++;
+				$(this).text(data[$(this).attr("data-title")]);
 			});
 			/*$.get("test.json", function(result){
 				
 			});*/
-			
-			
-			
+
 			$("button[data-target='.modal-dataDetail']").click();
 		});
 		
 		$('#flowTable tbody').on('click', 'tr .option-edit', function () {
 			var data = flowTable.row($(this).closest("tr")).data();
 			
-			
-			var i = 0;
 			$(".modal-changeInput .controls").each(function(){
 				if($(this).children()[0].nodeName.toLowerCase() == "input") {
-					$(this).children().attr("value", data[i]);
+					$(this).children().attr("value", data[$(this).children().attr("name")]);
 				}
 				else {
-					$(this).find("option[value=" + data[i] + "]").attr("selected", "selected");
+					$(this).find("option[value=" + data[$(this).children().attr("name")] + "]").attr("selected", "selected");
 					//$(this).find("option[value='2']").attr("selected", "selected");
 				}
 				
-				i++;
 			});
 			
 			$("button[data-target='.modal-changeInput']").click();
