@@ -74,7 +74,7 @@ $(document).ready(function() {
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/test.json", 
 			"columns": [
-				{ "lastupdated_ts" }
+				{"data" : "lastupdated_ts" }
 			]
 			/*"columnDefs": [
 			   {
