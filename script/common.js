@@ -73,7 +73,10 @@ $(document).ready(function() {
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/test.json", 
-			"columnDefs": [
+			"columns": [
+				{ "lastupdated_ts" }
+			]
+			/*"columnDefs": [
 			   {
 					"targets": [ 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17 ],
 					"visible": false,
@@ -102,7 +105,7 @@ $(document).ready(function() {
 						return '<button class="btn btn-info option-detail">详细</button><br /><button class="btn btn-default option-edit">修改</button>';
 					}
 				}
-			]	
+			]	*/
 		});
 	
 		$('#flowTable tbody').on('click', 'tr .option-detail', function () {
