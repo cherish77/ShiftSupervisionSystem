@@ -72,6 +72,7 @@ $(document).ready(function() {
 				"search": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
+			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/test.json", 
 			"columnDefs": [
 			   {
 					"targets": [ 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17 ],
