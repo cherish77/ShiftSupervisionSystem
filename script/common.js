@@ -6,7 +6,7 @@ $(document).ready(function() {
         type:'GET', 
         //dataType:'JSONP',  // 处理Ajax跨域问题
         success: function(data){ 
-		  alert("success");
+		  alert(data[0].res_name);
         }
 	//$(".chzn-select").chosen();
 	});
