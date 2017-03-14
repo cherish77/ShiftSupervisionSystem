@@ -37,7 +37,7 @@ $(document).ready(function() {
 	
 	if($("#flowPage").length > 0) {
 		var flowTable = $("#flowTable").DataTable({
-			//"bStateSave": true,
+			"bStateSave": true,
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
@@ -55,7 +55,8 @@ $(document).ready(function() {
 				"infoEmpty": "没有数据",
 				"search": "搜索： "
 			},
-			//"ajax": "../data/basicData.json", 
+			//"ajax": "http://106.14.57.23:6060/appform/list", 
+			"ajax": "../data/test.json", 
 			"columnDefs": [
 			   {
 					"targets": [ 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17 ],
