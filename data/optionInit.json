@@ -1,8 +1,17 @@
 {
-	"employees": [
-		{ 	"firstName":"Bill" , 
-			"lastName":"Gates" 
-		},
+	"options": [
+		{ 	"forwardingCo":["huodai1" ,"huodai2" ] ,
+			"businessUnit":["danwei1", "danwei2"] ,
+			"declarationCo":["declarationCo1", "declarationCo2"] ,
+			"toPortShore":["toPortShore1", "toPortShore2"] ,
+			"containerType":["containerType1", "containerType2"] ,
+			"pakingType":["pakingType1", "pakingType2"] ,
+			"originPlace":["originPlace1", "originPlace2"] ,
+			"productName":["productName1", "productName2"] ,
+			"motorcade":["motorcade1", "motorcade2"] , 
+			"containerOwner":["containerOwner1", "containerOwner2"] , 
+			"status":["status1", "status2"]
+		}/*,
 		{ 
 			"firstName":"George" , 
 			"lastName":"Bush" 
@@ -10,6 +19,6 @@
 		{ 
 			"firstName":"Thomas" ,
 			"lastName":"Carter" 
-		}
+		}*/
 	]
 }
