@@ -92,11 +92,11 @@ $(document).ready(function() {
 				{"data" : "form_status" }
 			], 
 			"columnDefs": [
-			   /*{
-					"targets": [ 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17 ],
+			   {
+					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
 					"visible": false,
 					"searchable": true
-				},*/
+				},
 				{
                     "targets": 15,
 					//"searchable": false,
