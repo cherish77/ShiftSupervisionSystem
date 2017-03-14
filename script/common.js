@@ -74,23 +74,38 @@ $(document).ready(function() {
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/test.json", 
 			"columns": [
-				{"data" : "lastupdated_ts" }
-			]
-			/*"columnDefs": [
-			   {
+				{"data" : "zhuanguan_num" }, 
+				{"data" : "baoguan_num" }, 
+				{"data" : "huodai_comp_text" }, 
+				{"data" : "baoguan_comp_text" }, 
+				{"data" : "harbour" }, 
+				{"data" : "container_account" }, 
+				{"data" : "total_count" }, 
+				{"data" : "total_weight" }, 
+				{"data" : "package_type" }, 
+				{"data" : "source_area" }, 
+				{"data" : "tiyun_num" }, 
+				{"data" : "prod_name" }, 
+				{"data" : "warehouse" }, 
+				{"data" : "chedui" }, 
+				{"data" : "xiangzhu" }, 
+				{"data" : "form_status" }
+			], 
+			"columnDefs": [
+			   /*{
 					"targets": [ 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17 ],
 					"visible": false,
 					"searchable": true
-				},
+				},*/
 				{
-                    "targets": 18,
+                    "targets": 15,
 					//"searchable": false,
                     "render": function ( data, type, full, meta ) {
                         var txt, lb;
                         switch (data) {
-                            case "未申请": txt = "未申请"; lb = "warning"; break;
-                            case "申请中": txt = "申请中"; lb = "success"; break;
-                            case "未通过": txt = "未通过"; lb = "failed";break;
+                            case "weishenqing": txt = "未申请"; lb = "warning"; break;
+                            case "shenqingzhong": txt = "申请中"; lb = "success"; break;
+                            case "weitongguo": txt = "未通过"; lb = "failed";break;
 							
                             default: txt = "未知状态"; break;
                         }
@@ -98,14 +113,14 @@ $(document).ready(function() {
                     }
                 },
 				{
-					"targets": 19, 
+					"targets": 16, 
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
 						return '<button class="btn btn-info option-detail">详细</button><br /><button class="btn btn-default option-edit">修改</button>';
 					}
 				}
-			]	*/
+			]
 		});
 	
 		$('#flowTable tbody').on('click', 'tr .option-detail', function () {
