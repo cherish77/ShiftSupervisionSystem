@@ -1,0 +1,120 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>进出场登记 - 移位监管系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/uniform.css" />
+		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		
+		<script type="text/javascript" src="script/jquery.js"></script>
+		<script type="text/javascript" src="script/modernizr.js"></script>
+		<script type="text/javascript" src="script/bootstrap.js"></script>
+		<script type="text/javascript" src="script/uniform.js"></script>
+		<script type="text/javascript" src="script/chosen.js"></script>
+		<script type="text/javascript" src="script/dataTables.js"></script>
+		<script type="text/javascript" src="script/datatable-extend.js"></script>
+		<script type="text/javascript" src="script/common.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<main id="passRegistrationPage">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container-fluid">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">移位监管</a>
+						<div class="nav-collapse collapse">
+							<ul class="nav pull-right">
+								<li class="dropdown">
+									<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="icon-user"></span>沈游人<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a tabindex="-1" href="#">账号资料</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a tabindex="-1" href="">注销</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<!--ul class="nav">
+								<li class="active">
+									<a href="index.html">首页</a>
+								</li>
+							</ul-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2" id="sidebar">
+						<ul id="main-menu" class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+							<!--li class="inactive">
+								<a href="index.html" target="_self"><span class="icon-chevron-right"></span>首页 </a>
+							</li>
+							<li class="inactive">
+								<a href="flowTable.html" target="_self"><span class="icon-chevron-right"></span>流转列表</a>
+							</li>
+							<li class="inactive">
+								<a href="applicationTable.html" target="_self"><span class="icon-chevron-right"></span>申请列表</a>
+							</li>
+							<li class="inactive">
+								<a href="toReleaseTable.html" target="_self"><span class="icon-chevron-right"></span>待放行列表</a>
+							</li>
+							<li class="active">
+								<a href="releasedTable.html" target="_self"><span class="icon-chevron-right"></span>已放行列表</a>
+							</li>
+							<li class="inactive">
+								<a href="dataInput.html" target="_self"><span class="icon-chevron-right"></span>数据录入</a>
+							</li>
+							<li class="inactive">
+								<a href="search.html" target="_self"><span class="icon-chevron-right"></span>组合查询</a>
+							</li-->
+						</ul>
+					</div>
+					<div class="span10" id="content">
+						<div class="row-fluid">
+							<div class="block">
+								<div class="navbar navbar-inner block-header">
+									<div class="muted pull-left">
+										进出场登记
+									</div>
+								</div>
+								<div class="block-content collapse in">
+									<div class="span12">
+										<form action="" method="get" class="search-form common-form" autocomplete="off" novalidate="novalidate">
+											<fieldset>
+												<legend>请输入集装箱号以查看详细并登记</legend>
+												<div class="control-group">
+													<label class="control-label" for="container_num">集装箱号</label>
+													<div class="controls">
+														<input id="container_num" name="container_num" type="text" class="span4">
+														<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="">确定</button>
+													</div>
+													
+												</div>
+											</fieldset>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+		</footer>
+	</body>
+</html>

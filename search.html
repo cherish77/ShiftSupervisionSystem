@@ -55,11 +55,11 @@
 									</ul>
 								</li>
 							</ul>
-							<ul class="nav">
+							<!--ul class="nav">
 								<li class="active">
 									<a href="index.html">首页</a>
 								</li>
-							</ul>
+							</ul-->
 						</div>
 					</div>
 				</div>
@@ -146,29 +146,40 @@
 												<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
 												<label for="daterange-to">至 </label>
 												<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
-												<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="searchByDR(this);">搜索</button>
+												<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="">搜索</button>
 											</div>
 										</div>
 									</form>
 								</div>
 								<div class="block-content collapse in">
 									<div class="span12">
-										<div id="primaryTable_wrapper" class="dataTables_wrapper form-inline no-footer">
-											<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable no-footer" id="primaryTable" role="grid" aria-describedby="primaryTable_info" style="min-width:1200px; max-width: 1300px;">
+										<div id="searchTable_wrapper" class="dataTables_wrapper form-inline no-footer">
+											<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable no-footer" id="searchTable" role="grid" aria-describedby="searchTable_info" style="min-width:1200px; max-width: 1300px;">
 												<thead>
 													<tr role="row">
-														<th class="sorting_asc" tabindex="0" rowspan="1" colspan="1">贷代公司</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">报关公司</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">转关单号</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">报关单号</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">提运单号</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">集装箱号</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">集装箱数</th>
-														<th class="sorting" tabindex="0" rowspan="1" colspan="1">申请状态</th>
-														<th>详细</th>
+														<th>转关单号</th>
+														<th>报关单号</th>
+														<th>货代公司</th>
+														<!--th>经营单位</th-->
+														<th>报关公司</th>
+														<th>到港口岸</th>
+														<th>集装箱数</th>
+														<!--th>集装箱型号</th-->
+														<!--th>集装箱号</th-->
+														<th>件数</th>
+														<th>毛重</th>
+														<th>包装种类</th>
+														<th>原产地</th>
+														<th>提运单号</th>
+														<th>商品名称</th>
+														<th>存放地</th>
+														<th>车队</th>
+														<th>箱主</th>
+														<th>状态</th>
+														<th>查看详细</th>
 													</tr>
 												</thead>
-												<tbody>
+												<!--tbody>
 													<tr role="row" class="odd">
 														<td>远洋物流</td>
 														<td>杭州中外运报关有限公司</td>
@@ -224,7 +235,7 @@
 														<td><span class="label label-success">已放行</span></td>
 														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button></td>
 													</tr>
-												</tbody>
+												</tbody-->
 											</table>
 										</div>
 									</div>
@@ -238,80 +249,78 @@
 		</main>
 		<footer>
 		</footer>
+		<button class="btn btn-info hide" data-toggle="modal" data-target=".modal-dataDetail">详细</button>
 		<div class="modal fade modal-dataDetail" tabindex="-1" role="dialog" aria-labelledby="dataDetailModal" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title dataDetailModal">详细信息</h4>
-			  </div>
-			  <div class="modal-body">
-					<div class="control-group">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title dataDetailModal">详细信息</h4>
+					</div>
+					<div class="modal-body">
 						<ul>
 							<li>
-								<label>转关单号： </label><span data-title="switchNo">510251365425524</span>
+								<label>转关单号： </label><span data-title="zhuanguan_num">510251365425524</span>
 							</li>
 							<li>
-								<label>报关单号： </label><span data-title="declarationNo">AA9500064236</span>
+								<label>报关单号： </label><span data-title="baoguan_num">AA9500064236</span>
 							</li>
 							<li>
-								<label>货代公司： </label><span data-title="forwardingCo">远洋物流</span>
+								<label>货代公司： </label><span data-title="huodai_comp_text">远洋物流</span>
 							</li>
-							<li>
+							<!--li>
 								<label>经营单位： </label><span data-title="businessUnit">美国百事公司</span>
+							</li-->
+							<li>
+								<label>报关公司： </label><span data-title="baoguan_comp_text">杭州中外运报关有限公司</span>
 							</li>
 							<li>
-								<label>报关公司： </label><span data-title="declarationCo">杭州中外运报关有限公司</span>
+								<label>到港口岸： </label><span data-title="harbour">宁波港</span>
 							</li>
 							<li>
-								<label>到港口岸： </label><span data-title="toPortShore">宁波港</span>
+								<label>集装箱数： </label><span data-title="container_account">25</span>
 							</li>
-							<li>
-								<label>集装箱数： </label><span data-title="containerAmount">25</span>
-							</li>
-							<li>
+							<!--li>
 								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
-							</li>
-							
-							<li>
+							</li-->
+							<!--li>
 								<label>集装箱号： </label><span data-title="containerNo">KNYY7844635</span>
+							</li-->
+							<li>
+								<label>件数： </label><span data-title="total_count">100</span>
 							</li>
 							<li>
-								<label>件数： </label><span data-title="itemAmount">100</span>
-							</li>
-							<li>
-								<label>毛重(KG)： </label><span data-title="weight">2305</span>
+								<label>毛重(KG)： </label><span data-title="total_weight">2305</span>
 							</li>
 							
 							<li>
-								<label>包装种类： </label><span data-title="pakingType">默认包</span>
+								<label>包装种类： </label><span data-title="package_type">默认包</span>
 							</li>
 							<li>
-								<label>原产地： </label><span data-title="originPlace">新疆</span>
+								<label>原产地： </label><span data-title="source_area">新疆</span>
 							</li>
 							<li>
-								<label>提运单号： </label><span data-title="pickingUpNo">ZN7845102562576362</span>
+								<label>提运单号： </label><span data-title="tiyun_num">ZN7845102562576362</span>
 							</li>
 							<li>
-								<label>商品名称： </label><span data-title="productName">芒果</span>
+								<label>商品名称： </label><span data-title="prod_name">芒果</span>
 							</li>
 							<li>
-								<label>存放地： </label><span data-title="storagePlace">杭州 - 3号货仓</span>
+								<label>存放地： </label><span data-title="warehouse">杭州 - 3号货仓</span>
 							</li>
 							<li>
-								<label>车队： </label><span data-title="motorcade">默认车队 - 1</span>
+								<label>车队： </label><span data-title="chedui">默认车队 - 1</span>
 							</li>
 							<li>
-								<label>箱主： </label><span data-title="containerOwner">杜宇</span>
+								<label>箱主： </label><span data-title="xiangzhu">杜宇</span>
 							</li>
 							<li>
-								<label>状态： </label><span data-title="status">未申请</span>
+								<label>状态： </label><span data-title="form_status">未申请</span>
 							</li>
 						</ul>
 					</div>
-			  </div>
-			</div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 		<div id="template-searchItem" class="hide">
 			<div class="controls searchItem">
