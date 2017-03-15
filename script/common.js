@@ -590,4 +590,12 @@ $(document).ready(function() {
 			$("#basicData-form").submit();
 		});
 	}
+	
+	//passRegistration page
+	if($("#passRegistrationPage").length > 0) {
+		// datepicker
+		$(".datepicker").datepicker({
+			format: 'yyyy/mm/dd'
+		})
+	}
 });

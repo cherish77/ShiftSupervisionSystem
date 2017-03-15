@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/uniform.css" />
 		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
 		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		
 		<script type="text/javascript" src="script/jquery.js"></script>
@@ -16,6 +17,7 @@
 		<script type="text/javascript" src="script/chosen.js"></script>
 		<script type="text/javascript" src="script/dataTables.js"></script>
 		<script type="text/javascript" src="script/datatable-extend.js"></script>
+		<script type="text/javascript" src="script/datepicker.js"></script>
 		<script type="text/javascript" src="script/common.js"></script>
 	</head>
 	<body>
@@ -99,8 +101,8 @@
 												<div id="containerNo-search" class="control-group">
 													<label class="control-label" for="container_num">集装箱号： </label>
 													<div class="controls">
-														<input id="container_num" name="container_num" type="text" class="span3">
-														<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="">确定</button>
+														<input id="container_num" name="container_num" type="text" class="span3" placeholder="输入集装箱号">
+														<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="">查看</button>
 													</div>
 												</div>
 											</fieldset>	
@@ -165,8 +167,42 @@
 												<label>状态： </label><span data-title="form_status"></span>
 											</li>
 										</ul>
-												
+										<form>
+											 <div class="control-group form-inline">       
+												<div class="controls">
+													<label>选择操作： </label>
+													
+												</div>
+											</div>
+											<div class="control-group form-inline">       
+												<div class="controls">
+													<label>登记时间： </label>
+													<input class="input-xlarge datepicker" name="passtime" id="passtime" value="" type="text">
+												</div>
+											</div>
+										</form>
 									</div>
+									<!--div class="span6">
+										<form>
+											 <div class="control-group form-inline">       
+												<div class="controls">
+													<label>进场时间： </label>
+													<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
+													<label for="daterange-to">至 </label>
+													<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
+												</div>
+											</div>
+											<div class="control-group form-inline">       
+												<div class="controls">
+													<label>离场时间： </label>
+													<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
+													<label for="daterange-to">至 </label>
+													<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
+													<button type="button" class="btn btn-primary" onclick="">确定</button>
+												</div>
+											</div>
+										</form>
+									</div-->
 								</div>
 							</div>
 						</div>
