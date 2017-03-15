@@ -93,19 +93,79 @@
 								</div>
 								<div class="block-content collapse in">
 									<div class="span12">
-										<form action="" method="get" class="search-form common-form" autocomplete="off" novalidate="novalidate">
+										<form action="" method="get" class="search-form common-form form-horizontal" autocomplete="off" novalidate="novalidate">
 											<fieldset>
 												<legend>请输入集装箱号以查看详细并登记</legend>
-												<div class="control-group">
-													<label class="control-label" for="container_num">集装箱号</label>
+												<div id="containerNo-search" class="control-group">
+													<label class="control-label" for="container_num">集装箱号： </label>
 													<div class="controls">
-														<input id="container_num" name="container_num" type="text" class="span4">
+														<input id="container_num" name="container_num" type="text" class="span3">
 														<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="">确定</button>
 													</div>
-													
 												</div>
-											</fieldset>
+											</fieldset>	
 										</form>
+										<ul class="detail-list">
+											<li>
+												<label>转关单号： </label><span data-title="zhuanguan_num"></span>
+											</li>
+											<li>
+												<label>报关单号： </label><span data-title="baoguan_num"></span>
+											</li>
+											<li>
+												<label>货代公司： </label><span data-title="huodai_comp_text"></span>
+											</li>
+											<!--li>
+												<label>经营单位： </label><span data-title="businessUnit"></span>
+											</li-->
+											<li>
+												<label>报关公司： </label><span data-title="baoguan_comp_text"></span>
+											</li>
+											<li>
+												<label>到港口岸： </label><span data-title="harbour"></span>
+											</li>
+											<li>
+												<label>集装箱数： </label><span data-title="container_account"></span>
+											</li>
+											<!--li>
+												<label>集装箱型号： </label><span data-title="containerType"></span>
+											</li-->
+											<!--li>
+												<label>集装箱号： </label><span data-title="containerNo"></span>
+											</li-->
+											<li>
+												<label>件数： </label><span data-title="total_count"></span>
+											</li>
+											<li>
+												<label>毛重(KG)： </label><span data-title="total_weight"></span>
+											</li>
+											
+											<li>
+												<label>包装种类： </label><span data-title="package_type"></span>
+											</li>
+											<li>
+												<label>原产地： </label><span data-title="source_area"></span>
+											</li>
+											<li>
+												<label>提运单号： </label><span data-title="tiyun_num"></span>
+											</li>
+											<li>
+												<label>商品名称： </label><span data-title="prod_name"></span>
+											</li>
+											<li>
+												<label>存放地： </label><span data-title="warehouse"></span>
+											</li>
+											<li>
+												<label>车队： </label><span data-title="chedui"></span>
+											</li>
+											<li>
+												<label>箱主： </label><span data-title="xiangzhu"></span>
+											</li>
+											<li>
+												<label>状态： </label><span data-title="form_status"></span>
+											</li>
+										</ul>
+												
 									</div>
 								</div>
 							</div>

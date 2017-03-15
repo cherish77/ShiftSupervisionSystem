@@ -1,7 +1,7 @@
 /*=== HTML Resets Start ===*/
 *{outline: 0;}
 html,body,iframe,form,h1,h2,h3,h4,h5,h6,ul,p,table,tr,th,td,textarea,input,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{margin:0;padding:0;}
-ul,li,label,input,textarea{ display:block; }
+ul,li,textarea{ display:block; }
 table {border-collapse: collapse;border-spacing:0;}
 th {font-weight:normal;}
 td {vertical-align:top;}
@@ -47,6 +47,8 @@ span.label-content {
 	display: inline-block;
 	margin-top: 5px;
 }
+
+
 /*=== Basic End ===*/
 
 
@@ -126,17 +128,11 @@ span.label-content {
 	max-height: 750px;
 }
 
-.modal ul li {
+/* list */
+ul.detail-list li {
 	margin-bottom: 15px;
 }
 
-.modal ul li label {
-	display: inline-block;
-	width: 120px;
-	text-align:right;
-	margin-right: 15px;
-	cursor: default;
-}
 /*--- control ---*/
 .control-label .required {
     color: #e02222;
@@ -240,3 +236,15 @@ table span {
 }
 
 /*=== search End ===*/
+
+
+/*=== Index Start ===*/
+#passRegistrationPage #containerNo-search label {
+	display: inline-block;
+	cursor: default;
+	width: 160px;
+	text-align: right;
+	margin-right: 15px;
+	font-size: 15px;
+}
+/*=== Index End ===*/
