@@ -51,7 +51,7 @@
 		"status":1,
 		"res_name":"进出场登记",
 		"icon":null,
-		"url":"passRegister.html"
+		"url":"passRegistration.html"
 	},
 	{
 		"lastupdated_ts":null,
