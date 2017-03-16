@@ -43,14 +43,6 @@ h1 {
 	text-align: center;
 }
 
-label {
-	display: inline-block;
-	cursor: default;
-	width: 160px;
-	text-align: right;
-	margin-right: 15px;
-	font-size: 15px;
-}
 
 span.label-content {
 	display: inline-block;
@@ -71,6 +63,14 @@ span.label-content {
 	margin-left: 32px;
 }
 
+.detail-list label {
+	display: inline-block;
+	cursor: default;
+	width: 160px;
+	text-align: right;
+	margin-right: 15px;
+	font-size: 15px;
+}
 /*=== Basic End ===*/
 
 

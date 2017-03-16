@@ -40,10 +40,10 @@ $(document).ready(function() {
 					"sNext": "后一页",
 					"sLast": "末页"
 				},
-				"processing": "正在加载请稍候...", 
-				"zeroRecords": "抱歉， 没有找到", 
-				"infoEmpty": "没有数据",
-				"search": "搜索： "
+				"sProcessing": "正在加载请稍候...", 
+				"sZeroRecords": "抱歉， 没有找到", 
+				"sInfoEmpty": "没有数据",
+				"sSearch": "搜索： "
 			},
 			//"ajax": "../data/basicData.json", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
@@ -123,10 +123,10 @@ $(document).ready(function() {
 					"sNext": "后一页",
 					"sLast": "末页"
 				},
-				"processing": "正在加载请稍候...", 
-				"zeroRecords": "抱歉， 没有找到", 
-				"infoEmpty": "没有数据",
-				"search": "搜索： "
+				"sProcessing": "正在加载请稍候...", 
+				"sZeroRecords": "抱歉， 没有找到", 
+				"sInfoEmpty": "没有数据",
+				"sSearch": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
@@ -232,10 +232,10 @@ $(document).ready(function() {
 					"sNext": "后一页",
 					"sLast": "末页"
 				},
-				"processing": "正在加载请稍候...", 
-				"zeroRecords": "抱歉， 没有找到", 
-				"infoEmpty": "没有数据",
-				"search": "搜索： "
+				"sProcessing": "正在加载请稍候...", 
+				"sZeroRecords": "抱歉， 没有找到", 
+				"sInfoEmpty": "没有数据",
+				"sSearch": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
@@ -324,10 +324,10 @@ $(document).ready(function() {
 					"sNext": "后一页",
 					"sLast": "末页"
 				},
-				"processing": "正在加载请稍候...", 
-				"zeroRecords": "抱歉， 没有找到", 
-				"infoEmpty": "没有数据",
-				"search": "搜索： "
+				"sProcessing": "正在加载请稍候...", 
+				"sZeroRecords": "抱歉， 没有找到", 
+				"sInfoEmpty": "没有数据",
+				"sSearch": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
@@ -410,10 +410,10 @@ $(document).ready(function() {
 					"sNext": "后一页",
 					"sLast": "末页"
 				},
-				"processing": "正在加载请稍候...", 
-				"zeroRecords": "抱歉， 没有找到", 
-				"infoEmpty": "没有数据",
-				"search": "搜索： "
+				"sProcessing": "正在加载请稍候...", 
+				"sZeroRecords": "抱歉， 没有找到", 
+				"sInfoEmpty": "没有数据",
+				"sSearch": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
@@ -508,10 +508,10 @@ $(document).ready(function() {
 					"sNext": "后一页",
 					"sLast": "末页"
 				},
-				"processing": "正在加载请稍候...", 
-				"zeroRecords": "抱歉， 没有找到", 
-				"infoEmpty": "没有数据",
-				"search": "搜索： "
+				"sPocessing": "正在加载请稍候...", 
+				"sZeroRecords": "抱歉， 没有找到", 
+				"sInfoEmpty": "没有数据",
+				"sSearch": "搜索： "
 			},
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
