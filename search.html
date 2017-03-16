@@ -3,16 +3,16 @@
 	<head>
 		<title>综合查询 - 移位监管系统</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/uniform.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
 		<link rel="stylesheet" type="text/css" href="css/table.css" />
 		<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
-		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/textbox.css" />
 		<link rel="stylesheet" type="text/css" href="css/combo.css" />
 		<link rel="stylesheet" type="text/css" href="css/combobox.css" />
 		<link rel="stylesheet" type="text/css" href="css/panel.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		
 		
 		<script type="text/javascript" src="script/jquery.js"></script>
@@ -68,27 +68,6 @@
 				<div class="row-fluid">
 					<div class="span2" id="sidebar">
 						<ul id="main-menu" class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-							<!--li class="inactive">
-								<a href="index.html" target="_self"><span class="icon-chevron-right"></span>首页 </a>
-							</li>
-							<li class="inactive">
-								<a href="flowTable.html" target="_self"><span class="icon-chevron-right"></span>流转列表</a>
-							</li>
-							<li class="inactive">
-								<a href="applicationTable.html" target="_self"><span class="icon-chevron-right"></span>申请列表</a>
-							</li>
-							<li class="inactive">
-								<a href="toReleaseTable.html" target="_self"><span class="icon-chevron-right"></span>待放行列表</a>
-							</li>
-							<li class="inactive">
-								<a href="releasedTable.html" target="_self"><span class="icon-chevron-right"></span>已放行列表</a>
-							</li>
-							<li class="inactive">
-								<a href="dataInput.html" target="_self"><span class="icon-chevron-right"></span>数据录入</a>
-							</li>
-							<li class="active">
-								<a href="search.html" target="_self"><span class="icon-chevron-right"></span>组合查询</a>
-							</li-->
 						</ul>
 					</div>
 					<div class="span10" id="content">
@@ -101,12 +80,12 @@
 									</div>
 								</div>
 								<div class="block-content collapse in">
-									<form>
+									<form id="search-form" action="" method="" class="search-form common-form" autocomplete="off" novalidate="novalidate">
 										<legend>设置查询条件</legend>
 										<div class="control-group">
-											<div id="searchItem-default" class="controls searchItem">
-												<select class="serchItem" name="serchItem" class="chzn-select">
-													<option value="0">选择关键词</option>
+											<div id="searchItem-default" class="controls search-item">
+												<select class="search-select" name="search-select" class="chzn-select">
+													<option value="">选择关键词</option>
 													<option value="switchNo">转关单号</option>
 													<option value="declarationNo">报关单号</option>
 													<option value="forwardingCo">货代公司</option>
@@ -121,12 +100,9 @@
 													<option value="storagePlace">存放地</option>
 													<option value="containerOwner">箱主</option>
 													<option value="status">状态</option>
+													<option value="nokey">不设置条件</option>
 												</select>
-												<select class="easyui-combobox" name="state">
-													<option value="">选择或输入查询条件</option>
-													<option value="AK">Alaska</option>
-													<option value="AZ">Arizona</option>
-												</select>
+												<input id="" name="depend" type="text" class="span3">
 												<span class="action-add icon-plus"></span>
 												<span class="action-remove icon-minus icon-white"></span>
 												<span class="text-muted">点击添加关键词</span>
@@ -135,18 +111,18 @@
 										 <div class="control-group form-inline">       
 											<div class="controls">
 												<label>进场时间： </label>
-												<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
-												<label for="daterange-to">至 </label>
-												<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
+												<input class="input-xlarge datepicker" name="enter-from" id="enter-from" value="" type="text">
+												<label for="enter-to">至 </label>
+												<input class="input-xlarge datepicker" name="enter-to" id="enter-to" value="" type="text">
 											</div>
 										</div>
 										<div class="control-group form-inline">       
 											<div class="controls">
 												<label>离场时间： </label>
-												<input class="input-xlarge datepicker" name="daterange-from" id="daterange-from" value="" type="text">
-												<label for="daterange-to">至 </label>
-												<input class="input-xlarge datepicker" name="daterange-to" id="daterange-to" value="" type="text">
-												<button type="button" class="btn btn-primary" data-loading-text="正在搜索..." onclick="">搜索</button>
+												<input class="input-xlarge datepicker" name="leave-from" id="leave-from" value="" type="text">
+												<label for="leave-to">至 </label>
+												<input class="input-xlarge datepicker" name="leave-to" id="leave-to" value="" type="text">
+												<button id="action-search" type="button" class="btn btn-primary" data-loading-text="正在搜索...">搜索</button>
 											</div>
 										</div>
 									</form>
@@ -323,9 +299,9 @@
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 		<div id="template-searchItem" class="hide">
-			<div class="controls searchItem">
-				<select class="serchItem" name="serchItem" class="chzn-select">
-					<option value="0">选择关键词</option>
+			<div class="controls search-item">
+				<select class="serch-select chzn-select" name="serch-select">
+					<option value="">选择关键词</option>
 					<option value="switchNo">转关单号</option>
 					<option value="declarationNo">报关单号</option>
 					<option value="forwardingCo">货代公司</option>
@@ -340,12 +316,9 @@
 					<option value="storagePlace">存放地</option>
 					<option value="containerOwner">箱主</option>
 					<option value="status">状态</option>
+					<option value="nokey">不设置条件</option>
 				</select>
-				<select class="easyui-combobox" name="state">
-					<option value="AL">Alabama</option>
-					<option value="AK">Alaska</option>
-					<option value="AZ">Arizona</option>
-				</select>
+				<input id="" name="depend" type="text" class="span3">
 				<span class="action-add icon-plus"></span>
 				<span class="action-remove icon-minus"></span>
 			</div>

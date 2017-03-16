@@ -43,11 +43,33 @@ h1 {
 	text-align: center;
 }
 
+label {
+	display: inline-block;
+	cursor: default;
+	width: 160px;
+	text-align: right;
+	margin-right: 15px;
+	font-size: 15px;
+}
+
 span.label-content {
 	display: inline-block;
 	margin-top: 5px;
 }
 
+.action-sure{
+	margin-left: 60px;
+}
+
+.action-add, 
+.action-remove {
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.action-add {
+	margin-left: 32px;
+}
 
 /*=== Basic End ===*/
 
@@ -206,8 +228,12 @@ table span {
 
 
 /*=== dataInput Start ===*/
-#dataInputPage button#check-form {
-	margin-left: 60px;
+#dataInputPage #container-default .action-remove {
+	pointer-events: none;
+}
+
+#dataInputPage  .controls.newItem {
+	margin-top: 12px;
 }
 /*=== dataInput End ===*/
 
@@ -217,14 +243,8 @@ table span {
 	margin-right: 15px;
 }
 
-#searchPage .action-add, 
-#searchPage .action-remove {
-	margin-right: 15px;
-	cursor: pointer;
-}
-
-#searchPage .action-add {
-	margin-left: 32px;
+#searchPage label {
+	width: auto;
 }
 
 #searchPage #searchItem-default .action-remove {
@@ -239,12 +259,12 @@ table span {
 
 
 /*=== Index Start ===*/
-#passRegistrationPage label {
-	display: inline-block;
-	cursor: default;
-	width: 160px;
-	text-align: right;
-	margin-right: 15px;
-	font-size: 15px;
+#passRegistrationPage label.radio {
+	width: 62px;
+	margin-right: 30px;
+}
+
+#passRegistrationPage span.required {
+	margin-right: 10px;
 }
 /*=== Index End ===*/

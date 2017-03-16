@@ -91,13 +91,13 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button>'
+						return '<button class="btn btn-info action-detail">详细</button>'
 					}
 				}
 			]
 		});
 		
-		$("#indexTable tbody").on("click", "tr .option-detail", function () {
+		$("#indexTable tbody").on("click", "tr .action-detail", function () {
 			var data = indexTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -174,7 +174,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button>';
+						return '<button class="btn btn-info action-detail">详细</button>';
 					}
 				},
 				{
@@ -182,13 +182,13 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-default option-edit">修改</button><button class="btn btn-primary">提交</button>';
+						return '<button class="btn btn-default action-edit">修改</button><button class="btn btn-primary">提交</button>';
 					}
 				}
 			]
 		});
 
-		$("#flowTable tbody").on("click", "tr .option-detail", function () {
+		$("#flowTable tbody").on("click", "tr .action-detail", function () {
 			var data = flowTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -197,7 +197,7 @@ $(document).ready(function() {
 			$("button[data-target='.modal-dataDetail']").click();
 		});
 		
-		$("#flowTable tbody").on("click", "tr .option-edit", function () {
+		$("#flowTable tbody").on("click", "tr .action-edit", function () {
 			var data = flowTable.row($(this).closest("tr")).data();
 			
 			$(".modal-changeInput .controls").each(function(){
@@ -283,7 +283,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button>';
+						return '<button class="btn btn-info action-detail">详细</button>';
 					}
 				},
 				{
@@ -291,13 +291,13 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-danger option-pass">流转</button><button class="btn btn-default option-reject">退回</button>';
+						return '<button class="btn btn-danger action-pass">流转</button><button class="btn btn-default action-reject">退回</button>';
 					}
 				}
 			]
 		});
 
-		$("#applicationTable tbody").on("click", "tr .option-detail", function () {
+		$("#applicationTable tbody").on("click", "tr .action-detail", function () {
 			var data = applicationTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -347,7 +347,8 @@ $(document).ready(function() {
 				{"data" : "warehouse" }, 
 				{"data" : "chedui" }, 
 				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" }
+				{"data" : "form_status" },
+				/*{"data" : "container_released_account"}*/
 			], 
 			"columnDefs": [
 			   {
@@ -355,12 +356,20 @@ $(document).ready(function() {
 					"visible": false,
 					"searchable": true
 				},
+				/*{
+					"targets": 5, 
+                    "ordering": false, 
+					"searchable": false,
+					"render": function( data, type, full, meta ) {
+						return data;
+					}
+				},*/
 				{
 					"targets": 15, 
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button>';
+						return '<button class="btn btn-info action-detail">详细</button>';
 					}
 				},
 				{
@@ -368,13 +377,13 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-danger option-release">解除监管</button>';
+						return '<button class="btn btn-danger action-release">解除监管</button>';
 					}
 				}
 			]
 		});
 
-		$("#toReleaseTable tbody").on("click", "tr .option-detail", function () {
+		$("#toReleaseTable tbody").on("click", "tr .action-detail", function () {
 			var data = toReleaseTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -437,7 +446,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button>';
+						return '<button class="btn btn-info action-detail">详细</button>';
 					}
 				},
 				{
@@ -445,13 +454,13 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-primary option-release">打印</button>';
+						return '<button class="btn btn-primary action-release">打印</button>';
 					}
 				}
 			]
 		});
 
-		$("#releasedTable tbody").on("click", "tr .option-detail", function () {
+		$("#releasedTable tbody").on("click", "tr .action-detail", function () {
 			var data = releasedTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -463,6 +472,28 @@ $(document).ready(function() {
 	
 	// search page
 	if($("#searchPage").length > 0) {
+		// datepicker
+		$(".datepicker").datepicker({
+			format: 'yyyy/mm/dd'
+		})
+		
+		// add search keywords
+		$(document).on("click", ".action-add", function(){
+			var $item = $("#template-searchItem").html();
+			$(this).closest(".search-item").after($item);
+		});
+		
+		$(document).on("click", ".action-remove", function(){
+			$(this).closest(".search-item").remove();
+		});
+	
+		// search select
+		$(".search-select").change(function(event){
+			$('[value=""]', event.target).remove();
+			alert();
+		});
+	
+		// dataTable
 		var searchTable = $("#searchTable").DataTable({
 			//"bStateSave": true,
 			"sPaginationType": "bootstrap", 
@@ -528,13 +559,13 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info option-detail">详细</button>';
+						return '<button class="btn btn-info action-detail">详细</button>';
 					}
 				}
 			]
 		});
 
-		$("#searchTable tbody").on("click", "tr .option-detail", function () {
+		$("#searchTable tbody").on("click", "tr .action-detail", function () {
 			var data = searchTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -543,25 +574,27 @@ $(document).ready(function() {
 			$("button[data-target='.modal-dataDetail']").click();
 		});
 	
-		// add search keywords
-		$(document).on("click", ".action-add", function(){
-			var $item = $("#template-searchItem").html();
-			$(this).closest(".searchItem").after($item);
+		
+		/*
+		$(document).on("click", "#action-search", function(){
+			var formObj = $("#search-form").serializeArray();
+			$get("url", formObj, function(response){
+
+			});
 		});
-		
-		$(document).on("click", ".action-remove", function(){
-			$(this).closest(".searchItem").remove();
-		});
-		
-		
-		// datepicker
-		$(".datepicker").datepicker({
-			format: 'yyyy/mm/dd'
-		})
+		*/
 	}
 	
 	// dataInput page
 	if($("#dataInputPage").length > 0) {
+		$(document).on("click", ".action-add", function(){
+			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span4 m-wrap ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
+		});
+	
+		$(document).on("click", ".action-remove", function(){
+			$(this).closest("div.controls").remove();
+		});
+	
 		$(document).on("click", "#basicData-form button#check-form", function(){
 			
 			var dataObj = $("#basicData-form").serializeArray();
@@ -597,5 +630,26 @@ $(document).ready(function() {
 		$(".datepicker").datepicker({
 			format: 'yyyy/mm/dd'
 		})
+		
+		// search for container
+		/*$(document).on("click", "button#action-searchContainer", function(){
+			var container_num = $("input#container_num").val();
+			$get("url", container_num, function(response){
+				$("ul#container-result li span").each(function(){
+					$(this).text(response[$(this).attr("data-title")]);
+				});
+			});
+		});*/
+		
+		$(document).on("click", "button.action-cancel", function(){
+			$("containerSearch-form").reset();
+		});
+		
+		$(document).on("click", "#action-passReg", function(){
+			alert("已登记！");
+			
+			$("containerSearch-form").submit();
+			$("containerSearch-form").reset();
+		});
 	}
 });
