@@ -84,6 +84,21 @@ span.label-content {
 #content {
 	margin-left: 28px;
 }
+
+.form-page fieldset{
+	width: 700px;
+	margin: 0 auto;
+	
+}
+
+.form-actions, 
+legend {
+	text-align: center;
+}
+
+.form-page .form-actions {
+	padding-left: 0;
+}
 /*=== Basic End ===*/
 
 
