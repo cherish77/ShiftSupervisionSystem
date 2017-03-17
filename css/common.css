@@ -76,6 +76,14 @@ span.label-content {
 .btn-second {
 	margin-left: 10px;
 }
+
+#sidebar {
+	width: 228px;
+}
+
+#content {
+	margin-left: 28px;
+}
 /*=== Basic End ===*/
 
 
