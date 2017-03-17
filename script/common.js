@@ -78,8 +78,10 @@ $(document).ready(function() {
                         var txt, lb;
                         switch (data) {
                             case "weishenqing": txt = "未申请"; lb = "warning"; break;
-                            case "shenqingzhong": txt = "申请中"; lb = "success"; break;
+                            case "yishenqing": txt = "已申请"; lb = "success"; break;
                             case "weitongguo": txt = "未通过"; lb = "failed";break;
+							case "daifangxing": txt = "待放行"; lb = "warning";break;
+							case "yifangxing": txt = "已放行"; lb = "success";break;
 							
                             default: txt = "未知状态"; break;
                         }
@@ -161,8 +163,10 @@ $(document).ready(function() {
                         var txt, lb;
                         switch (data) {
                             case "weishenqing": txt = "未申请"; lb = "warning"; break;
-                            case "shenqingzhong": txt = "申请中"; lb = "success"; break;
+                            case "yishenqing": txt = "已申请"; lb = "success"; break;
                             case "weitongguo": txt = "未通过"; lb = "failed";break;
+							case "daifangxing": txt = "待放行"; lb = "warning";break;
+							case "yifangxing": txt = "已放行"; lb = "success";break;
 							
                             default: txt = "未知状态"; break;
                         }
@@ -269,9 +273,11 @@ $(document).ready(function() {
                     "render": function ( data, type, full, meta ) {
                         var txt, lb;
                         switch (data) {
-                            case "weishenqing": txt = "未申请"; lb = "warning"; break;
-                            case "shenqingzhong": txt = "申请中"; lb = "success"; break;
+							case "weishenqing": txt = "未申请"; lb = "warning"; break;
+							case "yishenqing": txt = "已申请"; lb = "success"; break;
                             case "weitongguo": txt = "未通过"; lb = "failed";break;
+							case "daifangxing": txt = "待放行"; lb = "warning";break;
+							case "yifangxing": txt = "已放行"; lb = "success";break;
 							
                             default: txt = "未知状态"; break;
                         }
@@ -356,14 +362,14 @@ $(document).ready(function() {
 					"visible": false,
 					"searchable": true
 				},
-				/*{
+				{
 					"targets": 5, 
                     "ordering": false, 
 					"searchable": false,
-					"render": function( data, type, full, meta ) {
-						return data;
+					"render": function( data, type, row ) {
+						return data + '<span class="icon-eye-open view-containers"></span>';
 					}
-				},*/
+				},
 				{
 					"targets": 15, 
                     "ordering": false, 
@@ -390,6 +396,19 @@ $(document).ready(function() {
 			});
 
 			$("button[data-target='.modal-dataDetail']").click();
+		});
+		
+		$("#toReleaseTable tbody").on("click", "tr .view-containers", function () {
+			var data = toReleaseTable.row($(this).closest("tr")).data();
+			// 加id参数，换url, 根据传回数据结构修改调用 container_num -> enter_time/leave_time
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+				$(".modal-containerDetail #container-list").html("");
+				for(var i=0; i < response.containers.length; i++) {
+					$(".modal-containerDetail #container-list").append('<li><p><label>集装箱号： </label><span data-title="container_num">' +response.containers[i].container_num + '</span></p><p><label>进场时间： </label><span data-title="enter-time">'+ response.containers[i].container_num + '</span></p><p><label>离场时间： </label><span data-title="leave-time">'+ response.containers[i].container_num +'</span></p></li>');
+				}
+				
+				$("button[data-target='.modal-containerDetail']").click();
+			});
 		});
 	}
 	
@@ -546,8 +565,10 @@ $(document).ready(function() {
                         var txt, lb;
                         switch (data) {
                             case "weishenqing": txt = "未申请"; lb = "warning"; break;
-                            case "shenqingzhong": txt = "申请中"; lb = "success"; break;
+                            case "yishenqing": txt = "已申请"; lb = "success"; break;
                             case "weitongguo": txt = "未通过"; lb = "failed";break;
+							case "daifangxing": txt = "待放行"; lb = "warning";break;
+							case "yifangxing": txt = "已放行"; lb = "success";break;
 							
                             default: txt = "未知状态"; break;
                         }
@@ -578,7 +599,7 @@ $(document).ready(function() {
 		/*
 		$(document).on("click", "#action-search", function(){
 			var formObj = $("#search-form").serializeArray();
-			$get("url", formObj, function(response){
+			$.get("url", formObj, function(response){
 
 			});
 		});
@@ -587,6 +608,35 @@ $(document).ready(function() {
 	
 	// dataInput page
 	if($("#dataInputPage").length > 0) {
+		// initialize the select
+		// url 需要修改
+		var optionObj;
+		$.ajax({
+			type:"get",
+			url: "https://cherish77.github.io/ShiftSupervisionSystem/data/optionInit.json",
+			cache: false,
+			async: false,
+			success: function(data){
+				optionObj = data;
+			}
+		});
+	// 接口需要细化
+	/*	$("select").each(function(){
+			for(var i=0; i< optionObj.options[0][$(this).attr("name")].length; i++) {
+				$(this).append('<option value="'+ optionObj.options[0][$(this).attr("name")][i] +'">' + optionObj.options[0][$(this).attr("name")][i] + '</option>');
+			}
+		});*/
+	
+	// console.log(optionObj.options[0]['forwardingCo'][1]);
+	
+		
+	/*	$("select").change(function(){
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/optionInit.json", function(response){
+					alert(response.options.length);
+			});
+		});
+	*/
+		//console.log(optionObj);
 		$(document).on("click", ".action-add", function(){
 			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span4 m-wrap ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
 		});
@@ -634,7 +684,7 @@ $(document).ready(function() {
 		// search for container
 		/*$(document).on("click", "button#action-searchContainer", function(){
 			var container_num = $("input#container_num").val();
-			$get("url", container_num, function(response){
+			$.get("url", container_num, function(response){
 				$("ul#container-result li span").each(function(){
 					$(this).text(response[$(this).attr("data-title")]);
 				});
