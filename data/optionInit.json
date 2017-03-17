@@ -11,14 +11,6 @@
 			"motorcade":["motorcade1", "motorcade2"] , 
 			"containerOwner":["containerOwner1", "containerOwner2"] , 
 			"status":["status1", "status2"]
-		}/*,
-		{ 
-			"firstName":"George" , 
-			"lastName":"Bush" 
-		},
-		{ 
-			"firstName":"Thomas" ,
-			"lastName":"Carter" 
-		}*/
+		}
 	]
 }
