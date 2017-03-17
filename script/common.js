@@ -186,7 +186,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-default action-edit">修改</button><button class="btn btn-primary">提交</button>';
+						return '<button class="btn btn-default action-edit">修改</button><button class="btn btn-primary btn-second">提交</button>';
 					}
 				}
 			]
@@ -297,7 +297,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-danger action-pass">流转</button><button class="btn btn-default action-reject">退回</button>';
+						return '<button class="btn btn-danger action-pass">流转</button><button class="btn btn-default btn-second action-reject">退回</button>';
 					}
 				}
 			]
