@@ -103,6 +103,10 @@ legend {
 label {
 	font-size: 15px;
 }
+
+.whole-block {
+	min-height: 680px;
+}
 /*=== Basic End ===*/
 
 

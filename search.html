@@ -8,10 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
 		<link rel="stylesheet" type="text/css" href="css/table.css" />
 		<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
-		<link rel="stylesheet" type="text/css" href="css/textbox.css" />
-		<link rel="stylesheet" type="text/css" href="css/combo.css" />
-		<link rel="stylesheet" type="text/css" href="css/combobox.css" />
-		<link rel="stylesheet" type="text/css" href="css/panel.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		
 		
@@ -24,7 +20,6 @@
 		<script type="text/javascript" src="script/datatable-extend.js"></script>
 		<script type="text/javascript" src="script/datepicker.js"></script>
 		<script type="text/javascript" src="script/common.js"></script>
-		<script type="text/javascript" src="script/easyui.js"></script>
 	</head>
 	<body>
 		<header>
@@ -73,7 +68,7 @@
 					<div class="span10" id="content">
 						<div class="row-fluid">
 							<!-- block -->
-							<div class="block">
+							<div class="block whole-block">
 								<div class="navbar navbar-inner block-header">
 									<div class="muted pull-left">
 										综合查询
@@ -81,7 +76,6 @@
 								</div>
 								<div class="block-content collapse in">
 									<form id="search-form" action="" method="" class="common-form" autocomplete="off" novalidate="novalidate">
-										<legend>设置查询条件</legend>
 										<div class="control-group">
 											<div id="searchItem-default" class="controls search-item">
 												<select class="search-select" name="search-select" class="chzn-select">
@@ -105,7 +99,7 @@
 												<input id="" name="depend" type="text" class="span3">
 												<span class="action-add icon-plus"></span>
 												<span class="action-remove icon-minus icon-white"></span>
-												<span class="text-muted">点击添加关键词</span>
+												<span class="text-muted">点击 + 号添加新的搜索条件，点击 - 号删除搜索条件</span>
 											</div>
 										</div>
 										 <div class="control-group form-inline">       
