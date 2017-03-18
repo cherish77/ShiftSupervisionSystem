@@ -544,8 +544,9 @@ $(document).ready(function() {
 		$(".search-select").change(function(event){
 			$('[value=""]', event.target).remove();
 		});
-	
+		
 		// search action
+		var searchTable;
 		$(document).on("click", "#action-search", function(){
 			// add search keywords to input name
 			
@@ -559,31 +560,51 @@ $(document).ready(function() {
 			// alert(formSerial);
 			
 			// post and reload the dataTable
-			var searchTable;
+			
 			$.ajax({  
-				url : "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json",  
-				type : "POST",  
-				async : false,  
-				data : formObj,
-				dataType : "json", 
+				url : "https://cherish77.github.io/ShiftSupervisionSystem/data/list_test.json", 
+				type: "GET", 
+				//type : "POST",  
+				async : false, 
+				//data : formObj,
+				//dataType : "json", 
 				success : function(data) {
-					if (typeof(searchTable) == "undefined") {  
-						alert("0");
+					if (typeof(searchTable) == "undefined") { 
+						//alert("0");
 					}
 					else {
-						alert("1");
-						searchTable.fnClearTable(false);//清空数据.fnClearTable();//清空数据  
+						//alert("1");
+						searchTable.fnClearTable();//清空数据.fnClearTable();//清空数据  
 						searchTable.fnDestroy(); //还原初始化了的datatable  
 					}
-					searchTable = $('#searchTable').dataTable({
+					searchTable = $('#searchTable').DataTable({
 						"sPaginationType": "bootstrap", 
 						"iDisplayLength" : 10,
-						"oLanguage" : oLanguageData,  
-						"aoColumns" : aoColumnsData,  
-						"aaData" : data,  
+						"bAutoWidth" : false,  
+						//"bDeferRender": true,
+						"oLanguage" : oLanguageData, 
+						"aaData" : data.myData, 
+						"columns" : [ 
+							{"data" : "zhuanguan_num" }, 
+							{"data" : "baoguan_num" }, 
+							{"data" : "huodai_comp_text" }, 
+							{"data" : "baoguan_comp_text" }, 
+							{"data" : "harbour" }, 
+							{"data" : "container_account" }, 
+							{"data" : "total_count" }, 
+							{"data" : "total_weight" }, 
+							{"data" : "package_type" }, 
+							{"data" : "source_area" }, 
+							{"data" : "tiyun_num" }, 
+							{"data" : "prod_name" }, 
+							{"data" : "warehouse" }, 
+							{"data" : "chedui" }, 
+							{"data" : "xiangzhu" }, 
+							{"data" : "form_status" }
+						], 			
 						"bDestroy" : true,  
 						"retrieve": true,//保证只有一个table实例  
-						"aoColumnDefs": [  
+						"columnDefs": [  
 							{
 								"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
 								"visible": false,
@@ -624,7 +645,7 @@ $(document).ready(function() {
 		}); 
 		
 		// view detail
-		$("#searchTable tbody").on("click", "tr .action-detail", function () {
+		$(document).on("click", "#searchTable tbody tr .action-detail", function () {
 			var data = searchTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
@@ -632,7 +653,7 @@ $(document).ready(function() {
 
 			$("button[data-target='.modal-dataDetail']").click();
 		});
-	}  
+	} 
 		
 		
 		// dataTable
