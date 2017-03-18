@@ -99,6 +99,10 @@ legend {
 .form-page .form-actions {
 	padding-left: 0;
 }
+
+label {
+	font-size: 15px;
+}
 /*=== Basic End ===*/
 
 

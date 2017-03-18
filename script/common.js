@@ -1,6 +1,40 @@
 // identify current host
-	var current_page = window.location.href;
-	var current_path = current_page.substring(current_page.lastIndexOf("/") + 1, current_page.length);
+var current_page = window.location.href;
+var current_path = current_page.substring(current_page.lastIndexOf("/") + 1, current_page.length);
+
+var oLanguageData = {  
+    "sLengthMenu": "每页显示 _MENU_ 条记录",
+	"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
+	"oPaginate": {
+		"sFirst": "首页",
+		"sPrevious": "前一页",
+		"sNext": "后一页",
+		"sLast": "末页"
+	},
+	"sPocessing": "正在加载请稍候...", 
+	"sZeroRecords": "抱歉， 没有找到", 
+	"sInfoEmpty": "没有数据",
+	"sSearch": "搜索： "
+}; 
+
+var aoColumnsData = [ 
+	{"data" : "zhuanguan_num" }, 
+	{"data" : "baoguan_num" }, 
+	{"data" : "huodai_comp_text" }, 
+	{"data" : "baoguan_comp_text" }, 
+	{"data" : "harbour" }, 
+	{"data" : "container_account" }, 
+	{"data" : "total_count" }, 
+	{"data" : "total_weight" }, 
+	{"data" : "package_type" }, 
+	{"data" : "source_area" }, 
+	{"data" : "tiyun_num" }, 
+	{"data" : "prod_name" }, 
+	{"data" : "warehouse" }, 
+	{"data" : "chedui" }, 
+	{"data" : "xiangzhu" }, 
+	{"data" : "form_status" }
+]; 
 
 // Dom Ready
 $(document).ready(function() {
@@ -506,14 +540,103 @@ $(document).ready(function() {
 			$(this).closest(".search-item").remove();
 		});
 	
-		// search select
+		// remove select prompt
 		$(".search-select").change(function(event){
 			$('[value=""]', event.target).remove();
-			alert();
 		});
 	
+		// search action
+		$(document).on("click", "#action-search", function(){
+			// add search keywords to input name
+			
+			// there's no need to remove blank select beacause we only catch the useful keywords
+			$("#search-form select").each(function(){
+				$(this).next().attr("name", $(this).val());
+			});
+				
+			var formObj = $("#search-form").serializeArray();
+			// var formSerial = $("#search-form").serialize();
+			// alert(formSerial);
+			
+			// post and reload the dataTable
+			var searchTable;
+			$.ajax({  
+				url : "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json",  
+				type : "POST",  
+				async : false,  
+				data : formObj,
+				dataType : "json", 
+				success : function(data) {
+					if (typeof(searchTable) == "undefined") {  
+						//$('#searchTable').show();
+						alert("0");
+					}
+					else {
+						alert("1");
+						searchTable.fnClearTable(false);//清空数据.fnClearTable();//清空数据  
+						searchTable.fnDestroy(); //还原初始化了的datatable  
+					}
+					searchTable = $('#searchTable').dataTable({
+						"sPaginationType": "bootstrap", 
+						"iDisplayLength" : 10,
+						"oLanguage" : oLanguageData,  
+						"aoColumns" : aoColumnsData,  
+						"aaData" : data,  
+						"bDestroy" : true,  
+						"retrieve": true,//保证只有一个table实例  
+						"aoColumnDefs": [  
+							{
+								"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
+								"visible": false,
+								"searchable": true
+							},
+							{
+								"targets": 15,
+								//"searchable": false,
+								"render": function ( data, type, full, meta ) {
+									var txt, lb;
+									switch (data) {
+										case "weishenqing": txt = "未申请"; lb = "warning"; break;
+										case "yishenqing": txt = "已申请"; lb = "success"; break;
+										case "weitongguo": txt = "未通过"; lb = "failed";break;
+										case "daifangxing": txt = "待放行"; lb = "warning";break;
+										case "yifangxing": txt = "已放行"; lb = "success";break;
+										
+										default: txt = "未知状态"; break;
+									}
+									return "<span class=\"label label-" + lb + "\">" + txt + "</span>";
+								}
+							},
+							{
+								"targets": 16, 
+								"ordering": false, 
+								"searchable": false,
+								"render": function( data, type, full, meta ) {
+									return '<button class="btn btn-info action-detail">详细</button>';
+								}
+							}   
+						]
+						  
+					});
+				}
+			});  
+
+		}); 
+		
+		// view detail
+		$("#searchTable tbody").on("click", "tr .action-detail", function () {
+			var data = searchTable.row($(this).closest("tr")).data();
+			$(".modal-dataDetail ul li span").each(function(){
+				$(this).text(data[$(this).attr("data-title")]);
+			});
+
+			$("button[data-target='.modal-dataDetail']").click();
+		});
+	}  
+		
+		
 		// dataTable
-		var searchTable = $("#searchTable").DataTable({
+	/*	var searchTable = $("#searchTable").DataTable({
 			//"bStateSave": true,
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
@@ -585,15 +708,8 @@ $(document).ready(function() {
 				}
 			]
 		});
-
-		$("#searchTable tbody").on("click", "tr .action-detail", function () {
-			var data = searchTable.row($(this).closest("tr")).data();
-			$(".modal-dataDetail ul li span").each(function(){
-				$(this).text(data[$(this).attr("data-title")]);
-			});
-
-			$("button[data-target='.modal-dataDetail']").click();
-		});
+*/
+		
 	
 		
 		/*
@@ -604,7 +720,6 @@ $(document).ready(function() {
 			});
 		});
 		*/
-	}
 	
 	// dataInput page
 	if($("#dataInputPage").length > 0) {
@@ -629,16 +744,8 @@ $(document).ready(function() {
 	
 	// console.log(optionObj.options[0]['forwardingCo'][1]);
 	
-		
-	/*	$("select").change(function(){
-			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/optionInit.json", function(response){
-					alert(response.options.length);
-			});
-		});
-	*/
-		//console.log(optionObj);
 		$(document).on("click", ".action-add", function(){
-			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span4 m-wrap ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
+			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span8 m-wrap ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
 		});
 	
 		$(document).on("click", ".action-remove", function(){
