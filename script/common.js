@@ -500,11 +500,12 @@ $(document).ready(function() {
 			}
 		});
 		// 数据调用方法需要根据接口返回变量的属性名修改
-		/*$("select").each(function(){
-			for(var i=0; i< optionObj.options[0][$(this).attr("name")].length; i++) {
-				$(this).append('<option value="'+ optionObj.options[0][$(this).attr("name")][i] +'">' + optionObj.options[0][$(this).attr("name")][i] + '</option>');
+		$("select").each(function(){
+			for(var i=0; i<optionObj[$(this).attr("name").toUpperCase()].length; i++) {
+				$(this).append('<option value="'+ optionObj[$(this).attr("name").toUpperCase()][i].item_value +'">' + optionObj[$(this).attr("name").toUpperCase()][i].item_name + '</option>');
 			}
-		});*/
+		});
+		console.log(optionObj);
 		
 		// console.log(optionObj.options[0]['forwardingCo'][1]);
 		
