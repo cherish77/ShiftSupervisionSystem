@@ -1,7 +1,7 @@
 // identify current host
 var current_page = window.location.href;
 var current_path = current_page.substring(current_page.lastIndexOf("/") + 1, current_page.length);
-
+// dataTable config
 var oLanguageData = {  
     "sLengthMenu": "每页显示 _MENU_ 条记录",
 	"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
@@ -45,10 +45,6 @@ $(document).ready(function() {
         success: function(data) {
 			for(var i=0; i<data.length; i++){
 				$("#main-menu").append('<li class="inactive"><a href="' + data[i].url + '" target="_self"><span class="icon-chevron-right"></span>' + data[i].res_name + '</a></li>');
-				
-				/*$(".template-menuItem li a").attr("href", data[i].url).html('<span class="icon-chevron-right"></span>' + data[i].res_name);
-				var $item = $(".template-menuItem").html();
-				$("#main-menu").append($item);*/
 			}
 			$("#main-menu li a[href='" + current_path + "']").closest("li").attr("class", "active");
         }
@@ -65,40 +61,10 @@ $(document).ready(function() {
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
-			"oLanguage": {
-				"sLengthMenu": "每页显示 _MENU_ 条记录",
-				"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
-				"oPaginate": {
-					"sFirst": "首页",
-					"sPrevious": "前一页",
-					"sNext": "后一页",
-					"sLast": "末页"
-				},
-				"sProcessing": "正在加载请稍候...", 
-				"sZeroRecords": "抱歉， 没有找到", 
-				"sInfoEmpty": "没有数据",
-				"sSearch": "搜索： "
-			},
+			"oLanguage": oLanguageData,
 			//"ajax": "../data/basicData.json", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
-			"columns": [
-				{"data" : "zhuanguan_num" }, 
-				{"data" : "baoguan_num" }, 
-				{"data" : "huodai_comp_text" }, 
-				{"data" : "baoguan_comp_text" }, 
-				{"data" : "harbour" }, 
-				{"data" : "container_account" }, 
-				{"data" : "total_count" }, 
-				{"data" : "total_weight" }, 
-				{"data" : "package_type" }, 
-				{"data" : "source_area" }, 
-				{"data" : "tiyun_num" }, 
-				{"data" : "prod_name" }, 
-				{"data" : "warehouse" }, 
-				{"data" : "chedui" }, 
-				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" }
-			], 
+			"columns": aoColumnsData, 
 			"columnDefs": [
 			   {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
@@ -150,40 +116,10 @@ $(document).ready(function() {
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
-			"oLanguage": {
-				"sLengthMenu": "每页显示 _MENU_ 条记录",
-				"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
-				"oPaginate": {
-					"sFirst": "首页",
-					"sPrevious": "前一页",
-					"sNext": "后一页",
-					"sLast": "末页"
-				},
-				"sProcessing": "正在加载请稍候...", 
-				"sZeroRecords": "抱歉， 没有找到", 
-				"sInfoEmpty": "没有数据",
-				"sSearch": "搜索： "
-			},
+			"oLanguage": oLanguageData,
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
-			"columns": [
-				{"data" : "zhuanguan_num" }, 
-				{"data" : "baoguan_num" }, 
-				{"data" : "huodai_comp_text" }, 
-				{"data" : "baoguan_comp_text" }, 
-				{"data" : "harbour" }, 
-				{"data" : "container_account" }, 
-				{"data" : "total_count" }, 
-				{"data" : "total_weight" }, 
-				{"data" : "package_type" }, 
-				{"data" : "source_area" }, 
-				{"data" : "tiyun_num" }, 
-				{"data" : "prod_name" }, 
-				{"data" : "warehouse" }, 
-				{"data" : "chedui" }, 
-				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" }
-			], 
+			"columns": aoColumnsData, 
 			"columnDefs": [
 			   {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
@@ -261,40 +197,10 @@ $(document).ready(function() {
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
-			"oLanguage": {
-				"sLengthMenu": "每页显示 _MENU_ 条记录",
-				"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
-				"oPaginate": {
-					"sFirst": "首页",
-					"sPrevious": "前一页",
-					"sNext": "后一页",
-					"sLast": "末页"
-				},
-				"sProcessing": "正在加载请稍候...", 
-				"sZeroRecords": "抱歉， 没有找到", 
-				"sInfoEmpty": "没有数据",
-				"sSearch": "搜索： "
-			},
+			"oLanguage": oLanguageData,
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
-			"columns": [
-				{"data" : "zhuanguan_num" }, 
-				{"data" : "baoguan_num" }, 
-				{"data" : "huodai_comp_text" }, 
-				{"data" : "baoguan_comp_text" }, 
-				{"data" : "harbour" }, 
-				{"data" : "container_account" }, 
-				{"data" : "total_count" }, 
-				{"data" : "total_weight" }, 
-				{"data" : "package_type" }, 
-				{"data" : "source_area" }, 
-				{"data" : "tiyun_num" }, 
-				{"data" : "prod_name" }, 
-				{"data" : "warehouse" }, 
-				{"data" : "chedui" }, 
-				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" }
-			], 
+			"columns": aoColumnsData, 
 			"columnDefs": [
 			   {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
@@ -355,41 +261,10 @@ $(document).ready(function() {
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
-			"oLanguage": {
-				"sLengthMenu": "每页显示 _MENU_ 条记录",
-				"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
-				"oPaginate": {
-					"sFirst": "首页",
-					"sPrevious": "前一页",
-					"sNext": "后一页",
-					"sLast": "末页"
-				},
-				"sProcessing": "正在加载请稍候...", 
-				"sZeroRecords": "抱歉， 没有找到", 
-				"sInfoEmpty": "没有数据",
-				"sSearch": "搜索： "
-			},
+			"oLanguage": oLanguageData,
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
-			"columns": [
-				{"data" : "zhuanguan_num" }, 
-				{"data" : "baoguan_num" }, 
-				{"data" : "huodai_comp_text" }, 
-				{"data" : "baoguan_comp_text" }, 
-				{"data" : "harbour" }, 
-				{"data" : "container_account" }, 
-				{"data" : "total_count" }, 
-				{"data" : "total_weight" }, 
-				{"data" : "package_type" }, 
-				{"data" : "source_area" }, 
-				{"data" : "tiyun_num" }, 
-				{"data" : "prod_name" }, 
-				{"data" : "warehouse" }, 
-				{"data" : "chedui" }, 
-				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" },
-				/*{"data" : "container_released_account"}*/
-			], 
+			"columns": aoColumnsData, 
 			"columnDefs": [
 			   {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
@@ -454,40 +329,10 @@ $(document).ready(function() {
 			"sPaginationType": "bootstrap", 
 			"iDisplayLength": 10, 
 			"bDeferRender": true,
-			"oLanguage": {
-				"sLengthMenu": "每页显示 _MENU_ 条记录",
-				"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
-				"oPaginate": {
-					"sFirst": "首页",
-					"sPrevious": "前一页",
-					"sNext": "后一页",
-					"sLast": "末页"
-				},
-				"sProcessing": "正在加载请稍候...", 
-				"sZeroRecords": "抱歉， 没有找到", 
-				"sInfoEmpty": "没有数据",
-				"sSearch": "搜索： "
-			},
+			"oLanguage": oLanguageData,
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
 			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
-			"columns": [
-				{"data" : "zhuanguan_num" }, 
-				{"data" : "baoguan_num" }, 
-				{"data" : "huodai_comp_text" }, 
-				{"data" : "baoguan_comp_text" }, 
-				{"data" : "harbour" }, 
-				{"data" : "container_account" }, 
-				{"data" : "total_count" }, 
-				{"data" : "total_weight" }, 
-				{"data" : "package_type" }, 
-				{"data" : "source_area" }, 
-				{"data" : "tiyun_num" }, 
-				{"data" : "prod_name" }, 
-				{"data" : "warehouse" }, 
-				{"data" : "chedui" }, 
-				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" }
-			], 
+			"columns": aoColumnsData, 
 			"columnDefs": [
 			   {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
@@ -584,24 +429,7 @@ $(document).ready(function() {
 						//"bDeferRender": true,
 						"oLanguage" : oLanguageData, 
 						"aaData" : data.myData, 
-						"columns" : [ 
-							{"data" : "zhuanguan_num" }, 
-							{"data" : "baoguan_num" }, 
-							{"data" : "huodai_comp_text" }, 
-							{"data" : "baoguan_comp_text" }, 
-							{"data" : "harbour" }, 
-							{"data" : "container_account" }, 
-							{"data" : "total_count" }, 
-							{"data" : "total_weight" }, 
-							{"data" : "package_type" }, 
-							{"data" : "source_area" }, 
-							{"data" : "tiyun_num" }, 
-							{"data" : "prod_name" }, 
-							{"data" : "warehouse" }, 
-							{"data" : "chedui" }, 
-							{"data" : "xiangzhu" }, 
-							{"data" : "form_status" }
-						], 			
+						"columns" : aoColumnsData, 			
 						"bDestroy" : true,  
 						"retrieve": true,//保证只有一个table实例  
 						"columnDefs": [  
@@ -653,94 +481,7 @@ $(document).ready(function() {
 
 			$("button[data-target='.modal-dataDetail']").click();
 		});
-	} 
-		
-		
-		// dataTable
-	/*	var searchTable = $("#searchTable").DataTable({
-			//"bStateSave": true,
-			"sPaginationType": "bootstrap", 
-			"iDisplayLength": 10, 
-			"bDeferRender": true,
-			"oLanguage": {
-				"sLengthMenu": "每页显示 _MENU_ 条记录",
-				"sInfo": "从第_START_到第_END_条记录 / 共 _TOTAL_ 条数据",
-				"oPaginate": {
-					"sFirst": "首页",
-					"sPrevious": "前一页",
-					"sNext": "后一页",
-					"sLast": "末页"
-				},
-				"sPocessing": "正在加载请稍候...", 
-				"sZeroRecords": "抱歉， 没有找到", 
-				"sInfoEmpty": "没有数据",
-				"sSearch": "搜索： "
-			},
-			//"ajax": "http://106.14.57.23:6060/appform/list", 
-			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
-			"columns": [
-				{"data" : "zhuanguan_num" }, 
-				{"data" : "baoguan_num" }, 
-				{"data" : "huodai_comp_text" }, 
-				{"data" : "baoguan_comp_text" }, 
-				{"data" : "harbour" }, 
-				{"data" : "container_account" }, 
-				{"data" : "total_count" }, 
-				{"data" : "total_weight" }, 
-				{"data" : "package_type" }, 
-				{"data" : "source_area" }, 
-				{"data" : "tiyun_num" }, 
-				{"data" : "prod_name" }, 
-				{"data" : "warehouse" }, 
-				{"data" : "chedui" }, 
-				{"data" : "xiangzhu" }, 
-				{"data" : "form_status" }
-			], 
-			"columnDefs": [
-			   {
-					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
-					"visible": false,
-					"searchable": true
-				},
-				{
-                    "targets": 15,
-					//"searchable": false,
-                    "render": function ( data, type, full, meta ) {
-                        var txt, lb;
-                        switch (data) {
-                            case "weishenqing": txt = "未申请"; lb = "warning"; break;
-                            case "yishenqing": txt = "已申请"; lb = "success"; break;
-                            case "weitongguo": txt = "未通过"; lb = "failed";break;
-							case "daifangxing": txt = "待放行"; lb = "warning";break;
-							case "yifangxing": txt = "已放行"; lb = "success";break;
-							
-                            default: txt = "未知状态"; break;
-                        }
-                        return "<span class=\"label label-" + lb + "\">" + txt + "</span>";
-                    }
-                },
-				{
-					"targets": 16, 
-                    "ordering": false, 
-					"searchable": false,
-					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info action-detail">详细</button>';
-					}
-				}
-			]
-		});
-*/
-		
-	
-		
-		/*
-		$(document).on("click", "#action-search", function(){
-			var formObj = $("#search-form").serializeArray();
-			$.get("url", formObj, function(response){
-
-			});
-		});
-		*/
+	}
 	
 	// dataInput page
 	if($("#dataInputPage").length > 0) {
