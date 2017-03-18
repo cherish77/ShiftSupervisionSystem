@@ -172,19 +172,32 @@ $(document).ready(function() {
 		});
 		
 		$("#flowTable tbody").on("click", "tr .action-edit", function () {
-			var data = flowTable.row($(this).closest("tr")).data();
+			var editData = flowTable.row($(this).closest("tr")).data();
 			
-			$(".modal-changeInput .controls").each(function(){
-				if($(this).children()[0].nodeName.toLowerCase() == "input") {
-					$(this).children().attr("value", data[$(this).children().attr("name")]);
+			var optionObj;
+			$.ajax({
+				type:"get",
+				url: "https://cherish77.github.io/ShiftSupervisionSystem/data/optionInitTest.json",
+				//url : "Index!queryParams",
+				cache: false,
+				async: false,
+				success: function(data){
+					optionObj = data;
 				}
-				else {
-					$(this).find("option[value=" + data[$(this).children().attr("name")] + "]").attr("selected", "selected");
-					//$(this).find("option[value='2']").attr("selected", "selected");
-				}
-				
 			});
 			
+			$(".modal-changeInput input").each(function(){
+				$(this).attr("value", editData[$(this).attr("name")]);
+			});
+			
+			$(".modal-changeInput select").each(function(){
+				for(var i=0; i<optionObj[$(this).attr("id").toUpperCase()].length; i++) {
+					$(this).append('<option value="'+ optionObj[$(this).attr("id").toUpperCase()][i].item_value +'">' + optionObj[$(this).attr("id").toUpperCase()][i].item_name + '</option>');
+				}
+
+				$(this).find("option[value=" + editData[$(this).attr("name")] + "]").attr("selected", "selected");
+			});
+				
 			$("button[data-target='.modal-changeInput']").click();
 		});
 	}
@@ -505,9 +518,6 @@ $(document).ready(function() {
 				$(this).append('<option value="'+ optionObj[$(this).attr("name").toUpperCase()][i].item_value +'">' + optionObj[$(this).attr("name").toUpperCase()][i].item_name + '</option>');
 			}
 		});
-		console.log(optionObj);
-		
-		// console.log(optionObj.options[0]['forwardingCo'][1]);
 		
 		$('select[name="package_type"]').find('option[value="morenbao"]')[1].remove();
 		
