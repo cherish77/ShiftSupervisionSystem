@@ -491,7 +491,8 @@ $(document).ready(function() {
 		var optionObj;
 		$.ajax({
 			type:"get",
-			url: "https://cherish77.github.io/ShiftSupervisionSystem/data/optionInit.json",
+			url: "https://cherish77.github.io/ShiftSupervisionSystem/data/optionInitTest.json",
+			//url : "Index!queryParams",
 			cache: false,
 			async: false,
 			success: function(data){
@@ -499,11 +500,11 @@ $(document).ready(function() {
 			}
 		});
 		// 数据调用方法需要根据接口返回变量的属性名修改
-		$("select").each(function(){
+		/*$("select").each(function(){
 			for(var i=0; i< optionObj.options[0][$(this).attr("name")].length; i++) {
 				$(this).append('<option value="'+ optionObj.options[0][$(this).attr("name")][i] +'">' + optionObj.options[0][$(this).attr("name")][i] + '</option>');
 			}
-		});
+		});*/
 		
 		// console.log(optionObj.options[0]['forwardingCo'][1]);
 		
