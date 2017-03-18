@@ -568,7 +568,6 @@ $(document).ready(function() {
 				dataType : "json", 
 				success : function(data) {
 					if (typeof(searchTable) == "undefined") {  
-						//$('#searchTable').show();
 						alert("0");
 					}
 					else {
@@ -618,6 +617,7 @@ $(document).ready(function() {
 						]
 						  
 					});
+					$('#searchTable').show();
 				}
 			});  
 
