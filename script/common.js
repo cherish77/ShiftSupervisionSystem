@@ -497,14 +497,14 @@ $(document).ready(function() {
 				optionObj = data;
 			}
 		});
-	// 接口需要细化
-	/*	$("select").each(function(){
+		// 数据调用方法需要根据接口返回变量的属性名修改
+		$("select").each(function(){
 			for(var i=0; i< optionObj.options[0][$(this).attr("name")].length; i++) {
 				$(this).append('<option value="'+ optionObj.options[0][$(this).attr("name")][i] +'">' + optionObj.options[0][$(this).attr("name")][i] + '</option>');
 			}
-		});*/
+		});
 	
-	// console.log(optionObj.options[0]['forwardingCo'][1]);
+		// console.log(optionObj.options[0]['forwardingCo'][1]);
 	
 		$(document).on("click", ".action-add", function(){
 			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span8 m-wrap ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
