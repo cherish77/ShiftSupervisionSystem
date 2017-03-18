@@ -324,11 +324,14 @@ $(document).ready(function() {
 			var data = toReleaseTable.row($(this).closest("tr")).data();
 			// 加id参数，换url, 根据传回数据结构修改调用 container_num -> enter_time/leave_time
 			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
-				$(".modal-containerDetail #container-list").html("");
-				for(var i=0; i < response.containers.length; i++) {
-					$(".modal-containerDetail #container-list").append('<li><p><label>集装箱号： </label><span data-title="container_num">' +response.containers[i].container_num + '</span></p><p><label>进场时间： </label><span data-title="enter-time">'+ response.containers[i].container_num + '</span></p><p><label>离场时间： </label><span data-title="leave-time">'+ response.containers[i].container_num +'</span></p></li>');
+				$(".modal-containerDetail tbody").html("");
+				for(var i=0; i < response.length; i++) {
+					$(".modal-containerDetail tbody").append('<tr><td>' + response.container_num + '</td><td>' + response.enter_time + '</td><td>' + response.leave_time + '</td><td>' + response.jinchang_time + '</td></tr>');
+					
+				/*	$(".modal-containerDetail tbody").append('<li><p><label>集装箱号： </label><span data-title="container_num">' +response.containers[i].container_num + '</span></p><p><label>进场时间： </label><span data-title="enter-time">'+ response.containers[i].container_num + '</span></p><p><label>离场时间： </label><span data-title="leave-time">'+ response.containers[i].container_num +'</span></p></li>');*/
 				}
 				
+				console.log(response);
 				$("button[data-target='.modal-containerDetail']").click();
 			});
 		});
