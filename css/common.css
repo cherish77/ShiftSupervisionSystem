@@ -35,15 +35,23 @@ h1 {
 	padding: 20px;
 	max-width: 100%;
 }
-
+/*--- modal ---*/
 .modal {
+	padding: 10px 20px;
 	display: none;
+}
+
+.modal.fade.in {
+	top: 1%;
+}
+
+.modal .modal-body {
+	max-height: 578px;
 }
 
 .modal-title {
 	text-align: center;
 }
-
 
 span.label-content {
 	display: inline-block;
@@ -172,22 +180,11 @@ label {
 	background-color: transparent;
 }
 
-/*--- modal ---*/
-.modal {
-	padding: 10px 20px;
-}
 
-.modal.fade.in {
-	top: 3%;
-}
-
-.modal .modal-body {
-	max-height: 630px;
-}
 
 /* list */
 ul.detail-list li {
-	margin-bottom: 15px;
+	margin-bottom: 12px;
 }
 
 /*--- control ---*/
