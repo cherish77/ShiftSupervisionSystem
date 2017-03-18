@@ -170,16 +170,15 @@ label {
 
 /*--- modal ---*/
 .modal {
-	
 	padding: 10px 20px;
 }
 
 .modal.fade.in {
-	top: 5%;
+	top: 3%;
 }
 
 .modal .modal-body {
-	max-height: 750px;
+	max-height: 630px;
 }
 
 /* list */
