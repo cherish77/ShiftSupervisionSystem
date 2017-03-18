@@ -1,0 +1,289 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>数据录入 - 移位监管系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/uniform.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		
+		<script type="text/javascript" src="script/jquery.js"></script>
+		<script type="text/javascript" src="script/modernizr.js"></script>
+		<script type="text/javascript" src="script/bootstrap.js"></script>
+		<script type="text/javascript" src="script/uniform.js"></script>
+		<script type="text/javascript" src="script/chosen.js"></script>
+		<script type="text/javascript" src="script/common.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<main id="dataInputPage" class="form-page">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container-fluid">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">移位监管</a>
+						<div class="nav-collapse collapse">
+							<ul class="nav pull-right">
+								<li class="dropdown">
+									<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="icon-user"></span>沈游人<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a tabindex="-1" href="#">账号资料</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a tabindex="-1" href="">注销</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2" id="sidebar">
+						<ul id="main-menu" class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+						</ul>
+					</div>
+					<div class="span10" id="content">
+						<div class="row-fluid">
+							<div class="block">
+								<div class="navbar navbar-inner block-header">
+									<div class="muted pull-left">
+										数据录入
+									</div>
+								</div>
+								<div class="block-content collapse in">
+									<div class="span12">
+										<form action="" method="post" id="basicData-form" class="common_form form-horizontal" autocomplete="off" novalidate="novalidate">
+											<fieldset>
+												<div class="alert alert-error hide">
+													<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>输入的信息不正确
+												</div>
+												<legend>基础数据</legend>
+														
+												<div class="control-group">
+													<label class="control-label" for="zhuanguan_num">转关单号</label>
+													<div class="controls">
+														<input name="zhuanguan_num" type="text" class="span8">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="baoguan_num">报关单号</label>
+													<div class="controls">
+														<input name="baoguan_num" type="text" class="span8">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="huodai_comp_text">货代公司 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="huodai_comp_text" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="businessUnit">经营单位 <span class="required">*</span></label>
+													<div class="controls">
+														<select id="businessUnit" name="businessUnit" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="baoguan_comp_text">报关公司 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="baoguan_comp_text" class="chzn-select span8">
+														</select>
+													</div>	
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="harbour">到港口岸 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="harbour" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="container_account">集装箱数 <span class="required">*</span></label>
+													<div class="controls">
+														<input class="required" name="container_account" type="number" class="span6" data-bv-notempty-message="请输入集装箱数">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="containerType">集装箱型号 <span class="required">*</span></label>
+													<div class="controls">
+														<select id="containerType" name="containerType" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
+													<div id="container-default" class="controls">
+														<input name="containerNo" type="text" class="span8 m-wrap ui-autocomplete-input" placeholder="添加以录入所有集装箱号" value="" autocomplete="off"><span class="action-add icon-plus"></span><span class="action-remove icon-minus icon-white"></span><span class="text-muted">点击添加</span>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
+													<div class="controls">
+														<input name="total_count" type="number" class="span6 m-wrap ui-autocomplete-input" value="" autocomplete="off" min="1">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="total_weight">毛重 （KG） <span class="required">*</span></label>
+													<div class="controls">
+														<input name="total_weight" type="text" class="span6 m-wrap ui-autocomplete-input" value="" autocomplete="off">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="package_type">包装种类 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="package_type" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="source_area">原产地 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="source_area" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="tiyun_num">提运单号 <span class="required">*</span></label>
+													<div class="controls">
+														<input name="tiyun_num" type="text" class="span8 m-wrap ui-autocomplete-input" value="" autocomplete="on">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="prod_name">商品名称 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="prod_name" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="warehouse">存放地 <span class="required">*</span></label>
+													<div class="controls">
+														<input name="warehouse" type="text" class="span8 m-wrap ui-autocomplete-input" value="" autocomplete="on">
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="chedui">车队 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="chedui" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="xiangzhu">箱主 <span class="required">*</span></label>
+													<div class="controls">
+														<select name="xiangzhu" class="chzn-select span8">
+														</select>
+													</div>
+												</div>
+												<div class="control-group hide">
+													<label class="control-label" for="submitOrNot">是否提交</label>
+													<div class="controls">
+														<input id="submitOrNot" type="text" name="submitOrNot" value="no"></input>
+													</div>
+												</div>
+											</fieldset>
+											<div class="form-actions">
+												<button class="btn" id="save-form"">保存</button>
+												<button class="btn btn-primary action-sure" id="check-form">保存并提交</button>
+												<button class="hide" data-toggle="modal" data-target=".modal-checkInput"></button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</main>
+		<footer>
+		</footer>
+		<div class="modal fade modal-checkInput" tabindex="-1" role="dialog" aria-labelledby="checkInputModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title checkInputModal">请确认信息是否正确</h4>
+					</div>
+					<div class="modal-body">
+						<ul class="detail-list">
+							<li>
+								<label>转关单号： </label><span data-title="zhuanguan_num">510251365425524</span>
+							</li>
+							<li>
+								<label>报关单号： </label><span data-title="baoguan_num">AA9500064236</span>
+							</li>
+							<li>
+								<label>货代公司： </label><span data-title="huodai_comp_text">远洋物流</span>
+							</li>
+							<li>
+								<label>经营单位： </label><span data-title="businessUnit">美国百事公司</span>
+							</li>
+							<li>
+								<label>报关公司： </label><span data-title="baoguan_comp_text">杭州中外运报关有限公司</span>
+							</li>
+							<li>
+								<label>到港口岸： </label><span data-title="harbour">宁波港</span>
+							</li>
+							<li>
+								<label>集装箱数： </label><span data-title="container_account">25</span>
+							</li>
+							<li>
+								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
+							</li>
+							<li>
+								<label>集装箱号： </label><span data-title="containerNo">KNYY7844635</span>
+							</li>
+							<li>
+								<label>件数： </label><span data-title="total_count">100</span>
+							</li>
+							<li>
+								<label>毛重(KG)： </label><span data-title="total_weight">2305</span>
+							</li>
+							
+							<li>
+								<label>包装种类： </label><span data-title="package_type">默认包</span>
+							</li>
+							<li>
+								<label>原产地： </label><span data-title="source_area">新疆</span>
+							</li>
+							<li>
+								<label>提运单号： </label><span data-title="tiyun_num">ZN7845102562576362</span>
+							</li>
+							<li>
+								<label>商品名称： </label><span data-title="prod_name">芒果</span>
+							</li>
+							<li>
+								<label>存放地： </label><span data-title="warehouse">杭州 - 3号货仓</span>
+							</li>
+							<li>
+								<label>车队： </label><span data-title="chedui">默认车队 - 1</span>
+							</li>
+							<li>
+								<label>箱主： </label><span data-title="xiangzhu">杜宇</span>
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">返回修改</button>
+						<button type="button" class="btn btn-primary sureToSubmit" data-dismiss="modal">确认提交</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</body>
+</html>

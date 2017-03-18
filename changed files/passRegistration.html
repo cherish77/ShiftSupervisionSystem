@@ -1,0 +1,208 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>进出场登记 - 移位监管系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/uniform.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		
+		<script type="text/javascript" src="script/jquery.js"></script>
+		<script type="text/javascript" src="script/modernizr.js"></script>
+		<script type="text/javascript" src="script/bootstrap.js"></script>
+		<script type="text/javascript" src="script/uniform.js"></script>
+		<script type="text/javascript" src="script/chosen.js"></script>
+		<script type="text/javascript" src="script/dataTables.js"></script>
+		<script type="text/javascript" src="script/datatable-extend.js"></script>
+		<script type="text/javascript" src="script/datepicker.js"></script>
+		<script type="text/javascript" src="script/common.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<main id="passRegistrationPage" class="form-page">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container-fluid">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">移位监管</a>
+						<div class="nav-collapse collapse">
+							<ul class="nav pull-right">
+								<li class="dropdown">
+									<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="icon-user"></span>沈游人<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a tabindex="-1" href="#">账号资料</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a tabindex="-1" href="">注销</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<!--ul class="nav">
+								<li class="active">
+									<a href="index.html">首页</a>
+								</li>
+							</ul-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2" id="sidebar">
+						<ul id="main-menu" class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+							<!--li class="inactive">
+								<a href="index.html" target="_self"><span class="icon-chevron-right"></span>首页 </a>
+							</li>
+							<li class="inactive">
+								<a href="flowTable.html" target="_self"><span class="icon-chevron-right"></span>流转列表</a>
+							</li>
+							<li class="inactive">
+								<a href="applicationTable.html" target="_self"><span class="icon-chevron-right"></span>申请列表</a>
+							</li>
+							<li class="inactive">
+								<a href="toReleaseTable.html" target="_self"><span class="icon-chevron-right"></span>待放行列表</a>
+							</li>
+							<li class="active">
+								<a href="releasedTable.html" target="_self"><span class="icon-chevron-right"></span>已放行列表</a>
+							</li>
+							<li class="inactive">
+								<a href="dataInput.html" target="_self"><span class="icon-chevron-right"></span>数据录入</a>
+							</li>
+							<li class="inactive">
+								<a href="search.html" target="_self"><span class="icon-chevron-right"></span>组合查询</a>
+							</li-->
+						</ul>
+					</div>
+					<div class="span10" id="content">
+						<div class="row-fluid">
+							<div class="block">
+								<div class="navbar navbar-inner block-header">
+									<div class="muted pull-left">
+										进出场登记
+									</div>
+								</div>
+								<div class="block-content collapse in">
+									<div class="span12">
+										<form id="containerSearch-form" action="" method="post" class="search-form common-form form-horizontal" autocomplete="off" novalidate="novalidate">
+											<fieldset>
+												<legend>请输入集装箱号以查看详细并登记</legend>
+												<div id="containerNo-search" class="control-group">
+													<label class="control-label" for="container_num"><span class="required">*</span>集装箱号： </label>
+													<div class="controls">
+														<input id="container_num" name="container_num" type="text" class="span8" placeholder="输入集装箱号">
+														<button type="button" id="action-searchContainer" class="btn btn-primary" data-loading-text="正在检索...">查看</button>
+													</div>
+												</div>
+												<ul id="container-result" class="detail-list">
+													<li>
+														<label>转关单号： </label><span data-title="zhuanguan_num"></span>
+													</li>
+													<li>
+														<label>报关单号： </label><span data-title="baoguan_num"></span>
+													</li>
+													<li>
+														<label>货代公司： </label><span data-title="huodai_comp_text"></span>
+													</li>
+													<!--li>
+														<label>经营单位： </label><span data-title="businessUnit"></span>
+													</li-->
+													<li>
+														<label>报关公司： </label><span data-title="baoguan_comp_text"></span>
+													</li>
+													<li>
+														<label>到港口岸： </label><span data-title="harbour"></span>
+													</li>
+													<li>
+														<label>集装箱数： </label><span data-title="container_account"></span>
+													</li>
+													<!--li>
+														<label>集装箱型号： </label><span data-title="containerType"></span>
+													</li-->
+													<!--li>
+														<label>集装箱号： </label><span data-title="containerNo"></span>
+													</li-->
+													<li>
+														<label>件数： </label><span data-title="total_count"></span>
+													</li>
+													<li>
+														<label>毛重(KG)： </label><span data-title="total_weight"></span>
+													</li>
+													
+													<li>
+														<label>包装种类： </label><span data-title="package_type"></span>
+													</li>
+													<li>
+														<label>原产地： </label><span data-title="source_area"></span>
+													</li>
+													<li>
+														<label>提运单号： </label><span data-title="tiyun_num"></span>
+													</li>
+													<li>
+														<label>商品名称： </label><span data-title="prod_name"></span>
+													</li>
+													<li>
+														<label>存放地： </label><span data-title="warehouse"></span>
+													</li>
+													<li>
+														<label>车队： </label><span data-title="chedui"></span>
+													</li>
+													<li>
+														<label>箱主： </label><span data-title="xiangzhu"></span>
+													</li>
+													<li>
+														<label>状态： </label><span data-title="form_status"></span>
+													</li>
+												</ul>
+												<div id="choose-passType" class="control-group">
+													<label class="control-label"><span class="required">*</span>选择操作： </label>
+													<div class="controls">
+														<!--
+														<input type="radio" name="passType" value="enter">进场登记
+														<input type="radio" name="passType" value="leave">离场登记
+														-->
+														<label class="radio">
+															<input type="radio" name="passType" value="enter">
+															进场登记
+														</label>
+														<label class="radio">
+															<input type="radio" name="passType" value="leave">
+															离场登记
+														</label>
+													</div>
+												</div>
+												<!--div class="control-group form-inline">
+													<label class="control-label"><span class="required">*</span>登记时间： </label>					
+													<div class="controls">
+														<input class="input-xlarge datepicker" name="passtime" id="passtime" value="" type="text">
+													</div>
+												</div-->
+											</fieldset>
+											<div class="form-actions">
+												<button class="btn action-cancel">取消</button>
+												<submit id="action-passReg" class="btn btn-primary action-sure">确定</submit>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+		</footer>
+	</body>
+</html>

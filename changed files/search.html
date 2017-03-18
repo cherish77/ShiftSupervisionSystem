@@ -1,0 +1,322 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>综合查询 - 移位监管系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/uniform.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/chosen.css" />
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		
+		
+		<script type="text/javascript" src="script/jquery.js"></script>
+		<script type="text/javascript" src="script/modernizr.js"></script>
+		<script type="text/javascript" src="script/bootstrap.js"></script>
+		<script type="text/javascript" src="script/uniform.js"></script>
+		<script type="text/javascript" src="script/chosen.js"></script>
+		<script type="text/javascript" src="script/dataTables.js"></script>
+		<script type="text/javascript" src="script/datatable-extend.js"></script>
+		<script type="text/javascript" src="script/datepicker.js"></script>
+		<script type="text/javascript" src="script/common.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<main id="searchPage">
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container-fluid">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">移位监管</a>
+						<div class="nav-collapse collapse">
+							<ul class="nav pull-right">
+								<li class="dropdown">
+									<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="icon-user"></span>沈游人<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a tabindex="-1" href="#">账号资料</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a tabindex="-1" href="">注销</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<!--ul class="nav">
+								<li class="active">
+									<a href="index.html">首页</a>
+								</li>
+							</ul-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2" id="sidebar">
+						<ul id="main-menu" class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+						</ul>
+					</div>
+					<div class="span10" id="content">
+						<div class="row-fluid">
+							<!-- block -->
+							<div class="block">
+								<div class="navbar navbar-inner block-header">
+									<div class="muted pull-left">
+										综合查询
+									</div>
+								</div>
+								<div class="block-content collapse in">
+									<form id="search-form" action="" method="" class="common-form" autocomplete="off" novalidate="novalidate">
+										<legend>设置查询条件</legend>
+										<div class="control-group">
+											<div id="searchItem-default" class="controls search-item">
+												<select class="search-select" name="search-select" class="chzn-select">
+													<option value="">选择关键词</option>
+													<option value="zhuanguan_num">转关单号</option>
+													<option value="baoguan_num">报关单号</option>
+													<option value="huodai_comp_text">货代公司</option>
+													<option value="businessUnit">经营单位</option>
+													<option value="baoguan_comp_text">报关公司</option>
+													<option value="harbour">到港口岸</option>
+													<option value="containerType">集装箱型号</option>
+													<option value="containerNo">集装箱号</option>
+													<option value="source_area">原产地</option>
+													<option value="tiyun_num">提运单号</option>
+													<option value="prod_name">商品名称</option>
+													<option value="warehouse">存放地</option>
+													<option value="xiangzhu">箱主</option>
+													<option value="form_status">状态</option>
+													<option value="nokey">不设置条件</option>
+												</select>
+												<input id="" name="depend" type="text" class="span3">
+												<span class="action-add icon-plus"></span>
+												<span class="action-remove icon-minus icon-white"></span>
+												<span class="text-muted">点击添加关键词</span>
+											</div>
+										</div>
+										 <div class="control-group form-inline">       
+											<div class="controls">
+												<label>进场时间： </label>
+												<input class="input-xlarge datepicker" name="enter-from" id="enter-from" value="" type="text">
+												<label for="enter-to">至 </label>
+												<input class="input-xlarge datepicker" name="enter-to" id="enter-to" value="" type="text">
+											</div>
+										</div>
+										<div class="control-group form-inline">       
+											<div class="controls">
+												<label>离场时间： </label>
+												<input class="input-xlarge datepicker" name="leave-from" id="leave-from" value="" type="text">
+												<label for="leave-to">至 </label>
+												<input class="input-xlarge datepicker" name="leave-to" id="leave-to" value="" type="text">
+												<button id="action-search" type="button" class="btn btn-primary" data-loading-text="正在搜索...">搜索</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="block-content collapse in">
+									<div class="span12">
+										<div id="searchTable_wrapper" class="dataTables_wrapper form-inline no-footer">
+											<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable no-footer hide" id="searchTable" role="grid" aria-describedby="searchTable_info">
+												<thead>
+													<tr role="row">
+														<th>转关单号</th>
+														<th>报关单号</th>
+														<th>货代公司</th>
+														<!--th>经营单位</th-->
+														<th>报关公司</th>
+														<th>到港口岸</th>
+														<th>集装箱数</th>
+														<!--th>集装箱型号</th-->
+														<!--th>集装箱号</th-->
+														<th>件数</th>
+														<th>毛重</th>
+														<th>包装种类</th>
+														<th>原产地</th>
+														<th>提运单号</th>
+														<th>商品名称</th>
+														<th>存放地</th>
+														<th>车队</th>
+														<th>箱主</th>
+														<th>状态</th>
+														<th>查看详细</th>
+													</tr>
+												</thead>
+												<!--tbody>
+													<tr role="row" class="odd">
+														<td>远洋物流</td>
+														<td>杭州中外运报关有限公司</td>
+														<td>510251365425524</td>
+														<td>AA9500064236</td>
+														<td>ZN7845102562576362</td>
+														<td>KNYY7844635</td>
+														<td>0/25 <span>(已放行/总数)</span></td>
+														<td><span class="label label-warning">未申请</span></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button></td>
+													</tr>
+													<tr role="row" class="odd">
+														<td>远洋物流</td>
+														<td>杭州中外运报关有限公司</td>
+														<td>331951353424498</td>
+														<td>AA8300064658</td>
+														<td>ZN7845102562576361</td>
+														<td>KNYY7844458</td>
+														<td>0/9 <span>(已放行/总数)</span></td>
+														<td><span class="label label-success">申请中</span></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button></td>
+													</tr>
+													<tr role="row" class="odd">
+														<td>枫叶货代有限公司</td>
+														<td>震昕报关</td>
+														<td>846953265455469</td>
+														<td>AA9500010275</td>
+														<td>ZN7845102584989862</td>
+														<td>KNYY7802463</td>
+														<td>5/7 <span>(已放行/总数)</span></td>
+														<td><span class="label label-success">待放行</span></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button></td>
+													</tr>
+													<tr role="row" class="odd">
+														<td>枫叶货代有限公司</td>
+														<td>杭州中外运报关有限公司</td>
+														<td>45525138549936</td>
+														<td>AA9500064236</td>
+														<td>ZN7845102562576362</td>
+														<td>KNYY9985665</td>
+														<td>0/13 <span>(已放行/总数)</span></td>
+														<td><span class="label label-failed">未通过</span></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button></td>
+													</tr>
+													<tr role="row" class="odd">
+														<td>泊金货代</td>
+														<td>天翼报关</td>
+														<td>510002369985442</td>
+														<td>AA8700061146</td>
+														<td>ZN7749600252778462</td>
+														<td>KNYY7756302</td>
+														<td>31/31 <span>(已放行/总数)</span></td>
+														<td><span class="label label-success">已放行</span></td>
+														<td><button class="btn btn-info" data-toggle="modal" data-target=".modal-dataDetail">详细</button></td>
+													</tr>
+												</tbody-->
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /block -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+		</footer>
+		<button class="btn btn-info hide" data-toggle="modal" data-target=".modal-dataDetail">详细</button>
+		<div class="modal fade modal-dataDetail" tabindex="-1" role="dialog" aria-labelledby="dataDetailModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title dataDetailModal">详细信息</h4>
+					</div>
+					<div class="modal-body">
+						<ul class="detail-list">
+							<li>
+								<label>转关单号： </label><span data-title="zhuanguan_num">510251365425524</span>
+							</li>
+							<li>
+								<label>报关单号： </label><span data-title="baoguan_num">AA9500064236</span>
+							</li>
+							<li>
+								<label>货代公司： </label><span data-title="huodai_comp_text">远洋物流</span>
+							</li>
+							<!--li>
+								<label>经营单位： </label><span data-title="businessUnit">美国百事公司</span>
+							</li-->
+							<li>
+								<label>报关公司： </label><span data-title="baoguan_comp_text">杭州中外运报关有限公司</span>
+							</li>
+							<li>
+								<label>到港口岸： </label><span data-title="harbour">宁波港</span>
+							</li>
+							<li>
+								<label>集装箱数： </label><span data-title="container_account">25</span>
+							</li>
+							<!--li>
+								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
+							</li-->
+							<!--li>
+								<label>集装箱号： </label><span data-title="containerNo">KNYY7844635</span>
+							</li-->
+							<li>
+								<label>件数： </label><span data-title="total_count">100</span>
+							</li>
+							<li>
+								<label>毛重(KG)： </label><span data-title="total_weight">2305</span>
+							</li>
+							
+							<li>
+								<label>包装种类： </label><span data-title="package_type">默认包</span>
+							</li>
+							<li>
+								<label>原产地： </label><span data-title="source_area">新疆</span>
+							</li>
+							<li>
+								<label>提运单号： </label><span data-title="tiyun_num">ZN7845102562576362</span>
+							</li>
+							<li>
+								<label>商品名称： </label><span data-title="prod_name">芒果</span>
+							</li>
+							<li>
+								<label>存放地： </label><span data-title="warehouse">杭州 - 3号货仓</span>
+							</li>
+							<li>
+								<label>车队： </label><span data-title="chedui">默认车队 - 1</span>
+							</li>
+							<li>
+								<label>箱主： </label><span data-title="xiangzhu">杜宇</span>
+							</li>
+							<li>
+								<label>状态： </label><span data-title="form_status">未申请</span>
+							</li>
+						</ul>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<div id="template-searchItem" class="hide">
+			<div class="controls search-item">
+				<select class="serch-select chzn-select" name="serch-select">
+<option value="">选择关键词</option>
+					<option value="zhuanguan_num">转关单号</option>
+					<option value="baoguan_num">报关单号</option>
+					<option value="huodai_comp_text">货代公司</option>
+					<option value="businessUnit">经营单位</option>
+					<option value="baoguan_comp_text">报关公司</option>
+					<option value="harbour">到港口岸</option>
+					<option value="containerType">集装箱型号</option>
+					<option value="containerNo">集装箱号</option>
+					<option value="source_area">原产地</option>
+					<option value="tiyun_num">提运单号</option>
+					<option value="prod_name">商品名称</option>
+					<option value="warehouse">存放地</option>
+					<option value="xiangzhu">箱主</option>
+					<option value="form_status">状态</option>
+					<option value="nokey">不设置条件</option>
+				</select>
+				<input id="" name="depend" type="text" class="span3">
+				<span class="action-add icon-plus"></span>
+				<span class="action-remove icon-minus"></span>
+			</div>
+		</div>
+	</body>
+</html>
