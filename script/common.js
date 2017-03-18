@@ -561,14 +561,18 @@ $(document).ready(function() {
 		})
 		
 		// search for container
-		/*$(document).on("click", "button#action-searchContainer", function(){
+		$(document).on("click", "button#action-searchContainer", function(){
 			var container_num = $("input#container_num").val();
-			$.get("url", container_num, function(response){
+			
+			/*$.get("url", container_num, function(response){
 				$("ul#container-result li span").each(function(){
+					$(this).text("");
 					$(this).text(response[$(this).attr("data-title")]);
 				});
-			});
-		});*/
+			});*/
+			
+			$("ul#container-result").show();
+		});
 		
 		$(document).on("click", "button.action-cancel", function(){
 			$("containerSearch-form").reset();
