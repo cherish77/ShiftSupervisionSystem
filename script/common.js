@@ -569,18 +569,18 @@ $(document).ready(function() {
 				//data : formObj,
 				//dataType : "json", 
 				success : function(data) {
-					if (typeof(searchTable) == "undefined") { 
-						//alert("0");
+					if (typeof($searchTable) == "undefined") {
 					}
 					else {
-						//alert("1");
-						searchTable.fnClearTable();//清空数据.fnClearTable();//清空数据  
-						searchTable.fnDestroy(); //还原初始化了的datatable  
+						//console.log(searchTable);
+						$('#searchTable').DataTable().fnClearTable(false);//清空数据.fnClearTable();//清空数据  
+						$('#searchTable').DataTable().fnDestroy(); //还原初始化了的datatable  
 					}
 					searchTable = $('#searchTable').DataTable({
 						"sPaginationType": "bootstrap", 
 						"iDisplayLength" : 10,
 						"bAutoWidth" : false,  
+						"bJQueryUI": true,
 						//"bDeferRender": true,
 						"oLanguage" : oLanguageData, 
 						"aaData" : data.myData, 
