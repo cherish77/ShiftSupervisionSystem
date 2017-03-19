@@ -447,8 +447,35 @@ $(document).ready(function() {
 			$(this).closest(".search-item").remove();
 		});
 	
-		// remove select prompt
+		// remove select prompt, load select option
 		$(".search-select").change(function(event){
+			$('[value=""]', event.target).remove();
+			
+			if($(event.target).find("option[value='"+$(event.target).val()+"'].select-item").length > 0) {
+				
+				if($(event.target).next()[0].nodeName.toLowerCase() == "input"){
+					$(event.target).find("option[value='"+$(event.target).val()+"'].select-item").parent().next().replaceWith('<select class="span3 search-value" name="' + $(event.target).val() + '"></select>');
+				}
+				
+				var optionObj;
+				$.ajax({
+					type:"get",
+					url: "https://cherish77.github.io/ShiftSupervisionSystem/data/optionInitTest.json",
+					//url : "Index!queryParams",
+					cache: false,
+					async: false,
+					success: function(data){
+						optionObj = data;
+					}
+				});
+				$(event.target).next().append('<option value="">选择查询内容</option>');
+				for(var i=0; i<optionObj[$(event.target).val().toUpperCase()].length; i++) {
+					$(event.target).next().append('<option value="'+ optionObj[$(event.target).val().toUpperCase()][i].item_value +'">' + optionObj[$(event.target).val().toUpperCase()][i].item_name + '</option>');
+				}
+			}
+		});
+		
+		$(document).on("change", ".search-value", function(){
 			$('[value=""]', event.target).remove();
 		});
 		
