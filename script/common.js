@@ -539,10 +539,31 @@ $(document).ready(function() {
 	
 		$(document).on("click", "#basicData-form button#check-form", function(){
 			
-			var dataObj = $("#basicData-form").serializeArray();
+		/*	var dataObj = $("#basicData-form").serializeArray();
 			var i = 0;
 			$(".modal-checkInput ul li span").each(function(){
+				console.log(dataObj[i]);
+				//alert(dataObj[i].nodeName);
 				$(this).text(dataObj[i].value);
+				i++;
+			});
+		*/
+
+			// var dataObj = $("#basicData-form").serializeArray();
+			// 这里只能拿到value值，拿不到option的文本，所以要换一种遍历方式，区分input和select
+			
+			var i = 0;
+			$(".modal-checkInput ul li span").each(function(){
+				if($("#basicData-form .controls").eq(i).children()[0].nodeName.toLowerCase() == "input") {
+					$(this).text($("#basicData-form .controls").eq(i).children().val());
+				}
+				else {
+					var $select = $("#basicData-form .controls").eq(i).children();
+					if($select.val()){
+						$(this).text($select.find("option[value='"+$select.val()+"']").text());
+					}
+				}
+				
 				i++;
 			});
 			
