@@ -196,9 +196,16 @@ $(document).ready(function() {
 				$(".modal-changeInput div.containerNo-wrap").append('<input name="containerNo" type="text" class="span3 m-wrap ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" >');
 			}
 			$(".containerNo-wrap input:gt(0)").hide();
-			$(document).on("click", "span.action-editContainers", function(){
+			$(document).on("click", "span.action-editContainers.icon-plus", function(){
 				$(".containerNo-wrap input:gt(0)").show();
+				$(this).toggleClass("icon-plus icon-minus");
 			});
+			
+			$(document).on("click", "span.action-editContainers.icon-minus", function(){
+				$(".containerNo-wrap input:gt(0)").hide();
+				$(this).toggleClass("icon-plus icon-minus");
+			});
+			
 			
 			
 			$(".modal-changeInput select").each(function(){
