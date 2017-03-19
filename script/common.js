@@ -190,6 +190,17 @@ $(document).ready(function() {
 				$(this).attr("value", editData[$(this).attr("name")]);
 			});
 			
+			// containerNo init
+			$(".modal-changeInput div.containerNo-wrap").html("");
+			for(var i=0; i<editData.containerNoArr.length;i++) {
+				$(".modal-changeInput div.containerNo-wrap").append('<input name="containerNo" type="text" class="span3 m-wrap ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" >');
+			}
+			$(".containerNo-wrap input:gt(0)").hide();
+			$(document).on("click", "span.action-editContainers", function(){
+				$(".containerNo-wrap input:gt(0)").show();
+			});
+			
+			
 			$(".modal-changeInput select").each(function(){
 				for(var i=0; i<optionObj[$(this).attr("id").toUpperCase()].length; i++) {
 					$(this).append('<option value="'+ optionObj[$(this).attr("id").toUpperCase()][i].item_value +'">' + optionObj[$(this).attr("id").toUpperCase()][i].item_name + '</option>');
