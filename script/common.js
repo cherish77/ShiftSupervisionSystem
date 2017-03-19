@@ -196,14 +196,14 @@ $(document).ready(function() {
 				$(".modal-changeInput div.containerNo-wrap").append('<input name="containerNo" type="text" class="span3 m-wrap ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" >');
 			}
 			$(".containerNo-wrap input:gt(0)").hide();
-			$(document).on("click", "span.action-editContainers.icon-plus", function(){
+			$(document).on("click", "span.action-editContainers.icon-chevron-down", function(){
 				$(".containerNo-wrap input:gt(0)").show();
-				$(this).toggleClass("icon-plus icon-minus");
+				$(this).toggleClass("icon-chevron-down icon-chevron-up");
 			});
 			
-			$(document).on("click", "span.action-editContainers.icon-minus", function(){
+			$(document).on("click", "span.action-editContainers.icon-chevron-up", function(){
 				$(".containerNo-wrap input:gt(0)").hide();
-				$(this).toggleClass("icon-plus icon-minus");
+				$(this).toggleClass("icon-chevron-up icon-chevron-down");
 			});
 			
 			$(".modal-changeInput select").each(function(){
@@ -448,11 +448,11 @@ $(document).ready(function() {
 		// remove select prompt, load select option
 		$(document).on("change", ".search-select", function(event){
 			$('[value=""]', event.target).remove();
+			$(event.target).next().html("");
 			
 			if($(event.target).find("option[value='"+$(event.target).val()+"'].select-item").length > 0) {
-				
 				if($(event.target).next()[0].nodeName.toLowerCase() == "input"){
-					$(event.target).find("option[value='"+$(event.target).val()+"'].select-item").parent().next().replaceWith('<select class="span3 search-value" name="' + $(event.target).val() + '"></select>');
+					$(event.target).next().replaceWith('<select class="span3 search-value" name="' + $(event.target).val() + '"></select>');
 				}
 				
 				var optionObj;
@@ -471,9 +471,12 @@ $(document).ready(function() {
 					$(event.target).next().append('<option value="'+ optionObj[$(event.target).val().toUpperCase()][i].item_value +'">' + optionObj[$(event.target).val().toUpperCase()][i].item_name + '</option>');
 				}
 			}
+			else {
+				$(event.target).next().replaceWith('<input id="" name="depend" type="text" class="span3">');
+			}
 		});
 		
-		$(document).on("change", ".search-value", function(){
+		$(document).on("change", ".search-value", function(event){
 			$('[value=""]', event.target).remove();
 		});
 		
@@ -485,12 +488,13 @@ $(document).ready(function() {
 			// there's no need to remove blank select beacause we only catch the useful keywords
 			$("#search-form .search-select").each(function(){
 				if($(this).next()[0].nodeName.toLowerCase() == "input") {
+					//alert("0")
 					$(this).next().attr("name", $(this).val());
 				}
 			});
 				
 			var formObj = $("#search-form").serializeArray();
-			console.log(formObj);
+			//console.log(formObj);
 			// var formSerial = $("#search-form").serialize();
 			// alert(formSerial);
 			
@@ -504,7 +508,7 @@ $(document).ready(function() {
 				//data : formObj,
 				//dataType : "json", 
 				success : function(data) {
-					if (typeof($searchTable) == "undefined") {
+					if (typeof(searchTable) == "undefined") {
 					}
 					else {
 						//console.log(searchTable);
