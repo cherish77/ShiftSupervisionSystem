@@ -22,18 +22,18 @@ var aoColumnsData = [
 	{"data" : "baoguan_num" }, 
 	{"data" : "huodai_comp_text" }, 
 	{"data" : "baoguan_comp_text" }, 
-	{"data" : "harbour_text" }, 
+	{"data" : "harbour" }, 
 	{"data" : "container_account" }, 
 	{"data" : "total_count" }, 
 	{"data" : "total_weight" }, 
-	{"data" : "package_type_text" }, 
-	{"data" : "source_area_text" }, 
+	{"data" : "package_type" }, 
+	{"data" : "source_area" }, 
 	{"data" : "tiyun_num" }, 
-	{"data" : "prod_name_text" }, 
+	{"data" : "prod_name" }, 
 	{"data" : "warehouse" }, 
-	{"data" : "chedui_text" }, 
-	{"data" : "xiangzhu_text" }, 
-	{"data" : "form_status_text" }
+	{"data" : "chedui" }, 
+	{"data" : "xiangzhu" }, 
+	{"data" : "form_status" }
 ]; 
 
 // Dom Ready
@@ -446,7 +446,7 @@ $(document).ready(function() {
 		});
 	
 		// remove select prompt, load select option
-		$(".search-select").change(function(event){
+		$(document).on("change", ".search-select", function(event){
 			$('[value=""]', event.target).remove();
 			
 			if($(event.target).find("option[value='"+$(event.target).val()+"'].select-item").length > 0) {
@@ -483,11 +483,14 @@ $(document).ready(function() {
 			// add search keywords to input name
 			
 			// there's no need to remove blank select beacause we only catch the useful keywords
-			$("#search-form select").each(function(){
-				$(this).next().attr("name", $(this).val());
+			$("#search-form .search-select").each(function(){
+				if($(this).next()[0].nodeName.toLowerCase() == "input") {
+					$(this).next().attr("name", $(this).val());
+				}
 			});
 				
 			var formObj = $("#search-form").serializeArray();
+			console.log(formObj);
 			// var formSerial = $("#search-form").serialize();
 			// alert(formSerial);
 			
