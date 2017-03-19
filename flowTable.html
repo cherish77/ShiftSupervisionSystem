@@ -183,7 +183,7 @@
 				<div class="modal-content">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<div class="modal-body">
-						<form action="" method="post" id="basicData-form" class="common_form form-horizontal" autocomplete="off" novalidate="novalidate">
+						<form id="changeData-form" class="common_form form-horizontal">
 							<fieldset>
 								<div class="alert alert-error hide">
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>输入的信息不正确
@@ -247,12 +247,12 @@
 										</select>
 									</div>
 								</div-->
-								<!--div class="control-group">
+								<div class="control-group">
 									<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
 									<div class="controls">
 										<input name="containerNo" id="containerNo" type="text" class="span4 m-wrap ui-autocomplete-input" value="" autocomplete="off">
 									</div>
-								</div-->
+								</div>
 								<div class="control-group">
 									<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
 									<div class="controls">
@@ -323,7 +323,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">确认修改</button>
+						<button type="button" class="btn btn-primary" id="action-sureChange" data-dismiss="modal">确认修改</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
