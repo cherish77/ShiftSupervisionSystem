@@ -156,7 +156,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-default action-edit">修改</button><button class="btn btn-primary btn-second">提交</button>';
+						return '<button class="btn btn-default action-edit">修改</button><button class="btn btn-primary btn-second action-apply">提交</button>';
 					}
 				}
 			]
@@ -203,6 +203,14 @@ $(document).ready(function() {
 		
 		$(document).on("click", ".modal-changeInput #action-sureChange", function(){
 			alert("1");
+		});
+		
+		$("#flowTable tbody").on("click", "tr .action-apply", function () {
+			
+			var applyData = flowTable.row($(this).closest("tr")).data();
+			console.log(applyData);
+			var applyID = applyData.id;
+			alert("这是提交按钮, id是" + applyID);
 		});
 	}
 	
@@ -261,12 +269,24 @@ $(document).ready(function() {
 		});
 
 		$("#applicationTable tbody").on("click", "tr .action-detail", function () {
-			var data = applicationTable.row($(this).closest("tr")).data();
+			var applyData = applicationTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
-				$(this).text(data[$(this).attr("data-title")]);
+				$(this).text(applyData[$(this).attr("data-title")]);
 			});
 
 			$("button[data-target='.modal-dataDetail']").click();
+		});
+		
+		$("#applicationTable tbody").on("click", "tr .action-pass", function () {
+			var applyData = applicationTable.row($(this).closest("tr")).data();
+			var applyID = applyData.id;
+			alert("这是流转按钮,id是" + applyID);
+		});
+		
+		$("#applicationTable tbody").on("click", "tr .action-reject", function () {
+			var applyData = applicationTable.row($(this).closest("tr")).data();
+			var applyID = applyData.id;
+			alert("这是退回按钮,id是" + applyID);
 		});
 	}
 	
@@ -316,18 +336,18 @@ $(document).ready(function() {
 		});
 
 		$("#toReleaseTable tbody").on("click", "tr .action-detail", function () {
-			var data = toReleaseTable.row($(this).closest("tr")).data();
+			var toReleaseData = toReleaseTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
-				$(this).text(data[$(this).attr("data-title")]);
+				$(this).text(toReleaseData[$(this).attr("data-title")]);
 			});
 
 			$("button[data-target='.modal-dataDetail']").click();
 		});
 		
 		$("#toReleaseTable tbody").on("click", "tr .view-containers", function () {
-			var data = toReleaseTable.row($(this).closest("tr")).data();
+			var toReleaseData = toReleaseTable.row($(this).closest("tr")).data();
 			// get加id参数，换url
-			var containerID = data.id;
+			var containerID = toReleaseData.id;
 			
 			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
 				$(".modal-containerDetail tbody").html("");
@@ -336,6 +356,12 @@ $(document).ready(function() {
 				}
 				$("button[data-target='.modal-containerDetail']").click();
 			});
+		});
+		
+		$("#toReleaseTable tbody").on("click", "tr .action-release", function () {
+			var toReleaseData = toReleaseTable.row($(this).closest("tr")).data();
+			var toReleaseID = toReleaseData.id;
+			alert("这是解除监管按钮，id是" + toReleaseID);
 		});
 	}
 	
