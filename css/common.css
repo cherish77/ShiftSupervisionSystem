@@ -262,7 +262,7 @@ table span {
 
 
 /*=== search Start ===*/
-#searchPage select {
+#searchPage search-select {
 	margin-right: 15px;
 }
 
