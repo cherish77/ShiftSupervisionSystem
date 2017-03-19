@@ -22,18 +22,18 @@ var aoColumnsData = [
 	{"data" : "baoguan_num" }, 
 	{"data" : "huodai_comp_text" }, 
 	{"data" : "baoguan_comp_text" }, 
-	{"data" : "harbour" }, 
+	{"data" : "harbour_text" }, 
 	{"data" : "container_account" }, 
 	{"data" : "total_count" }, 
 	{"data" : "total_weight" }, 
-	{"data" : "package_type" }, 
-	{"data" : "source_area" }, 
+	{"data" : "package_type_text" }, 
+	{"data" : "source_area_text" }, 
 	{"data" : "tiyun_num" }, 
-	{"data" : "prod_name" }, 
+	{"data" : "prod_name_text" }, 
 	{"data" : "warehouse" }, 
-	{"data" : "chedui" }, 
-	{"data" : "xiangzhu" }, 
-	{"data" : "form_status" }
+	{"data" : "chedui_text" }, 
+	{"data" : "xiangzhu_text" }, 
+	{"data" : "form_status_text" }
 ]; 
 
 // Dom Ready
@@ -205,8 +205,6 @@ $(document).ready(function() {
 				$(".containerNo-wrap input:gt(0)").hide();
 				$(this).toggleClass("icon-plus icon-minus");
 			});
-			
-			
 			
 			$(".modal-changeInput select").each(function(){
 				for(var i=0; i<optionObj[$(this).attr("id").toUpperCase()].length; i++) {
