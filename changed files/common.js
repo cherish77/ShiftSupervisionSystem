@@ -531,7 +531,7 @@ $(document).ready(function() {
 		// console.log(optionObj.options[0]['forwardingCo'][1]);
 	
 		$(document).on("click", ".action-add", function(){
-			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span8 m-wrap ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
+			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span8  ui-autocomplete-input" value=""><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
 		});
 	
 		$(document).on("click", ".action-remove", function(){

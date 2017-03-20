@@ -80,14 +80,14 @@
 												<div class="control-group">
 													<label class="control-label" for="huodai_comp">货代公司 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="huodai_comp" class="span8">
+														<select name="huodai_comp" class="span8" required>
 														</select>
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="business_unit">经营单位 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="business_unit" class="span8">
+														<select name="business_unit" class="span8" required>
 															<option value="">选择经营单位</option>
 														</select>
 													</div>
@@ -95,7 +95,7 @@
 												<div class="control-group">
 													<label class="control-label" for="baoguan_comp">报关公司 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="baoguan_comp" class="span8">
+														<select name="baoguan_comp" class="span8" required>
 															<option value="">选择报关公司</option>
 														</select>
 													</div>	
@@ -103,7 +103,7 @@
 												<div class="control-group">
 													<label class="control-label" for="harbour">到港口岸 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="harbour" class="span8">
+														<select name="harbour" class="span8" required>
 															<option value="">选择到港口岸</option>
 														</select>
 													</div>
@@ -111,13 +111,13 @@
 												<div class="control-group">
 													<label class="control-label" for="container_account">集装箱数 <span class="required">*</span></label>
 													<div class="controls">
-														<input class="required" name="container_account" type="number" class="span6" data-bv-notempty-message="请输入集装箱数">
+														<input class="required" name="container_account" type="number" class="span6" required data-bv-notempty-message="请输入集装箱数" />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="container_type">集装箱型号 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="container_type" class="span8">
+														<select name="container_type" class="span8" required>
 															<option value="">选择集装箱型号</option>
 														</select>
 													</div>
@@ -125,25 +125,25 @@
 												<div class="control-group">
 													<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
 													<div id="container-default" class="controls">
-														<input name="containerNo" type="text" class="span8 m-wrap ui-autocomplete-input" placeholder="添加以录入所有集装箱号" value="" autocomplete="off"><span class="action-add icon-plus"></span><span class="action-remove icon-minus icon-white"></span><span class="text-muted">点击添加</span>
+														<input name="containerNo" type="text" class="span8 ui-autocomplete-input" placeholder="添加以录入所有集装箱号" value="" autocomplete="off" required /><span class="action-add icon-plus"></span><span class="action-remove icon-minus icon-white"></span><span class="text-muted">点击添加</span>
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
 													<div class="controls">
-														<input name="total_count" type="number" class="span6 m-wrap ui-autocomplete-input" value="" autocomplete="off" min="1">
+														<input name="total_count" type="number" class="span6 ui-autocomplete-input" value="" autocomplete="off" min="1" required />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="total_weight">毛重 （KG） <span class="required">*</span></label>
 													<div class="controls">
-														<input name="total_weight" type="number" class="span6 m-wrap ui-autocomplete-input" value="" autocomplete="off">
+														<input name="total_weight" type="number" class="span6 ui-autocomplete-input" value="" autocomplete="off" required />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="package_type">包装种类 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="package_type" class="span8">
+														<select name="package_type" class="span8" required>
 															<option value="morenbao">默认包</option>
 															<option value="morenbao">默认包</option>
 														</select>
@@ -152,7 +152,7 @@
 												<div class="control-group">
 													<label class="control-label" for="source_place">原产地 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="source_place" class="span8">
+														<select name="source_place" class="span8" required>
 															<option value="">选择原产地</option>
 														</select>
 													</div>
@@ -160,13 +160,13 @@
 												<div class="control-group">
 													<label class="control-label" for="tiyun_num">提运单号 <span class="required">*</span></label>
 													<div class="controls">
-														<input name="tiyun_num" type="text" class="span8 m-wrap ui-autocomplete-input" value="" autocomplete="on">
+														<input name="tiyun_num" type="text" class="span8 ui-autocomplete-input" value="" autocomplete="on" required />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="prod_name">商品名称 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="prod_name" class="span8">
+														<select name="prod_name" class="span8" required>
 															<option value="">选择商品名称</option>
 														</select>
 													</div>
@@ -174,13 +174,13 @@
 												<div class="control-group">
 													<label class="control-label" for="warehouse">存放地 <span class="required">*</span></label>
 													<div class="controls">
-														<input name="warehouse" type="text" class="span8 m-wrap ui-autocomplete-input" value="" autocomplete="on">
+														<input name="warehouse" type="text" class="span8 ui-autocomplete-input" value="" autocomplete="on" required />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="chedui">车队 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="chedui" class="span8">
+														<select name="chedui" class="span8" required>
 															<option value="">选择车队</option>
 														</select>
 													</div>
@@ -188,7 +188,7 @@
 												<div class="control-group">
 													<label class="control-label" for="xiangzhu">箱主 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="xiangzhu" class="span8">
+														<select name="xiangzhu" class="span8" required>
 															<option value="">选择箱主</option>
 														</select>
 													</div>
@@ -202,7 +202,7 @@
 											</fieldset>
 											<div class="form-actions">
 												<button class="btn" id="save-form">保存</button>
-												<button class="btn btn-primary action-sure" id="check-form">保存并提交</button>
+												<input type="submit" class="btn btn-primary action-sure" id="check-form" value="保存并提交"/>
 												<button class="hide" data-toggle="modal" data-target=".modal-checkInput"></button>
 											</div>
 										</form>

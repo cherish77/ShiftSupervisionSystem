@@ -199,14 +199,14 @@
 								<div class="control-group">
 									<label class="control-label" for="huodai_comp_id">货代公司 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="huodai_comp" name="huodai_comp_id" class="chzn-select">
+										<select id="huodai_comp" name="huodai_comp_id">
 										</select>
 									</div>
 								</div>
 								<!--div class="control-group">
 									<label class="control-label" for="businessUnit">经营单位 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="businessUnit" name="businessUnit" class="chzn-select">
+										<select id="businessUnit" name="businessUnit">
 												<option value="1">美国百事公司</option>
 												<option value="2">海南盛大生鲜有限公司</option>
 										</select>
@@ -215,27 +215,27 @@
 								<div class="control-group">
 									<label class="control-label" for="baoguan_comp_id">报关公司 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="baoguan_comp" name="baoguan_comp_id" class="chzn-select">
+										<select id="baoguan_comp" name="baoguan_comp_id">
 										</select>
 									</div>	
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="harbour">到港口岸 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="harbour" name="harbour" class="chzn-select">
+										<select id="harbour" name="harbour">
 										</select>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="container_account">集装箱数 <span class="required">*</span></label>
 									<div class="controls">
-										<input id="container_account" class="required span3" name="container_account" type="number" data-bv-notempty-message="请输入集装箱数">
+										<input id="container_account" class="required span3" name="container_account" type="number" data-bv-notempty-message="请输入集装箱数" required />
 									</div>
 								</div>
 								<!--div class="control-group">
 									<label class="control-label" for="containerType">集装箱型号 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="containerType" name="containerType" class="chzn-select">
+										<select id="containerType" name="containerType">
 											<option value="1">小柜</option>
 											<option value="2">大柜</option>
 											<option value="3">高柜</option>
@@ -245,67 +245,65 @@
 								</div-->
 								<div class="control-group">
 									<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
-									<div class="controls containerNo-wrap">
-										
-									</div>
-									
+									<div class="controls containerNo-wrap">	
+									</div>							
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
 									<div class="controls">
-										<input name="total_count" id="total_count" type="number" class="span3 m-wrap ui-autocomplete-input" value="" autocomplete="off" min="1">
+										<input name="total_count" id="total_count" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" min="1" required />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="total_weight">毛重 （KG） <span class="required">*</span></label>
 									<div class="controls">
-										<input name="total_weight" id="total_weight" type="number" class="span3 m-wrap ui-autocomplete-input" value="" autocomplete="off">
+										<input name="total_weight" id="total_weight" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" required />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="package_type">包装种类 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="package_type" name="package_type" class="chzn-select">
+										<select id="package_type" name="package_type">
 										</select>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="source_area">原产地 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="source_place" name="source_area" class="chzn-select">
+										<select id="source_place" name="source_area">
 										</select>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="tiyun_num">提运单号 <span class="required">*</span></label>
 									<div class="controls">
-										<input name="tiyun_num" id="tiyun_num" type="text" class="span4 m-wrap ui-autocomplete-input" value="" autocomplete="on">
+										<input name="tiyun_num" id="tiyun_num" type="text" class="span4 ui-autocomplete-input" value="" autocomplete="on" required />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="prod_name">商品名称 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="prod_name" name="prod_name" class="chzn-select">
+										<select id="prod_name" name="prod_name">
 										</select>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="warehouse">存放地 <span class="required">*</span></label>
 									<div class="controls">
-										<input name="warehouse" id="warehouse" type="text" class="span4 m-wrap ui-autocomplete-input" value="杭州 - 3号货仓" autocomplete="on">
+										<input name="warehouse" id="warehouse" type="text" class="span4 ui-autocomplete-input" value="杭州 - 3号货仓" autocomplete="on" required />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="chedui">车队 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="chedui" name="chedui" class="chzn-select">
+										<select id="chedui" name="chedui">
 										</select>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="xiangzhu">箱主 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="xiangzhu" name="xiangzhu" class="chzn-select">
+										<select id="xiangzhu" name="xiangzhu">
 										</select>
 									</div>
 								</div>
