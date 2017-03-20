@@ -251,7 +251,7 @@
 								<div class="control-group">
 									<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
 									<div class="controls">
-										<input name="total_count" id="total_count" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" min="1" required />
+										<input name="total_count" id="total_count" type="number" class="span3 ui-autocomplete-input" min="0" required="required" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -314,12 +314,13 @@
 									</div>
 								</div>
 							</fieldset>
+							<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary" id="action-sureChange">确认修改</button>
+					</div>
 						</form>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						<button type="button" class="btn btn-primary" id="action-sureChange" data-dismiss="modal">确认修改</button>
-					</div>
+					
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->

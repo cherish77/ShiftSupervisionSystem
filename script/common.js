@@ -161,7 +161,25 @@ $(document).ready(function() {
 				}
 			]
 		});
-
+		
+		$(document).on("click", "span.action-editContainers.icon-chevron-down", function(){
+			$(".containerItem-wrap:gt(0)").show();
+			$(this).toggleClass("icon-chevron-down icon-chevron-up");
+		});
+		
+		$(document).on("click", "span.action-editContainers.icon-chevron-up", function(){
+			$(".containerItem-wrap:gt(0)").hide();
+			$(this).toggleClass("icon-chevron-up icon-chevron-down");
+		});
+		
+		$(document).on("click", ".containerItem-wrap .icon-plus", function(){
+			$(this).closest(".containerItem-wrap").after('<div class="containerItem-wrap"><input name="containerNo" type="text" class="span3  ui-autocomplete-input" value="" placeholder="请输入集装箱号" required /><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
+		});
+		
+		$(document).on("click", ".containerItem-wrap .icon-minus", function(){
+			$(this).closest(".containerItem-wrap").remove();
+		});
+		
 		$("#flowTable tbody").on("click", "tr .action-detail", function () {
 			var data = flowTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
@@ -172,6 +190,7 @@ $(document).ready(function() {
 		});
 		
 		$("#flowTable tbody").on("click", "tr .action-edit", function () {
+			$(".modal-changeInput select").html("");
 			var editData = flowTable.row($(this).closest("tr")).data();
 			
 			var optionObj;
@@ -193,27 +212,11 @@ $(document).ready(function() {
 			// containerNo init
 			$(".modal-changeInput div.containerNo-wrap").html("");
 			for(var i=0; i<editData.containerNoArr.length;i++) {
-				$(".modal-changeInput div.containerNo-wrap").append('<div class="containerIte"><input name="containerNo" type="text" class="span3  ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" required /><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
+				$(".modal-changeInput div.containerNo-wrap").append('<div class="containerItem-wrap"><input name="containerNo" type="text" class="span3  ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" required /><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
 			}
-			$(".containerIte:first .icon-minus").replaceWith('<span class="icon icon-chevron-down action-editContainers"></span>');
-			$(".containerIte:gt(0)").hide();
-			$(document).on("click", "span.action-editContainers.icon-chevron-down", function(){
-				$(".containerIte:gt(0)").show();
-				$(this).toggleClass("icon-chevron-down icon-chevron-up");
-			});
+			$(".containerItem-wrap:first .icon-minus").replaceWith('<span class="icon icon-chevron-down action-editContainers"></span>');
+			$(".containerItem-wrap:gt(0)").hide();
 			
-			$(document).on("click", "span.action-editContainers.icon-chevron-up", function(){
-				$(".containerIte:gt(0)").hide();
-				$(this).toggleClass("icon-chevron-up icon-chevron-down");
-			});
-			
-			$(document).on("click", ".containerIte .icon-plus", function(){
-				$(this).closest(".containerIte").after('<div class="containerIte"><input name="containerNo" type="text" class="span3  ui-autocomplete-input" value="" placeholder="请输入集装箱号" required /><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
-			});
-			
-			$(document).on("click", ".containerIte .icon-minus", function(){
-				$(this).closest(".containerIte").remove();
-			});
 			
 			$(".modal-changeInput select").each(function(){
 				for(var i=0; i<optionObj[$(this).attr("id").toUpperCase()].length; i++) {
@@ -227,9 +230,13 @@ $(document).ready(function() {
 		});
 		
 		$(document).on("click", ".modal-changeInput #action-sureChange", function(){
-		/*	$('#changeData-form').form('validate') {
-				alert("1");
-			};*/
+			$("#changeData-form").submit();
+		});
+		
+		$("#changeData-form").on("submit", function(){
+			alert("1");
+			
+			return false;
 		});
 		
 		$("#flowTable tbody").on("click", "tr .action-apply", function () {
@@ -627,9 +634,11 @@ $(document).ready(function() {
 		$(document).on("click", ".action-remove", function(){
 			$(this).closest("div.controls").remove();
 		});
-	
-		$("#basicData-form #check-form").on("submit", function(ev){
-			alert("1");
+		
+		var validateEnd = false;
+		$("#basicData-form").on("submit", function(ev){
+			console.log(ev);
+			alert("进入验证");
 			/*	var i = 0;
 				$(".modal-checkInput ul li span").each(function(){
 					if($("#basicData-form .controls").eq(i).children()[0].nodeName.toLowerCase() == "input") {
@@ -647,21 +656,27 @@ $(document).ready(function() {
 				
 				$("button[data-target='.modal-checkInput']").click();
 				*/
-				return false;
+				
+			validateEnd= true;
+			return false;
 		});
 		
-		$(document).on("click", "#basicData-form button#save-form", function(){
-			$("#basicData-form input#submitOrNot").attr("value", "no");
+		$(document).on("click", "#save-form", function(){
+		/*	$("#basicData-form input#submitOrNot").attr("value", "no");
 
 			alert("已保存！");
 			$("#basicData-form").submit();	
+		*/
+		alert("保存");
 		});
 		
-		$(document).on("click", ".modal-checkInput button.sureToSubmit", function(){
-			$("#basicData-form input#submitOrNot").attr("value", "yes");
+		$(document).on("click", "#check-form", function(){
+		/*	$("#basicData-form input#submitOrNot").attr("value", "yes");
 			
 			alert("已提交！");
 			$("#basicData-form").submit();
+			*/
+			alert("提交");
 		});
 	}
 	

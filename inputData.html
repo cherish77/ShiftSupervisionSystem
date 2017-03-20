@@ -125,7 +125,7 @@
 												<div class="control-group">
 													<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
 													<div id="container-default" class="controls">
-														<input name="containerNo" type="text" class="span8 ui-autocomplete-input" placeholder="添加以录入所有集装箱号" value="" autocomplete="off" required /><span class="action-add icon-plus"></span><span class="action-remove icon-minus icon-white"></span><span class="text-muted">点击添加</span>
+														<input name="containerNo" type="text" class="span8 ui-autocomplete-input" placeholder="添加以录入所有集装箱号" value="" autocomplete="off" required pattern="[a-zA-Z]{4}[0-9]{8}" /><span class="action-add icon-plus"></span><span class="action-remove icon-minus icon-white"></span><span class="text-muted">点击添加</span>
 													</div>
 												</div>
 												<div class="control-group">
@@ -201,8 +201,8 @@
 												</div>
 											</fieldset>
 											<div class="form-actions">
-												<button class="btn" id="save-form">保存</button>
-												<input type="submit" class="btn btn-primary action-sure" id="check-form" value="保存并提交"/>
+												<input type="submit" class="btn" id="save-form" value="保存" />
+												<input type="submit" class="btn btn-primary action-sure" id="check-form" name="tijiao" value="保存并提交"/>
 												<button class="hide" data-toggle="modal" data-target=".modal-checkInput"></button>
 											</div>
 										</form>
