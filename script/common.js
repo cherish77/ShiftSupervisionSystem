@@ -193,17 +193,26 @@ $(document).ready(function() {
 			// containerNo init
 			$(".modal-changeInput div.containerNo-wrap").html("");
 			for(var i=0; i<editData.containerNoArr.length;i++) {
-				$(".modal-changeInput div.containerNo-wrap").append('<input name="containerNo" type="text" class="span3 m-wrap ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" >');
+				$(".modal-changeInput div.containerNo-wrap").append('<div class="containerItem-wrap"><input name="containerNo" type="text" class="span3 m-wrap ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" /><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
 			}
-			$(".containerNo-wrap input:gt(0)").hide();
+			$(".containerItem-wrap:first .icon-minus").replaceWith('<span class="icon icon-chevron-down action-editContainers"></span>');
+			$(".containerItem-wrap:gt(0)").hide();
 			$(document).on("click", "span.action-editContainers.icon-chevron-down", function(){
-				$(".containerNo-wrap input:gt(0)").show();
+				$(".containerItem-wrap:gt(0)").show();
 				$(this).toggleClass("icon-chevron-down icon-chevron-up");
 			});
 			
 			$(document).on("click", "span.action-editContainers.icon-chevron-up", function(){
-				$(".containerNo-wrap input:gt(0)").hide();
+				$(".containerItem-wrap:gt(0)").hide();
 				$(this).toggleClass("icon-chevron-up icon-chevron-down");
+			});
+			
+			$(document).on("click", ".containerItem-wrap .icon-plus", function(){
+				$(this).closest(".containerItem-wrap").after('<div class="containerItem-wrap"><input name="containerNo" type="text" class="span3 m-wrap ui-autocomplete-input" value="" placeholder="请输入集装箱号"/><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
+			});
+			
+			$(document).on("click", ".containerItem-wrap .icon-minus", function(){
+				$(this).closest(".containerItem-wrap").remove();
 			});
 			
 			$(".modal-changeInput select").each(function(){
