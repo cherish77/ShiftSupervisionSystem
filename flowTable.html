@@ -129,7 +129,13 @@
 								<label>到港口岸： </label><span data-title="harbour">宁波港</span>
 							</li>
 							<li>
-								<label>集装箱数： </label><span data-title="container_account">25</span>
+								<label>集装箱数： </label><span data-title="container_account">25</span><span class="icon-eye-open view-containerNos text-right-icon"></span>
+							</li>
+							<li class="li-containerNos hide">
+								<label>集装箱号： </label>
+								<ul>
+								</ul>
+								<div class="clear"></div>
 							</li>
 							<!--li>
 								<label>集装箱型号： </label><span data-title="containerType">小柜</span>
@@ -316,7 +322,7 @@
 							</fieldset>
 							<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						<button type="button" class="btn btn-primary" id="action-sureChange">确认修改</button>
+						<input type="submit" class="btn btn-primary" id="action-sureChange" value="确认修改" />
 					</div>
 						</form>
 					</div>

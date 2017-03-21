@@ -180,12 +180,28 @@ $(document).ready(function() {
 			$(this).closest(".containerItem-wrap").remove();
 		});
 		
+		$(document).on("click", ".view-containerNos.icon-eye-open", function(){
+			$(this).toggleClass("icon-eye-open icon-eye-close");
+			$(".li-containerNos").show();
+		});
+		
+		$(document).on("click", ".view-containerNos.icon-eye-close", function(){
+			$(this).toggleClass("icon-eye-close icon-eye-open");
+			$(".li-containerNos").hide();
+		});
+		
 		$("#flowTable tbody").on("click", "tr .action-detail", function () {
 			var data = flowTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
 				$(this).text(data[$(this).attr("data-title")]);
 			});
-
+			
+			$(".li-containerNos ul").html("");
+			console.log(data);
+			for(var i=0; i<data.containerNoArr.length; i++) {
+				$(".li-containerNos ul").append("<li>" + data.containerNoArr[i] + "</li>");
+			}
+			
 			$("button[data-target='.modal-dataDetail']").click();
 		});
 		
@@ -635,9 +651,9 @@ $(document).ready(function() {
 			$(this).closest("div.controls").remove();
 		});
 		
-		var validateEnd = false;
+		//var validateEnd = false;
 		$("#basicData-form").on("submit", function(ev){
-			console.log(ev);
+			//console.log(ev);
 			alert("进入验证");
 			/*	var i = 0;
 				$(".modal-checkInput ul li span").each(function(){
@@ -653,12 +669,12 @@ $(document).ready(function() {
 					
 					i++;
 				});
-				
-				$("button[data-target='.modal-checkInput']").click();
 				*/
+			/*$("button[data-target='.modal-checkInput']").click();
 				
-			validateEnd= true;
-			return false;
+				
+			//validateEnd= true;
+		
 		});
 		
 		$(document).on("click", "#save-form", function(){
@@ -677,6 +693,8 @@ $(document).ready(function() {
 			$("#basicData-form").submit();
 			*/
 			alert("提交");
+			$("button[data-target='.modal-checkInput']").click();
+			//return false;
 		});
 	}
 	
