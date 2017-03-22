@@ -36,6 +36,36 @@ var aoColumnsData = [
 	{"data" : "form_status" }
 ]; 
 
+// User information change
+// Get user name and phone number
+var currentUserObj = {};
+$.ajax({
+	type:"get",
+	url: "https://cherish77.github.io/ShiftSupervisionSystem/data/currentUser.json",
+	cache: false,
+	async: false,
+	success: function(data){
+		currentUserObj = data;
+	}
+});
+console.log(currentUserObj);
+	
+$(document).on("click", ".action-password-detail.icon-chevron-down", function(){
+	$(".change-password").show();
+	$(this).toggleClass("icon-chevron-down icon-chevron-up");
+});
+
+$(document).on("click", ".action-password-detail.icon-chevron-up", function(){
+	$(".change-password").hide();
+	$(this).toggleClass("icon-chevron-up icon-chevron-down");
+});
+
+$(document).on("click", ".li-update-user", function(){
+	
+});
+
+
+
 // Dom Ready
 $(document).ready(function() {
 	// load menu

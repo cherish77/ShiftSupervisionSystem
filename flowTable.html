@@ -31,12 +31,8 @@
 										<span class="icon-user"></span>沈游人<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu">
-										<li>
-											<a tabindex="-1" href="#">账号资料</a>
-										</li>
-										<li class="divider"></li>
-										<li>
-											<a tabindex="-1" href="">注销</a>
+										<li class="li-update-user">
+											<a tabindex="-1" href="#" data-toggle="modal" data-target=".modal-updateUser">修改资料</a>
 										</li>
 									</ul>
 								</li>
@@ -327,6 +323,59 @@
 						</form>
 					</div>
 					
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<div class="modal fade modal-updateUser" tabindex="-1" role="dialog" aria-labelledby="updateUserModal" aria-hidden="true">
+			 <div class="modal-dialog">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title dataDetailModal">修改资料</h4>
+				</div>
+				<div class="modal-content">
+					<div class="modal-body">
+						<form id="userInfo-form" class="common_form form-horizontal">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="user_name">当前用户： </label>
+									<div class="controls">
+										<span class="user_name">沈游人</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="phone_number">联系方式 <span class="required">*</span></label>
+									<div class="controls">
+										<input id="phone-number" name="phone_number" type="text" class="span3" required />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">修改密码</label><span class="icon icon-chevron-down action-password-detail"></span>
+								</div>
+								<div class="control-group change-password hide">
+									<label class="control-label" for="current_password">当前密码</label>
+									<div class="controls">
+										<input id="current-password" name="current_password" type="password" class="span3" />
+									</div>
+								</div>
+								<div class="control-group change-password hide">
+									<label class="control-label" for="new_password">新密码</label>
+									<div class="controls">
+										<input id="new-password" name="new_password" type="password" class="span3" />
+									</div>
+								</div>
+								<div class="control-group change-password hide">
+									<label class="control-label" for="repeat_password">重复新密码</label>
+									<div class="controls">
+										<input id="repeat-password" name="repeat_password" type="password" class="span3" />
+									</div>
+								</div>
+							</fieldset>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<input type="submit" class="btn btn-primary" id="action-sureChange" value="确认修改" />
+							</div>
+						</form>
+					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
