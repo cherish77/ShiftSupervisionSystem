@@ -38,17 +38,22 @@ var aoColumnsData = [
 
 // User information change
 // Get user name and phone number
-var currentUserObj = {};
-$.ajax({
-	type:"get",
-	url: "https://cherish77.github.io/ShiftSupervisionSystem/data/currentUser.json",
-	cache: false,
-	async: false,
-	success: function(data){
-		currentUserObj = data;
-	}
-});
-console.log(currentUserObj);
+
+var currentUserObj;
+(function(){
+	$.ajax({
+		type:"get",
+		url: "https://cherish77.github.io/ShiftSupervisionSystem/data/currentUser.json",
+		cache: false,
+		async: false,
+		success: function(data){
+			currentUserObj = data;
+			alert("success");
+		}
+	});
+	console.log(currentUserObj);
+})();
+
 	
 $(document).on("click", ".action-password-detail.icon-chevron-down", function(){
 	$(".change-password").show();
