@@ -498,15 +498,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info action-detail">详细</button>';
-					}
-				},
-				{
-					"targets": 16, 
-                    "ordering": false, 
-					"searchable": false,
-					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-danger action-release">解除监管</button>';
+						return '<button class="btn btn-info action-detail">详细</button><button class="btn btn-danger action-release btn-second">解除监管</button>';
 					}
 				}
 			]
