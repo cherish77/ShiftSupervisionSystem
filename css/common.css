@@ -22,7 +22,13 @@ body {
     color: #333;
 	background-color: #f5f5f5;
 	padding-top: 60px;
-	min-width: 1600px;
+	width: 1440px;
+	min-width: 1440px;
+	margin: 0 auto;
+}
+
+main {
+
 }
 
 h1 {
@@ -87,11 +93,11 @@ span.label-content {
 }
 
 #sidebar {
-	width: 228px;
+	width: 165px;
 }
 
 #content {
-	margin-left: 28px;
+	margin-left: 20px;
 }
 
 .form-page fieldset{
@@ -126,6 +132,33 @@ span.text-right-icon {
 
 span.icon {
 	cursor: pointer;
+}
+
+table {
+	word-wrap:break-word;
+	word-break:break-all;
+	table-layou: fixed;
+}
+
+.table th,
+.table td {
+	text-align: center;
+}
+
+span.view-containers {
+	cursor: pointer;
+	width: 100%;
+	display: inline-block;
+	height: 100%;
+}
+
+.form-actions, 
+.modal-footer {
+	background-color: #fff;
+}
+
+#save-form {
+	width: 96px;
 }
 /*=== Basic End ===*/
 
@@ -194,7 +227,7 @@ span.icon {
 
 /* list */
 ul.detail-list li {
-	margin-bottom: 12px;
+	margin-bottom: 9px;
 }
 
 /*--- control ---*/
@@ -202,11 +235,6 @@ ul.detail-list li {
     color: #e02222;
     font-size: 12px;
     padding-left: 2px;
-}
-
-/*--- table ---*/
-table span {
-	color: grey;
 }
 
 /* block */
@@ -319,10 +347,7 @@ span.action-password-detail {
 
 
 /*=== toRelease Start ===*/
-#toReleasePage span.view-containers {
-	margin-left: 7px;
-	cursor: pointer;
-}
+
 /*=== toRelease End ===*/
 
 

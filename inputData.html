@@ -109,12 +109,6 @@
 													</div>
 												</div>
 												<div class="control-group">
-													<label class="control-label" for="container_account">集装箱数 <span class="required">*</span></label>
-													<div class="controls">
-														<input class="required" name="container_account" type="number" class="span6" required data-bv-notempty-message="请输入集装箱数" />
-													</div>
-												</div>
-												<div class="control-group">
 													<label class="control-label" for="container_type">集装箱型号 <span class="required">*</span></label>
 													<div class="controls">
 														<select name="container_type" class="span8" required>
@@ -125,19 +119,19 @@
 												<div class="control-group">
 													<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
 													<div id="container-default" class="controls">
-														<input name="containerNo" type="text" class="span8 ui-autocomplete-input" placeholder="添加以录入所有集装箱号" value="" autocomplete="off" required pattern="[a-zA-Z]{4}[0-9]{8}" /><span class="action-add icon-plus"></span><span class="action-remove icon-minus icon-white"></span><span class="text-muted">点击添加</span>
+														<textarea name="containerNo" type="text" class="span8 ui-autocomplete-input input-containerNo" placeholder="添加以录入所有集装箱号" value="" autocomplete="off" required pattern="[a-zA-Z]{4}[0-9]{7}{0-9}?"></textarea>
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
 													<div class="controls">
-														<input name="total_count" type="number" class="span6 ui-autocomplete-input" value="" autocomplete="off" min="1" required />
+														<input name="total_count" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" min="1" required />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="total_weight">毛重 （KG） <span class="required">*</span></label>
 													<div class="controls">
-														<input name="total_weight" type="number" class="span6 ui-autocomplete-input" value="" autocomplete="off" required />
+														<input name="total_weight" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" min="0" required />
 													</div>
 												</div>
 												<div class="control-group">
@@ -242,9 +236,6 @@
 							</li>
 							<li>
 								<label>到港口岸： </label><span data-title="harbour"></span>
-							</li>
-							<li>
-								<label>集装箱数： </label><span data-title="container_account"></span>
 							</li>
 							<li>
 								<label>集装箱型号： </label><span data-title="containerType"></span>

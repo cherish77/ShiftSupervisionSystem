@@ -12,9 +12,10 @@ var oLanguageData = {
 		"sLast": "末页"
 	},
 	"sPocessing": "正在加载请稍候...", 
-	"sZeroRecords": "抱歉， 没有找到", 
+	"sZeroRecords": "抱歉，没有找到", 
 	"sInfoEmpty": "没有数据",
-	"sSearch": "搜索： "
+	"sSearch": "搜索：",
+	"sInfoFiltered":""
 }; 
 
 var aoColumnsData = [ 
@@ -38,7 +39,6 @@ var aoColumnsData = [
 
 // User information change
 // Get user name and phone number
-
 var currentUserObj;
 (function(){
 	$.ajax({
@@ -48,13 +48,11 @@ var currentUserObj;
 		async: false,
 		success: function(data){
 			currentUserObj = data;
-			alert("success");
 		}
 	});
-	console.log(currentUserObj);
 })();
 
-	
+// change password	
 $(document).on("click", ".action-password-detail.icon-chevron-down", function(){
 	$(".change-password").show();
 	$(this).toggleClass("icon-chevron-down icon-chevron-up");
@@ -66,13 +64,36 @@ $(document).on("click", ".action-password-detail.icon-chevron-up", function(){
 });
 
 $(document).on("click", ".li-update-user", function(){
-	
+	$("#userInfo-form span.user_name").text(currentUserObj.name);
+	$("#userInfo-form input[name='phone_number']").attr("value", currentUserObj.phone_number);
 });
 
+$(document).on("click", "#userInfo-form .action-update-user", function(){
+	if(confirm('确认修改用户资料?')){
+	/*	$.post("User!updateUser", function(result) {
+			if (result.success) {
+				window.location.reload(true);
+			}
+		}*/
+	}
+});
 
+// log out
+$(document).on("click", ".action-logout", function(){
+	if(confirm('是否退出登录?')){
+	/*	$.post("Index!signout" , function(result) {
+			if (result.success) {
+				window.location.reload(true);
+			}
+		}*/
+	}
+});
 
 // Dom Ready
 $(document).ready(function() {
+	$("span.display-username").text(currentUserObj.user_name);
+	
+	
 	// load menu
 	$.ajax({ 
         url:"https://cherish77.github.io/ShiftSupervisionSystem/data/menulist.json", 
@@ -105,6 +126,20 @@ $(document).ready(function() {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
 					"visible": false,
 					"searchable": true
+				},
+				{
+                    "targets": 1,
+                    "render": function ( data, type, full, meta ) {
+                        return '<td class=long-text">' + data + '</td>';
+                    }
+                },
+				{
+					"targets": 5, 
+                    "ordering": false, 
+					"searchable": false,
+					"render": function( data, type, row ) {
+						return '<span class="view-containers">' + data + '</span>';
+					}
 				},
 				{
                     "targets": 15,
@@ -142,6 +177,20 @@ $(document).ready(function() {
 
 			$("button[data-target='.modal-dataDetail']").click();
 		});
+		
+		$("#indexTable tbody").on("click", "tr .view-containers", function () {
+			var indexData = indexTable.row($(this).closest("tr")).data();
+			// get加id参数，换url
+			var containerID = indexData.id;
+			
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+				$(".modal-containerDetail tbody").html("");
+				for(var i=0; i < response.length; i++) {
+					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
+				}
+				$("button[data-target='.modal-containerDetail']").click();
+			});
+		});
 	}
 	
 	// flowTable page
@@ -160,6 +209,14 @@ $(document).ready(function() {
 					"targets": [ 4, 6, 7, 8, 9, 11, 12, 13, 14 ],
 					"visible": false,
 					"searchable": true
+				},
+				{
+					"targets": 5, 
+                    "ordering": false, 
+					"searchable": false,
+					"render": function( data, type, row ) {
+						return '<span class="view-containers">' + data + '</span>';
+					}
 				},
 				{
                     "targets": 15,
@@ -183,15 +240,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info action-detail">详细</button>';
-					}
-				},
-				{
-					"targets": 17, 
-                    "ordering": false, 
-					"searchable": false,
-					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-default action-edit">修改</button><button class="btn btn-primary btn-second action-apply">提交</button>';
+						return '<button class="btn btn-info action-detail">详细</button><button class="btn btn-default action-edit btn-second">修改</button><button class="btn btn-primary btn-second action-apply">提交</button><button class="btn btn-danger btn-second action-delete">删除</button>';
 					}
 				}
 			]
@@ -238,6 +287,35 @@ $(document).ready(function() {
 			}
 			
 			$("button[data-target='.modal-dataDetail']").click();
+		});
+		
+		$("#flowTable tbody").on("click", "tr .view-containers", function () {
+			var flowData = flowTable.row($(this).closest("tr")).data();
+			// get加id参数，换url
+			var containerID = flowData.id;
+			
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+				$(".modal-containerDetail tbody").html("");
+				for(var i=0; i < response.length; i++) {
+					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
+				}
+				$("button[data-target='.modal-containerDetail']").click();
+			});
+		});
+		
+		$("#flowTable tbody").on("click", "tr .action-delete", function () {
+			var data = flowTable.row($(this).closest("tr")).data();
+			$(".modal-dataDetail ul li span").each(function(){
+				$(this).text(data[$(this).attr("data-title")]);
+			});
+			
+			$(".li-containerNos ul").html("");
+			console.log(data);
+			for(var i=0; i<data.containerNoArr.length; i++) {
+				$(".li-containerNos ul").append("<li>" + data.containerNoArr[i] + "</li>");
+			}
+			
+			$("button[data-target='.modal-dataDelete']").click();
 		});
 		
 		$("#flowTable tbody").on("click", "tr .action-edit", function () {
@@ -318,6 +396,14 @@ $(document).ready(function() {
 					"searchable": true
 				},
 				{
+					"targets": 5, 
+                    "ordering": false, 
+					"searchable": false,
+					"render": function( data, type, row ) {
+						return '<span class="view-containers">' + data + '</span>';
+					}
+				},
+				{
                     "targets": 15,
 					//"searchable": false,
                     "render": function ( data, type, full, meta ) {
@@ -339,15 +425,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-info action-detail">详细</button>';
-					}
-				},
-				{
-					"targets": 17, 
-                    "ordering": false, 
-					"searchable": false,
-					"render": function( data, type, full, meta ) {
-						return '<button class="btn btn-danger action-pass">流转</button><button class="btn btn-default btn-second action-reject">退回</button>';
+						return '<button class="btn btn-info action-detail">详细</button><button class="btn btn-danger action-pass btn-second">流转</button><button class="btn btn-default btn-second action-reject">退回</button>';
 					}
 				}
 			]
@@ -360,6 +438,20 @@ $(document).ready(function() {
 			});
 
 			$("button[data-target='.modal-dataDetail']").click();
+		});
+		
+		$("#applicationTable tbody").on("click", "tr .view-containers", function () {
+			var applicationData = applicationTable.row($(this).closest("tr")).data();
+			// get加id参数，换url
+			var containerID = applicationData.id;
+			
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+				$(".modal-containerDetail tbody").html("");
+				for(var i=0; i < response.length; i++) {
+					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
+				}
+				$("button[data-target='.modal-containerDetail']").click();
+			});
 		});
 		
 		$("#applicationTable tbody").on("click", "tr .action-pass", function () {
@@ -398,7 +490,7 @@ $(document).ready(function() {
                     "ordering": false, 
 					"searchable": false,
 					"render": function( data, type, row ) {
-						return data + '<span class="icon-eye-open view-containers"></span>';
+						return '<span class="view-containers">' + data + '</span>';
 					}
 				},
 				{
@@ -428,7 +520,7 @@ $(document).ready(function() {
 
 			$("button[data-target='.modal-dataDetail']").click();
 		});
-		
+	
 		$("#toReleaseTable tbody").on("click", "tr .view-containers", function () {
 			var toReleaseData = toReleaseTable.row($(this).closest("tr")).data();
 			// get加id参数，换url
@@ -469,6 +561,14 @@ $(document).ready(function() {
 					"searchable": true
 				},
 				{
+					"targets": 5, 
+                    "ordering": false, 
+					"searchable": false,
+					"render": function( data, type, row ) {
+						return '<span class="view-containers">' + data + '</span>';
+					}
+				},
+				{
 					"targets": 15, 
                     "ordering": false, 
 					"searchable": false,
@@ -494,6 +594,20 @@ $(document).ready(function() {
 			});
 
 			$("button[data-target='.modal-dataDetail']").click();
+		});
+		
+		$("#releasedTable tbody").on("click", "tr .view-containers", function () {
+			var releasedData = releasedTable.row($(this).closest("tr")).data();
+			// get加id参数，换url
+			var containerID = releasedData.id;
+			
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+				$(".modal-containerDetail tbody").html("");
+				for(var i=0; i < response.length; i++) {
+					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
+				}
+				$("button[data-target='.modal-containerDetail']").click();
+			});
 		});
 	}
 	
@@ -603,6 +717,14 @@ $(document).ready(function() {
 								"searchable": true
 							},
 							{
+								"targets": 5, 
+								"ordering": false, 
+								"searchable": false,
+								"render": function( data, type, row ) {
+									return '<span class="view-containers">' + data + '</span>';
+								}
+							},
+							{
 								"targets": 15,
 								//"searchable": false,
 								"render": function ( data, type, full, meta ) {
@@ -644,6 +766,20 @@ $(document).ready(function() {
 			});
 
 			$("button[data-target='.modal-dataDetail']").click();
+		});
+		
+		$(document).on("click", "#searchTable tr .view-containers", function () {
+			var searchdata = searchTable.row($(this).closest("tr")).data();
+			// get加id参数，换url
+			var containerID = searchdata.id;
+			
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+				$(".modal-containerDetail tbody").html("");
+				for(var i=0; i < response.length; i++) {
+					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
+				}
+				$("button[data-target='.modal-containerDetail']").click();
+			});
 		});
 	}
 	
@@ -727,8 +863,10 @@ $(document).ready(function() {
 			alert("已提交！");
 			$("#basicData-form").submit();
 			*/
-			alert("提交");
-			$("button[data-target='.modal-checkInput']").click();
+			if($("#basicData-form :invalid").length < 1) {
+				$("button[data-target='.modal-checkInput']").click();
+			}
+			
 			//return false;
 		});
 	}
