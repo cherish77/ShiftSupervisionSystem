@@ -11,6 +11,16 @@ ul {list-style:none;}
 strong, b {font-weight:bold;}
 input, select, textarea {font:inherit;color:inherit;}
 textarea {resize: none;}
+::-webkit-outer-spin-button, 
+::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+input[type="number"]{
+	-moz-appearance: textfield;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	padding-left: 3px;
+}
 /*=== HTML Resets End ===*/
 
 

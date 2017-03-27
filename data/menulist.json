@@ -2,15 +2,6 @@
 	{
 		"lastupdated_ts":null, 
 		"lastupdated_by":0,
-		"id":0,
-		"status":1,
-		"res_name":"首页",
-		"icon":null,
-		"url":"index.html"
-	},
-	{
-		"lastupdated_ts":null, 
-		"lastupdated_by":0,
 		"id":1,
 		"status":1,
 		"res_name":"流转列表",

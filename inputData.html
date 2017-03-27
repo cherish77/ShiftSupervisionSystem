@@ -101,17 +101,18 @@
 													</div>	
 												</div>
 												<div class="control-group">
-													<label class="control-label" for="harbour">到港口岸 <span class="required">*</span></label>
+													<label class="control-label" for="harbour">进口口岸 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="harbour" class="span8" required>
-															<option value="">选择到港口岸</option>
+														<select name="harbour" class="span4 other-input" required>
+															<option value="">选择进口口岸</option>
 														</select>
+														<input name="harbour_other" type="text" class="span4 ui-autocomplete-input hide other" value="" placeholder="请输入进口口岸" />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="container_type">集装箱型号 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="container_type" class="span8" required>
+														<select name="container_type" class="span4" required>
 															<option value="">选择集装箱型号</option>
 														</select>
 													</div>
@@ -119,7 +120,7 @@
 												<div class="control-group">
 													<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
 													<div id="container-default" class="controls">
-														<textarea name="containerNo" type="text" class="span8 ui-autocomplete-input input-containerNo" placeholder="添加以录入所有集装箱号" value="" autocomplete="off" required></textarea>
+														<textarea name="containerNo" type="text" class="span8 ui-autocomplete-input input-containerNo" rows="3" placeholder="请输入所有集装箱号，以逗号、空格或换行符分隔" value="" autocomplete="off" required></textarea>
 													</div>
 												</div>
 												<div class="control-group">
@@ -131,24 +132,23 @@
 												<div class="control-group">
 													<label class="control-label" for="total_weight">毛重 （KG） <span class="required">*</span></label>
 													<div class="controls">
-														<input name="total_weight" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" min="0" required />
+														<input name="total_weight" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" min="0" step="0.01" required />
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="package_type">包装种类 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="package_type" class="span8" required>
-															<option value="morenbao">默认包</option>
-															<option value="morenbao">默认包</option>
+														<select name="package_type" class="span4" required>
 														</select>
 													</div>
 												</div>
 												<div class="control-group">
 													<label class="control-label" for="source_place">原产地 <span class="required">*</span></label>
 													<div class="controls">
-														<select name="source_place" class="span8" required>
+														<select name="source_place" class="span4 other-input" required>
 															<option value="">选择原产地</option>
 														</select>
+														<input name="source_place_other" type="text" class="span4 ui-autocomplete-input hide other" value="" placeholder="请输入原产地" />
 													</div>
 												</div>
 												<div class="control-group">
@@ -161,7 +161,6 @@
 													<label class="control-label" for="prod_name">商品名称 <span class="required">*</span></label>
 													<div class="controls">
 														<select name="prod_name" class="span8" required>
-															<option value="">选择商品名称</option>
 														</select>
 													</div>
 												</div>
@@ -195,9 +194,8 @@
 												</div>
 											</fieldset>
 											<div class="form-actions">
-												<input type="submit" class="btn" id="save-form" value="保存" />
-												<input type="submit" class="btn btn-primary action-sure" id="check-form" name="tijiao" value="保存并提交"/>
-												<button class="hide" data-toggle="modal" data-target=".modal-checkInput"></button>
+												<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+												<button type="button" class="btn btn-primary action-containerReg" data-dismiss="modal">确认</button>
 											</div>
 										</form>
 									</div>
@@ -235,7 +233,7 @@
 								<label>报关公司： </label><span data-title="baoguan_comp_text"></span>
 							</li>
 							<li>
-								<label>到港口岸： </label><span data-title="harbour"></span>
+								<label>进口口岸： </label><span data-title="harbour"></span>
 							</li>
 							<li>
 								<label>集装箱型号： </label><span data-title="containerType"></span>

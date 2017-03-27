@@ -521,6 +521,20 @@ $(document).ready(function() {
 			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
 				$(".modal-containerDetail tbody").html("");
 				for(var i=0; i < response.length; i++) {
+					var enter_display;
+					var leave_display;
+					if(response[i].enter_time == "") {
+						enter_display = '<input type="checkbox" name="action_enter" />'
+					}
+					else {
+						enter_display = response[i].enter_time;
+					}
+					if(response[i].leave_time == "") {
+						leave_display = '<input type="checkbox" name="action_leave" />'
+					}
+					else {
+						leave_display = response[i].leave_time;
+					}
 					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
 				}
 				$("button[data-target='.modal-containerDetail']").click();
@@ -789,22 +803,14 @@ $(document).ready(function() {
 			}
 		});
 		
-		$('select[name="package_type"]').find('option[value="morenbao"]')[1].remove();
+		$('select[name="package_type"] option[value="bao"]').attr("selected", "selected");
+		$('select[name="product_name"] option[value="feizhi"]').attr("selected", "selected");
 		
 		// remove select prompt
 		$("select").change(function(event){
 			$('[value=""]', event.target).remove();
 		});
 		
-		
-	
-		$(document).on("click", ".action-add", function(){
-			$(this).closest("div.controls").after('<div class="controls newItem"><input name="containerNo" type="text" class="span8 ui-autocomplete-input" value="" required /><span class="action-add icon-plus"></span><span class="action-remove icon-minus"></span></div>');
-		});
-	
-		$(document).on("click", ".action-remove", function(){
-			$(this).closest("div.controls").remove();
-		});
 		
 		//var validateEnd = false;
 		$("#basicData-form").on("submit", function(ev){
@@ -853,7 +859,26 @@ $(document).ready(function() {
 			
 			//return false;
 		});
+		
+		$('select.other-input option[value="other"]').on("click", function(){
+			$('input.other').show();
+		});
+		
+		$('select.other-input option[value!="other"]').on("click", function(){
+			$('input.other').hide();
+		});
+		
+	/*	$('select[name="harbour"] option[value="other"]').on("click", function(){
+			$('input[name="harbour_other"]').show();
+		});
+		
+		$('select[name="harbour"] option[value!="other"]').on("click", function(){
+			$('input[name="harbour_other"]').hide();
+		});
+	*/
 	}
+	
+	
 	
 	//passRegistration page
 	if($("#passRegistrationPage").length > 0) {
