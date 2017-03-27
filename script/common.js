@@ -518,7 +518,7 @@ $(document).ready(function() {
 			// get加id参数，换url
 			var containerID = toReleaseData.id;
 			
-			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json", function(response){
+			$.get("https://cherish77.github.io/ShiftSupervisionSystem/data/containerSearch.json?version=201703272214", function(response){
 				$(".modal-containerDetail tbody").html("");
 				for(var i=0; i < response.length; i++) {
 					var enter_display;
