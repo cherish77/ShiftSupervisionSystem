@@ -19,6 +19,7 @@
 :"已申请","item_value":"yishenqing"}],"HARBOUR":[{"item_idx":3,"item_key":"HARBOUR","item_name":"北仑海关","item_value"
 :"beilun"},{"item_idx":4,"item_key":"HARBOUR","item_name":"梅山港区","item_value":"meishan"},{"item_idx"
 :2,"item_key":"HARBOUR","item_name":"乍浦港","item_value":"zhapu"},{"item_idx":1,"item_key":"HARBOUR","item_name"
-:"上海港","item_value":"shanghai"}],"BAOGUAN_COMP":[{"item_idx":2,"item_key":"BAOGUAN_COMP","item_name":"天翼报关","item_value":"2"},{"item_idx":1,"item_key":"BAOGUAN_COMP","item_name":"震昕报关","item_value":"1"}
+:"上海港","item_value":"shanghai"}, {"item_idx":5,"item_key":"HARBOUR","item_name"
+:"其它","item_value":"other"}],"BAOGUAN_COMP":[{"item_idx":2,"item_key":"BAOGUAN_COMP","item_name":"天翼报关","item_value":"2"},{"item_idx":1,"item_key":"BAOGUAN_COMP","item_name":"震昕报关","item_value":"1"}
 ],"PROD_NAME":[{"item_idx":2,"item_key":"PROD_NAME","item_name":"其它","item_value":"others"},{"item_idx"
 :1,"item_key":"PROD_NAME","item_name":"废纸","item_value":"feizhi"}]}

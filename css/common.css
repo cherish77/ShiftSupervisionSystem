@@ -386,9 +386,8 @@ span.action-password-detail {
 	width: 130px;
 }
 
-#changeData-form .form-horizontal .controls {
-	margin-left: 160px;
-	
+#changeData-form .controls {
+	margin-left: 150px;
 }
 
 .clear {

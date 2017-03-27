@@ -264,16 +264,6 @@ $(document).ready(function() {
 			$(this).closest(".containerItem-wrap").remove();
 		});
 		
-		$(document).on("click", ".view-containerNos.icon-eye-open", function(){
-			$(this).toggleClass("icon-eye-open icon-eye-close");
-			$(".li-containerNos").show();
-		});
-		
-		$(document).on("click", ".view-containerNos.icon-eye-close", function(){
-			$(this).toggleClass("icon-eye-close icon-eye-open");
-			$(".li-containerNos").hide();
-		});
-		
 		$("#flowTable tbody").on("click", "tr .action-detail", function () {
 			var data = flowTable.row($(this).closest("tr")).data();
 			$(".modal-dataDetail ul li span").each(function(){
@@ -339,13 +329,12 @@ $(document).ready(function() {
 			});
 			
 			// containerNo init
-			$(".modal-changeInput div.containerNo-wrap").html("");
-			for(var i=0; i<editData.containerNoArr.length;i++) {
-				$(".modal-changeInput div.containerNo-wrap").append('<div class="containerItem-wrap"><input name="containerNo" type="text" class="span3  ui-autocomplete-input" value="'+ editData.containerNoArr[i] +'" required /><span class="icon icon-minus"></span><span class="icon icon-plus"></span></div>');
+			//$(".modal-changeInput div.containerNo-wrap").html("");
+			var containerNo_display = editData.containerNoArr[0]
+			for(var i=1; i<editData.containerNoArr.length;i++) {
+				containerNo_display += "," + editData.containerNoArr[i];
 			}
-			$(".containerItem-wrap:first .icon-minus").replaceWith('<span class="icon icon-chevron-down action-editContainers"></span>');
-			$(".containerItem-wrap:gt(0)").hide();
-			
+			$("textarea.input-containerNo").text(containerNo_display);
 			
 			$(".modal-changeInput select").each(function(){
 				for(var i=0; i<optionObj[$(this).attr("id").toUpperCase()].length; i++) {
@@ -524,18 +513,18 @@ $(document).ready(function() {
 					var enter_display;
 					var leave_display;
 					if(response[i].enter_time == "") {
-						enter_display = '<input type="checkbox" name="action_enter" />'
+						enter_display = '<input type="checkbox" name="'+ response[i].container_num +'_enter" />'
 					}
 					else {
 						enter_display = response[i].enter_time;
 					}
 					if(response[i].leave_time == "") {
-						leave_display = '<input type="checkbox" name="action_leave" />'
+						leave_display = '<input type="checkbox" name="'+ response[i].container_num +'_leave" />'
 					}
 					else {
 						leave_display = response[i].leave_time;
 					}
-					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + response[i].enter_time + '</td><td>' + response[i].leave_time + '</td><td>' + response[i].jinchang_time + '</td></tr>');
+					$(".modal-containerDetail tbody").append('<tr><td>' + response[i].container_num + '</td><td>' + enter_display + '</td><td>' + leave_display + '</td><td>' + response[i].jinchang_time + '</td></tr>');
 				}
 				$("button[data-target='.modal-containerDetail']").click();
 			});

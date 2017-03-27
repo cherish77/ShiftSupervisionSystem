@@ -202,7 +202,7 @@
 								<div class="control-group">
 									<label class="control-label" for="huodai_comp_id">货代公司 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="huodai_comp" name="huodai_comp_id">
+										<select id="huodai_comp" name="huodai_comp_id" class="span4">
 										</select>
 									</div>
 								</div>
@@ -218,21 +218,16 @@
 								<div class="control-group">
 									<label class="control-label" for="baoguan_comp_id">报关公司 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="baoguan_comp" name="baoguan_comp_id">
+										<select id="baoguan_comp" name="baoguan_comp_id" class="span4">
 										</select>
 									</div>	
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="harbour">进口口岸 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="harbour" name="harbour">
+										<select id="harbour" name="harbour" class="span2">
 										</select>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="container_account">集装箱数 <span class="required">*</span></label>
-									<div class="controls">
-										<input id="container_account" class="required span3" name="container_account" type="number" data-bv-notempty-message="请输入集装箱数" required />
+										<input name="harbour_other" type="text" class="span2 ui-autocomplete-input hide other" value="" placeholder="输入进口口岸" />
 									</div>
 								</div>
 								<!--div class="control-group">
@@ -248,33 +243,35 @@
 								</div-->
 								<div class="control-group">
 									<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
-									<div class="controls containerNo-wrap">	
+									<div class="controls">
+										<textarea name="containerNo" type="text" class="ui-autocomplete-input span4 input-containerNo" rows="2" placeholder="请输入所有集装箱号，以逗号、空格或换行符分隔" value="" autocomplete="off" required></textarea>
 									</div>							
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="total_count">件数 <span class="required">*</span></label>
 									<div class="controls">
-										<input name="total_count" id="total_count" type="number" class="span3 ui-autocomplete-input" min="0" required="required" />
+										<input name="total_count" id="total_count" type="number" class="span2 ui-autocomplete-input" min="1" required="required" />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="total_weight">毛重 （KG） <span class="required">*</span></label>
 									<div class="controls">
-										<input name="total_weight" id="total_weight" type="number" class="span3 ui-autocomplete-input" value="" autocomplete="off" required />
+										<input name="total_weight" id="total_weight" type="number" step="0.01" min="0.01" class="span2 ui-autocomplete-input" value="" autocomplete="off" required />
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="package_type">包装种类 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="package_type" name="package_type">
+										<select id="package_type" name="package_type" class="span2">
 										</select>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="source_area">原产地 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="source_place" name="source_area">
+										<select id="source_place" name="source_area" class="span2">
 										</select>
+										<input name="source_place_other" type="text" class="span2 ui-autocomplete-input hide other" value="" placeholder="请输入原产地" />
 									</div>
 								</div>
 								<div class="control-group">
@@ -286,7 +283,8 @@
 								<div class="control-group">
 									<label class="control-label" for="prod_name">商品名称 <span class="required">*</span></label>
 									<div class="controls">
-										<select id="prod_name" name="prod_name">
+										<select id="prod_name" name="prod_name" class=
+										"span2">
 										</select>
 									</div>
 								</div>
@@ -393,96 +391,12 @@
 							<thead>
 								<tr role="row">
 									<th>集装箱号</th>
-									<th>进场时间</th>
-									<th>离场时间</th>
-									<th>进厂时间</th>
+									<th>进场</th>
+									<th>离场</th>
+									<th>进厂</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>KNYY7844635</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844636</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844637</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844638</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844639</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844640</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844654</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844655</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844656</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844657</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844658</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844659</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844660</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>KNYY7844661</td>
-									<td>2017/03/07 06:00:00</td>
-									<td>2017/03/07 09:27:30</td>
-									<td></td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
