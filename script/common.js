@@ -78,6 +78,14 @@ $(document).on("click", "#userInfo-form .action-update-user", function(){
 	}
 });
 
+$(document).on('click', 'select.other-input option[value="other"]', function(){
+	$(this).closest("select").next().show();
+});
+
+$(document).on('click', 'select.other-input option[value!="other"]', function(){
+	$(this).closest("select").next().hide();
+});
+
 // log out
 $(document).on("click", ".action-logout", function(){
 	if(confirm('是否退出登录?')){
@@ -849,13 +857,14 @@ $(document).ready(function() {
 			//return false;
 		});
 		
-		$('select.other-input option[value="other"]').on("click", function(){
+	/*	$('select.other-input option[value="other"]').on("click", function(){
 			$('input.other').show();
 		});
 		
 		$('select.other-input option[value!="other"]').on("click", function(){
 			$('input.other').hide();
 		});
+	*/
 		
 	/*	$('select[name="harbour"] option[value="other"]').on("click", function(){
 			$('input[name="harbour_other"]').show();
