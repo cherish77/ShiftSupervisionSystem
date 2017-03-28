@@ -211,7 +211,7 @@ $(document).ready(function() {
 			"bDeferRender": true,
 			"oLanguage": oLanguageData,
 			//"ajax": "http://106.14.57.23:6060/appform/list", 
-			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list.json", 
+			"ajax": "https://cherish77.github.io/ShiftSupervisionSystem/data/list_update.json", 
 			"columns": aoColumnsData, 
 			"columnDefs": [
 			   {
@@ -351,7 +351,13 @@ $(document).ready(function() {
 				}
 
 				$(this).find("option[value=" + editData[$(this).attr("name")] + "]").attr("selected", "selected");
-				console.log($(this).val());
+				if($(this).val() == "other") {
+					$(this).next().show();
+				}
+				else {
+					$(this).next().val("");
+					$(this).next().hide();
+				}
 			});
 				
 			$("button[data-target='.modal-changeInput']").click();
