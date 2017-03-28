@@ -353,9 +353,11 @@ $(document).ready(function() {
 				$(this).find("option[value=" + editData[$(this).attr("name")] + "]").attr("selected", "selected");
 				if($(this).val() == "other") {
 					if($(this).hasClass("other-input")){
-						console.log(optionObj);
-						//$(this).next().val(optionObj["source_area_other"]);
-						//$(this).next().show();
+						var inputName = $(this).next().attr("name").toUpperCase();
+						//console.log(optionObj[inputName]);
+						
+						$(this).next().val(optionObj[inputName][0].item_name);
+						$(this).next().show();
 					}
 				}
 				else {
