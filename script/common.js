@@ -352,11 +352,13 @@ $(document).ready(function() {
 
 				$(this).find("option[value=" + editData[$(this).attr("name")] + "]").attr("selected", "selected");
 				if($(this).val() == "other") {
-					$(this).next().show();
+					if($(this).hasClass("other-input")){
+						console.log(optionObj);
+						//$(this).next().val(optionObj["source_area_other"]);
+						//$(this).next().show();
+					}
 				}
 				else {
-					$(this).next().val("");
-					$(this).next().hide();
 				}
 			});
 				
