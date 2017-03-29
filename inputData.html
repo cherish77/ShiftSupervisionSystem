@@ -120,7 +120,7 @@
 												<div class="control-group">
 													<label class="control-label" for="containerNo">集装箱号 <span class="required">*</span></label>
 													<div id="container-default" class="controls">
-														<textarea name="containerNo" type="text" class="span8 ui-autocomplete-input input-containerNo" rows="2" placeholder="请输入所有集装箱号，以逗号、空格或换行符分隔" value="" autocomplete="off" required></textarea>
+														<textarea name="containerNo" type="text" class="span8 ui-autocomplete-input input-containerNo" rows="2" placeholder="请输入所有集装箱号，以逗号、空格或换行符分隔" pattern="^\s*[A-Za-z]{4}\d{7}\d?" value="" autocomplete="off" required></textarea>
 													</div>
 												</div>
 												<div class="control-group">
@@ -194,8 +194,9 @@
 												</div>
 											</fieldset>
 											<div class="form-actions">
-												<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-												<button type="button" class="btn btn-primary action-delete-data" data-dismiss="modal">确认删除</button>
+												<input type="submit" class="btn" id="save-form" value="保存" />
+												<input type="submit" class="btn btn-primary action-sure" id="check-form" name="tijiao" value="保存并提交"/>
+												<button class="hide" data-toggle="modal" data-target=".modal-checkInput"></button>
 											</div>
 										</form>
 									</div>

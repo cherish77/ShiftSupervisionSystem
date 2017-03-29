@@ -825,7 +825,7 @@ $(document).ready(function() {
 		//var validateEnd = false;
 		$("#basicData-form").on("submit", function(ev){
 			//console.log(ev);
-			alert("进入验证");
+			//alert("进入验证");
 			/*	var i = 0;
 				$(".modal-checkInput ul li span").each(function(){
 					if($("#basicData-form .controls").eq(i).children()[0].nodeName.toLowerCase() == "input") {
@@ -854,20 +854,47 @@ $(document).ready(function() {
 			alert("已保存！");
 			$("#basicData-form").submit();	
 		*/
-		alert("保存");
+			return false;
 		});
 		
 		$(document).on("click", "#check-form", function(){
 		/*	$("#basicData-form input#submitOrNot").attr("value", "yes");
 			
+		
+			
 			alert("已提交！");
 			$("#basicData-form").submit();
 			*/
-			if($("#basicData-form :invalid").length < 1) {
+			/* if($("#basicData-form :invalid").length < 1) {
 				$("button[data-target='.modal-checkInput']").click();
-			}
+			} */
 			
 			//return false;
+			
+			var data = {};
+			var formObj =  $("#basicData-form").serializeArray();
+			var containerNo = $("textarea").filter('[name="containerNo"]').val();
+			var containerArr = $.grep(containerNo.split(/ |,|\n/), function(n) {return $.trim(n).length > 0;});
+			//console.log(containerArr);
+			for(var i=0;i<formObj.length;i++){
+				if(formObj[i].name != "containerNo"){
+					data["appform."+formObj[i].name] = formObj[i].value;
+				}
+			}
+			
+			data["containerNoArr"] = containerArr;
+			console.log(data);	
+			
+		/* 	$.post('Appform!saveAndSubmitAppform', data, function(result) {
+				if(result.success){
+					alert("提交成功！");
+					window.location.reload();
+				}
+			}, 'json'); */
+			
+			
+			
+			
 		});
 		
 	/*	$('select.other-input option[value="other"]').on("click", function(){
