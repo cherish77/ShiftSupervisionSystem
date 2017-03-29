@@ -344,12 +344,13 @@ $(document).ready(function() {
 				containerNo_display += "," + editData.containerNoArr[i];
 			}
 			$("textarea.input-containerNo").text(containerNo_display);
+			console.log(optionObj);
 			
 			$(".modal-changeInput select").each(function(){
 				for(var i=0; i<optionObj[$(this).attr("id").toUpperCase()].length; i++) {
 					$(this).append('<option value="'+ optionObj[$(this).attr("id").toUpperCase()][i].item_value +'">' + optionObj[$(this).attr("id").toUpperCase()][i].item_name + '</option>');
 				}
-
+				console.log(editData);
 				$(this).find("option[value=" + editData[$(this).attr("name")] + "]").attr("selected", "selected");
 				if($(this).val() == "other") {
 					if($(this).hasClass("other-input")){
